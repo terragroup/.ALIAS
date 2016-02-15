@@ -1,0 +1,74 @@
+
+
+-------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
+2015-12-15 14:15:02,806 -import_QuartzSchedulerThread - INFO - [] - c.g.a.s.r.RouterService - 142 - Import des nouveaux DCPs depuis les catalogues : liste des DCPs en cours d'import =>
+2015-12-15 14:15:02,816 -import_QuartzSchedulerThread - INFO - [] - c.g.a.s.r.RouterService - 147 - DCP => Nom : TMNT-2_TLR-B-ALT_F_FR-XX_FR_51_2K_PC_20151210_DTU_IOP_OV, Statut : -1, Message : Erreur lors de la demande de téléchargement
+2015-12-15 14:15:02,906 -import_QuartzSchedulerThread - INFO - [] - c.g.a.s.r.RouterService - 179 - Import des nouveaux DCPs depuis les catalogues smartjog et globecast : Transfert ftp des dcps livrés sur le serveur Smartjog local => 12 DCP(s) à transférer.
+2015-12-15 14:15:02,906 -import_QuartzSchedulerThread - INFO - [] - c.g.a.s.s.SmartJogPlatformService - 593 - Import des nouveaux DCPs depuis les catalogues : transfert ftp du dcp livré sur le serveur Smartjog local 61568-CHOCODIC_ADV_F_FR_XX_FR_51_HD_MED_20101221_CINE vers le répertoire local /mnt/N/spots/TEMPO/
+2015-12-15 14:15:04,787 -import_QuartzSchedulerThread - ERROR - [] - c.g.a.m.u.ClientFtp - 252 - Le router smartjog ne peut pas s'identifier au client FTP. L'upload n'a pu avoir lieu.
+2015-12-15 14:15:09,788 -import_QuartzSchedulerThread - INFO - [] - c.g.a.m.u.ClientFtp - 264 - Attente avant prochaine tentavite de connection ...
+2015-12-15 14:15:11,267 -import_QuartzSchedulerThread - ERROR - [] - c.g.a.m.u.ClientFtp - 252 - Le router smartjog ne peut pas s'identifier au client FTP. L'upload n'a pu avoir lieu.
+2015-12-15 14:15:16,267 -import_QuartzSchedulerThread - INFO - [] - c.g.a.m.u.ClientFtp - 264 - Attente avant prochaine tentavite de connection ...
+
+2015-12-15 14:15:37,398 -import_QuartzSchedulerThread - ERROR - [] - o.q.c.JobRunShell - 211 - Job DEFAULT.jobTransferFtpImportedDcp threw an unhandled Exception:
+org.springframework.scheduling.quartz.JobMethodInvocationFailedException: Invocation of method 'ftpTransferImportedDcp' on target class [class com.groupemre.atnv2.services.router.RouterService$$EnhancerBySpringCGLIB$$d8b8b3ef] failed; nested exception is com.groupemre.atnv2.dto.errors.FailFTPConnectException: Le serveur FTP est inaccessible : [10.196.165.232:21]
+	at org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean$MethodInvokingJob.executeInternal(MethodInvokingJobDetailFactoryBean.java:269) ~[spring-context-support-2.5.6.jar:2.5.6]
+	at org.springframework.scheduling.quartz.QuartzJobBean.execute(QuartzJobBean.java:86) ~[spring-context-support-2.5.6.jar:2.5.6]
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202) ~[quartz-1.6.5.jar:1.6.5]
+	at org.springframework.core.task.SyncTaskExecutor.execute(SyncTaskExecutor.java:50) [spring-core-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.scheduling.quartz.LocalTaskExecutorThreadPool.runInThread(LocalTaskExecutorThreadPool.java:66) [spring-context-support-2.5.6.jar:2.5.6]
+	at org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:403) [quartz-1.6.5.jar:1.6.5]
+Caused by: com.groupemre.atnv2.dto.errors.FailFTPConnectException: Le serveur FTP est inaccessible : [10.196.165.232:21]
+	at com.groupemre.atnv2.multirouter.utils.ClientFtp.getNewFTPClient(ClientFtp.java:271) ~[multirouteur-2.2.37-SNAPSHOT.jar:na]
+	at com.groupemre.atnv2.multirouter.utils.ClientFtp.downloadFTP(ClientFtp.java:47) ~[multirouteur-2.2.37-SNAPSHOT.jar:na]
+	at com.groupemre.atnv2.smartjog.service.SmartJogPlatformService.transferFilesToLocalDirByFtp(SmartJogPlatformService.java:594) ~[multirouteur-2.2.37-SNAPSHOT.jar:na]
+	at com.groupemre.atnv2.smartjog.service.SmartJogService.transferFilesToLocalDirByFtp(SmartJogService.java:533) ~[multirouteur-2.2.37-SNAPSHOT.jar:na]
+	at com.groupemre.atnv2.smartjog.router.SmartJogRouter.transferImportedFilesByFtp(SmartJogRouter.java:180) ~[multirouteur-2.2.37-SNAPSHOT.jar:na]
+	at com.groupemre.atnv2.multirouter.MultiRouterImpl.transferImportedFilesByFtp(MultiRouterImpl.java:153) ~[multirouteur-2.2.37-SNAPSHOT.jar:na]
+	at com.groupemre.atnv2.services.router.RouterService.ftpTransferImportedDcp(RouterService.java:181) ~[classes/:na]
+
+-------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
+
+
+le matin :
+
+
+- dev
+
+ - en cours :
+
+
+
+
+- BDD
+
+ - passer script (car un job verifie le statut et defait la valeur)
+ --> UPDATE dcp_dcp set dcp_presenecesmartjog=true, dcp_preseneceglobcast=true
+
+
+- MOA
+
+
+  - envoie en masse des PDD
+     0 - j espere que tu as passe le script d anno
+
+     1 - verif complexe est sur USB (transporteur actif > mise sur clef usb)
+
+     2 - verif tu as bien passe la R2 : (sinon tu auras : le serveur du complexe ests offline : lors de l envoi)
+        --> UPDATE dcp_dcp set dcp_presenecesmartjog=true, dcp_preseneceglobcast=true
+
+     3 - creer un PDD et ne pas oublier de mettre dans MDV
+
+     4 -
+
+
+
+ - git
+   - n oublie pas push pull
+
+ - script deploy
+   - arrange en rec = tu dois change le fichier nginw

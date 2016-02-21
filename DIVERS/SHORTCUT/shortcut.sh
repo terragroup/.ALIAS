@@ -10,59 +10,60 @@
 # ATOM
 # ------------------------------------------------------------------------------
 CTRL + SHFT + P             = open command pallette
-ctrl + K m ou M             = (higlighter)
+CTRL + K m ou M             = (higlighter)
 systeme de filtre log tout en bas
+
 
 # ------------------------------------------------------------------------------
 # iDEA
 # ------------------------------------------------------------------------------
 
 ALT + F7                          = FIND USAGE
-ctrl + alt + h                    = call hierarchy
+CTRL + ALT + h                    = call hierarchy
 
-ctrl + alt + Gauche Droite (prec)  = last edit location             (+++++++++)
-F8 ou alt + F8                     = inspection
-ctrl + alt + u                     = show diagram UML               (+++++++++)
-alt + u                            = monte method parente
+CTRL + ALT + Gauche Droite (prec)  = last edit location             (+++++++++)
+F8 ou ALT + F8                     = inspection
+CTRL + ALT + u                     = show diagram UML               (+++++++++)
+ALT + u                            = monte method parente
 
 shift + F10                       =
-ctrl + shift + F10                =
-ctrl + alt + L                    =
+CTRL + shift + F10                =
+CTRL + ALT + L                    =
 
 
-ctrl + alt + o = import inutile
+CTRL + ALT + o = import inutile
 shift + f6 = rename
 
-ctrl +B = ctrl + click
-alt + insert
+CTRL +B = CTRL + click
+ALT + insert
 
-ctrl + alt + m = external method
+CTRL + ALT + m = external method
  + v = var
  + c = cst
 
-ctrl + alt + L = format
+CTRL + ALT + L = format
 
-ctrl + n = X2
+CTRL + n = X2
 
-ctrl + i = implement
-ctrl + o = override
+CTRL + i = implement
+CTRL + o = override
 
-ctrl + R = remplace regex
+CTRL + R = remplace regex
 
 
 #-------------------------------------------------------------------------------
 # UNIX
 #-------------------------------------------------------------------------------
-ctrl + e                      = ?
-ctrl + t                      = open terminal
+CTRL + e                      = ?
+CTRL + t                      = open terminal
 setxkbmap fr                  = change setting keyboard
 super + d                     = montrer le bureau
 
 #-------------------------------------------------------------------------------
 # chrome
 #-------------------------------------------------------------------------------
-ctrl + L	- clear console
-ctrl + m	- jump matching brace
+CTRL + L	- clear console
+CTRL + m	- jump matching brace
 
 
 #-------------------------------------------------------------------------------
@@ -78,38 +79,38 @@ click droit sur JAVA > debug ALL TEST
 system.out.print        = soutm
 system.out.print        = soutv
 
-ctrl + i - implement
-ctrl + o - overide
-ctrl + r - replace avec regex (dans la selection)
-ctrl + alt + o - remove useless import
+CTRL + i - implement
+CTRL + o - overide
+CTRL + r - replace avec regex (dans la selection)
+CTRL + ALT + o - remove useless import
 shft + F6 - rename
-ctrl + B (ou ctrl + click)
-alt + ins - (modif en colonne)
-ctrl + alt + m  - extract dans methode
-ctrl + alt + v - extract dans var
-ctrl + alt + c - extract dans const
-ctrl + alt + L - format
-ctrl + N (x2)
+CTRL + B (ou CTRL + click)
+ALT + ins - (modif en colonne)
+CTRL + ALT + m  - extract dans methode
+CTRL + ALT + v - extract dans var
+CTRL + ALT + c - extract dans const
+CTRL + ALT + L - format
+CTRL + N (x2)
 
 
-ctrl + shift + U = Maj, Min
+CTRL + shift + U = Maj, Min
 
-alt + F7		- search references (usage)
-Ctr l+ U or Ctrl + Alt + B 	- for the super method or implementation respectively .
-ctrl + alt + LEFT / RIGHT - last next cursor location
-ctrl + shift + F7	- selectionne texte PUIS F3 (shift F3) pour rechercher
+ALT + F7		- search references (usage)
+Ctr l+ U or CTRL + ALT + B 	- for the super method or implementation respectively .
+CTRL + ALT + LEFT / RIGHT - last next cursor location
+CTRL + shift + F7	- selectionne texte PUIS F3 (shift F3) pour rechercher
 
-ctr / 			- comment
-ctrl n 			- new file
-ctrl alt click		- entre fucntion*
-ctrl F12 		- show method
-ctrl alt h 		- hiera
-ctrl + alt + s  	- settings
-ctrl + F12		- open outline
-ctrl + q		- show javadoc
-alt + F8	- inspect on fly
+CTRL / 			- comment
+CTRL n 			- new file
+CTRL ALT click		- entre fucntion*
+CTRL F12 		- show method
+CTRL ALT h 		- hiera
+CTRL + ALT + s  	- settings
+CTRL + F12		- open outline
+CTRL + q		- show javadoc
+ALT + F8	- inspect on fly
 
-alt + F10		- current cursor
+ALT + F10		- current cursor
 
 F2			- next error
 
@@ -119,7 +120,7 @@ SHFT + F11		- bookmark GO
 CTRL + W		- select word
 CTRL + ALT + V		- refactor variable
 CTRL + ALT + L		- format (sinon dans code > format)
-ctrl + m	- jump matching brace
+CTRL + m	- jump matching brace
 
 
 - Quickest way: View menu -> Quick Switch Scheme -> 4. Switch Look and Feel -> Darcula

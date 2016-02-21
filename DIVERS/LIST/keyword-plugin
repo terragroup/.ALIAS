@@ -1,0 +1,227 @@
+succe, fail, atnv2-release, parsing, skip, release-plugin, settings-atnv2.xml, WARN, deprecated, plugin
+
+
+
+
+
+PLUGIN 1
+
+
+
+Pretérito Perfeito (Indicativo), Presente (Indicativo), Presente (Subjuntivo), Imperativo, Pretérito Imperfeito (Indicativo), Futuro do Presente (simples) (Indicativo)
+
+
+
+
+
+
+
+
+PLUGIN 2
+
+
+
+
+
+
+
+Exception,
+exception,
+error,
+The following ids aren't available,
+------------------------------------------------------------------------,
+-------------------------------------------------------,
+atnv2-sonar,
+atnv2,
+SmartJogPlatformService - Erreur lors de la récupération des informations sur les contenus en cours d'envoi pour les trackers,
+envoi des contenus vers les complexes,
+mise à jour du statut des envois de contenus,
+En cours,
+Semaine cinéma:,
+serveur local,
+Get Catalog ,
+Get Local ,
+Echec du rapatriement,
+Envoi en masse des playlists,
+Liste des PDDs,
+Gestion des PDDs,
+dezembro de 2015,
+novembro de 2015,
+janeiro de 2015,
+false
+
+-------------------------------
+
+c.g.a.s.a.d.c
+c.g.a.s.a.r
+c.g.a.m.u.
+/* end fcr*/
+-c.g.a.s.s.
+-o.q.c.
+caused
+log
+routerdcpimport_rdi
+routerdcptransfert_rdt
+routercontentdelivery_rcd
+routerplaylistdelivery_rpd
+routerdcpdelivery_rdd
+routerplaylistdelivery_rp
+routerdcpdelivery_rdd
+Exception
+null
+following
+#
+mam
+remine
+fabrice
+SmartJogPlatformService
+complet
+smartjog
+PROD
+espanhol
+francês
+inglês
+Maintenance
+maria
+mickael
+anita
+David
+sonar
+Administration
+amouroux
+7815
+10.196.164.43
+10977
+client-cert.p12
+ateliernum.jks
+DEPART
+LIVRAISON
+LEVERING
+VERTREK
+PLAYLISTS
+Generique
+Locales
+BANDESANNONCES
+Generale
+false
+
+
+_F_FR-XX_51_2K,
+_ECL_OV,
+_CAC_OV,
+_CINE,
+_FR-XX,
+_FR_XX,
+_ADV_F,
+_PKG,
+_FR_51_2K,
+_SCL_OV,
+_TST_OV,
+_YMA_OV,
+TCS_IOP_VF,
+_51_2K,
+-3D,
+
+
+
+#---#,
+**BANK_(ne pas utiliser)**,
+#---#,
+Scichamplain,Retrait Au Distributeur,Sncf,Direct Energie,So At Virement-Salaire-,
+Uniqlo,Castorama,Decathlon,H & M,Monoprix,Skype,Restaurant Chuan,Boulangerie,Droguerie Brezin,
+Carrefour City Issy Les Mo,Fp8035 Voisin,Fp Distridaguer,Fp5221 Lossera,
+Web,Mens. P.E.L,La Poste , Fnac Montparnas, Virement Web,Casino,Ed/dia ,Vert Marine,
+
+
+#---#,
+**LIST_PRIORITE**,
+#---#,
+MATERIEL QUALITE POUR BO,
+LOUER / ACHETER BON APPART PARIS,
+BIEN CHOISIR SA MISSION - QUESTIONS ENTRETIEN,
+MATERIEL QUALITE POUR BO,
+Parcours du combatant,
+MISSION ALLER RETOUR FR/BO,
+ACHATS MAISON PARIS (et autres),
+NUTRITION,
+BIEN VIVRE,
+REGLE,
+
+
+#---#,
+**DATE**,
+#---#,
+dezembro de 2015,novembro de 2015,janeiro de 2015,
+
+#---#,
+**PAGES_SOUVENT_VISITEE**,
+#---#,
+espanhol,francês,inglês,
+composto,indicativo,Futuro,
+The New Stack,Programming JavaScript Applications,Xebia France,Polymer,Google Chrome Developers,Ilya Grigorik,Google App Engine,
+
+#---#,
+**GMAIL**,
+#---#,
+entrada,Anita,
+maria,mickael,anita,David ,sonar,amouroux,mam,Frederique,regnou.a@gmail.com,
+TEAM,dev [ok],z-voyage,[destack],AXEL,cv dec,LIST PDF BOOK DEV,SOCIAL,cv paper,bancaire,freelance,PAPER,
+descartar, descartar rascunhos,
+NEED FOR SITE,
+ALWAYS TAKE CARE about this : (mission comportement + before commit),
+GoDaddy Order Confirmation,
+SOAT LINK,
+permis de conduire,
+
+#---#,
+**JENKINS**,
+#---#,
+======================,---,settings,
+T E S T S,Failures: 0,Errors: 0,Skipped: 0,Failures,Errors,stable,unstable,back,shutdown.sh,refs/tags/,
+caused ,log ,Exception,null,
+default-cli,default-clean,default-resources,default-compile,default-testResources,default-testCompile,default-test,default-jar,default-install,
+Exception,exception,error,fail,success,
+Perform Maven Release,Build with Parameters,
+atnv2-sonar,atnv2-release,atnv2_deploy,release,deploy,simba2,
+preprodatnv2,tomcat,startup.sh,settings-atnv2.xml,
+diffusion,fichier_log_recu.xml,
+/var/lib/jenkins/workspace/,Résolu,run:,skipped,
+There are test failures,Time elapsed,
+
+#---#,
+**MVN**,
+#---#,
+[Atn V2], Archiving, creating, inflating,Disponible,liquibase,Deleting,
+atnv2_deploy,Console Output,
+
+#---#,
+**ATN**,
+#---#,
+=> DEPART,=> LIVRAISON ,=> LEVERING ,=> VERTREK,=> PLAYLISTS,=> Generique,=> Locales, => 3D,=> Logs,=> BANDESANNONCES ,=> Generale,
+c.g.a.s.a.d.c,c.g.a.s.a.r,c.g.a.m.u.,c.g.a.s.s.,o.q.c.,
+routerdcpimport_rdi,routerdcptransfert_rdt,routercontentdelivery_rcd,routerplaylistdelivery_rpd,routerdcpdelivery_rdd,routerplaylistdelivery_rp,routerdcpdelivery_rdd,
+réception des logs ADDE,
+Directories,
+The following ids aren't available,
+SmartJogPlatformService - Erreur lors de la récupération des informations sur les contenus en cours d'envoi pour les trackers,
+envoi des contenus vers les complexes,mise à jour du statut des envois de contenus,
+Semaine cinéma:,serveur local,Get Catalog,Get Local,Echec du rapatriement,Envoi en masse des playlists,
+à Envoyer,2.2.33.1,2.2.25,2.2.32 ,/09/,2.2.3x,/10/,2.2.x,/11/,2.x.x,/12/,[ATNV2][PRODUCTION],
+mise à disposition sur clef USB,
+Rechercher,
+envoi des contenus vers les complexes,Tableaux de bord, Référentiels,des DCPs,Liste des DCPS, Liste des PDDs,des PDDs,abbeville le rex,hors service,Modifier le statut,
+2 656,520192,S1550,7815,10977,10.196.164.43,client-cert.p12,ateliernum.jks,2K,4K ,Haut,NAS,8674,10.196.165.232,5KGoesrr,
+Nantes concorde,
+Liste des complexes,Nom des documents,Contenu des documents,diffusion,
+SmartJogPlatformService ,smartjog,PROD,Maintenance,Administration,
+
+#---#,
+**A_TRIER**,
+#---#,
+following,#,rex,aucoeurdelocea,mobius,false,en cours,
+
+#---#,
+**DIVERS**,
+#---#,
+Changer le niveau de log,Axel Regnoult,
+timberland,

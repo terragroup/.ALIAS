@@ -52,13 +52,15 @@ curl http://beyondgrep.com/ack-2.08-single-file > ~/bin/ack && chmod 0755 !#:3
 ################################################################################
 # ATOM
 ################################################################################
-wget https://atom.io/download/deb
-# ------------------------------------------------------------------------------
-apm install jshint
+
 apm install atom-beautify
+apm install pigments
+
+
+apm install jshint
 apm install markdown-preview
 apm install git-log
-apm install pigments
+
 apm install language-log
 apm install atom-typescript
 apm install  color-picker
@@ -69,17 +71,23 @@ apm install apm install autoprefixer
 symbols-view
 bracket-matcher
 script
-markdown-preview +++ voir en live
-bookmarks
-# JAVA
-apm install script
-apm install linter-javac
-apm install language-java
-apm install debugger
+
+markdown-preview # +++ voir en live
 
 quick-highlight
 # quick-highlight:toggle toggle highlight for selected or cursor word.
 # quick-highlight:clear clear all highlight.
+
+bookmarks
+# ------------------------------------------------------------------------------
+# wget https://atom.io/download/deb
+# ------------------------------------------------------------------------------
+# JAVA
+# apm install script
+# apm install linter-javac
+# apm install language-java
+# apm install debugger
+
 
 
 ################################################################################

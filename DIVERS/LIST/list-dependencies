@@ -49,6 +49,10 @@ apt-get install tree
 # https://github.com/paoloantinori/hhighlighter#screenshots
 curl http://beyondgrep.com/ack-2.08-single-file > ~/bin/ack && chmod 0755 !#:3
 
+
+ sudo dpkg -i teamviewer_11.0.53191_amd64.deb 
+
+
 ################################################################################
 # ATOM
 ################################################################################

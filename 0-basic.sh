@@ -115,6 +115,9 @@ alias vi='/usr/bin/vim'
 # fast location
 alias dl="cd $AXL_HOME/DL"
 alias aatn="cd $AXL_HOME/com/atnv2"
+alias aat="cd $AXL_HOME/com/project"
+alias aal="cd $AXL_HOME/alias"
+
 
 # fast file
 alias rs='atom ~/.m2/settings.xml'
@@ -143,7 +146,7 @@ GREEN="$(tput setaf 2)"; YELLOW="$(tput setaf 3)"; END="$(tput sgr0)"
 # multi-line
 JAUNE_GIT="\[\033[01;33m\]"
 JAUNE_GIT_2="$(tput setb 6) $(tput setaf 0)"
-PS1='\n\n\n\n\n $JAUNE_GIT_2 $(__git_ps1)                                                                                                                                               \
+PS1='\n\n\n\n\n$JAUNE_GIT_2 $(__git_ps1)                                                                          \
 $END\n $RED_BLACK$(dirname $(pwd))/ $END$WHITE_RED \W  $END           $GREEN \A $END  \d  ($(echo $?))  $TT_USER \u $END @ $TT_USER \H $END \n\n\n\n '
 
 # 1-line
@@ -189,7 +192,7 @@ alias du='du -h'
 
 ## extra home
 alias aapm='sudo apm install'
-alias tt='atom .'
+alias tom='atom .'
 # alias aapm='sudo apm install'
 alias leo='cd /home/ax/com/leo'
 

@@ -78,9 +78,7 @@ apm install language-java
 apm install debugger
 
 quick-highlight
-# quick-highlight:toggle toggle highlight for selected or cursor word.
-# quick-highlight:clear clear all highlight.
-
+# // CTRL + K m ou M             = (higlighter)
 
 ################################################################################
 # NODE

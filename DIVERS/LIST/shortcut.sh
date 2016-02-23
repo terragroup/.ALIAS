@@ -12,7 +12,7 @@
 CTRL + SHFT + P             = open command pallette
 CTRL + K m ou M             = (higlighter)
 systeme de filtre log tout en bas
-
+CTRL + SHFT + L             =  format (beautify)
 
 # ------------------------------------------------------------------------------
 # iDEA

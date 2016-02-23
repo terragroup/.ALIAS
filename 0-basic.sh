@@ -186,3 +186,11 @@ alias du='du -h'
 ################################################################################
 # END
 ################################################################################
+
+## extra home
+alias aapm='sudo apm install'
+alias tt='atom .'
+# alias aapm='sudo apm install'
+alias leo='cd /home/ax/com/leo'
+
+# INSTALL PACKAGE - sudo dpkg -i DEB_PACKAGE

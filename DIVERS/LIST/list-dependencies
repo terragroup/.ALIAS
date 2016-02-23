@@ -49,28 +49,19 @@ apt-get install tree
 # https://github.com/paoloantinori/hhighlighter#screenshots
 curl http://beyondgrep.com/ack-2.08-single-file > ~/bin/ack && chmod 0755 !#:3
 
-
- sudo dpkg -i teamviewer_11.0.53191_amd64.deb 
-
-
 ################################################################################
 # ATOM
 ################################################################################
-apm install quick-highlight
-# quick-highlight:toggle toggle highlight for selected or cursor word.
-# quick-highlight:clear clear all highlight.
-apm install minimap
-apm install atom-beautify
-apm install pigments
-apm install markdown-preview # +++ voir en live
-apm install git-log
-
-
-
+wget https://atom.io/download/deb
+# ------------------------------------------------------------------------------
 apm install jshint
+apm install atom-beautify
+apm install markdown-preview
+apm install git-log
+apm install pigments
 apm install language-log
 apm install atom-typescript
-apm install color-picker
+apm install  color-picker
 apm install javascript-snippets
 apm install autocomplete-plus
 apm install autocomplete-html
@@ -78,16 +69,17 @@ apm install apm install autoprefixer
 symbols-view
 bracket-matcher
 script
+markdown-preview +++ voir en live
 bookmarks
-# ------------------------------------------------------------------------------
-# wget https://atom.io/download/deb
-# ------------------------------------------------------------------------------
 # JAVA
-# apm install script
-# apm install linter-javac
-# apm install language-java
-# apm install debugger
+apm install script
+apm install linter-javac
+apm install language-java
+apm install debugger
 
+quick-highlight
+# quick-highlight:toggle toggle highlight for selected or cursor word.
+# quick-highlight:clear clear all highlight.
 
 
 ################################################################################

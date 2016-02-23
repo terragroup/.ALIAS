@@ -56,18 +56,21 @@ curl http://beyondgrep.com/ack-2.08-single-file > ~/bin/ack && chmod 0755 !#:3
 ################################################################################
 # ATOM
 ################################################################################
-
+apm install quick-highlight
+# quick-highlight:toggle toggle highlight for selected or cursor word.
+# quick-highlight:clear clear all highlight.
+apm install minimap
 apm install atom-beautify
 apm install pigments
+apm install markdown-preview # +++ voir en live
+apm install git-log
+
 
 
 apm install jshint
-apm install markdown-preview
-apm install git-log
-
 apm install language-log
 apm install atom-typescript
-apm install  color-picker
+apm install color-picker
 apm install javascript-snippets
 apm install autocomplete-plus
 apm install autocomplete-html
@@ -75,13 +78,6 @@ apm install apm install autoprefixer
 symbols-view
 bracket-matcher
 script
-
-markdown-preview # +++ voir en live
-
-quick-highlight
-# quick-highlight:toggle toggle highlight for selected or cursor word.
-# quick-highlight:clear clear all highlight.
-
 bookmarks
 # ------------------------------------------------------------------------------
 # wget https://atom.io/download/deb

@@ -79,6 +79,11 @@ lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen
 # Show last commit
 lc = log ORIG_HEAD.. --stat --no-merges
 
+# -- DARTY -- 
+# lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s -- %cn %C(bold blue)<%ad>%Creset' --abbrev-commit --date=relative
+# lgf = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s <%ad>' --abbrev-commit --date=relative --name-status
+# -- DARTY --
+
 # Graph log with full commit message
 glaaa = log --graph --abbrev-commit --date=relative
 
@@ -159,6 +164,11 @@ upstream = !git for-each-ref --format='%(upstream:short)' `git symbolic-ref HEAD
 
 [color]
 ui = auto
+# -- DARTY --
+# branch = auto
+# diff = auto
+# interactive = auto
+# status = auto
 
 [color "branch"]
 current = yellow reverse
@@ -176,14 +186,16 @@ added = yellow
 changed = green
 untracked = cyan
 branch = green
+
 [core]
 pager = cat
-	excludesfile = /home/axel/.gitignore_global
+excludesfile = /home/axel/.gitignore_global
 ignorecase = false
-	editor = vim
+editor = vim
 
 [http]
 sslVerify = false
+# proxy = http://133.54.152.11:8667 # DARTY
 
 [rerere]
 enabled = true
@@ -195,6 +207,10 @@ conflictstyle = diff3
 
 [push]
 default = tracking
+
+# DARTY
+# [gui]
+# recentrepo = C:/java/workspace/catalog
 
 # [diff]
 # external = $HOME/.gitvdiff

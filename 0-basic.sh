@@ -21,7 +21,8 @@ export LC_TYPE=en_US.UTF-8
 # PERSO
 #-------------------------------------------------------------------------------
 AXL_HOME="/home/ax"
-AXL_HOME_LOG="/home/axel/LOG"
+AXL_HOME_LOG="$AXL_HOME/LOG"
+AXL_HOME_ALIAS="$AXL_HOME/com/alias"
 #-------------------------------------------------------------------------------
 # DOMAIN
 #-------------------------------------------------------------------------------
@@ -54,25 +55,25 @@ REC_LOG_NGINX="/var/log/atnv2/nginx"
 ################################################################################
 # DEPENDENCIES
 ################################################################################
-. "$AXL_HOME/alias/bin/.h.sh"
-. "$AXL_HOME/alias/bin/.git-prompt.sh"
+. "$AXL_HOME_ALIAS/bin/.h.sh"
+. "$AXL_HOME_ALIAS/bin/.git-prompt.sh"
 # log
-alias cl="$AXL_HOME/alias/bin/.lnav"    # reader de log : attention : dependence BINAIRE
+alias cl="$AXL_HOME_ALIAS/bin/.lnav"    # reader de log : attention : dependence BINAIRE
 alias llog="cd $AXL_HOME/LOG"
 
 ################################################################################
 # IMPORT SOURCE
 ################################################################################
-echo "source 1-ls" && . "$AXL_HOME/alias/1-ls.sh"
-echo "source 1-ssh" && . "$AXL_HOME/alias/1-ssh.sh"
-echo "source 2-git" && . "$AXL_HOME/alias/2-git.sh"
-echo "source 2-mvn" && . "$AXL_HOME/alias/2-mvn.sh"
-echo "source 2-search" && . "$AXL_HOME/alias/2-search.sh"
-echo "source 3-pgsql" && . "$AXL_HOME/alias/3-pgsql.sh"
-echo "source 4-log" && . "$AXL_HOME/alias/4-log.sh"
-echo "source 5-server" && . "$AXL_HOME/alias/5-server.sh"
-echo "source 7-network" && . "$AXL_HOME/alias/7-network.sh"
-echo "source 8-mysql" && . "$AXL_HOME/alias/8-mysql.sh"
+echo "source 1-ls" && . "$AXL_HOME_ALIAS/1-ls.sh"
+echo "source 1-ssh" && . "$AXL_HOME_ALIAS/1-ssh.sh"
+echo "source 2-git" && . "$AXL_HOME_ALIAS/2-git.sh"
+echo "source 2-mvn" && . "$AXL_HOME_ALIAS/2-mvn.sh"
+echo "source 2-search" && . "$AXL_HOME_ALIAS/2-search.sh"
+echo "source 3-pgsql" && . "$AXL_HOME_ALIAS/3-pgsql.sh"
+echo "source 4-log" && . "$AXL_HOME_ALIAS/4-log.sh"
+echo "source 5-server" && . "$AXL_HOME_ALIAS/5-server.sh"
+echo "source 7-network" && . "$AXL_HOME_ALIAS/7-network.sh"
+echo "source 8-mysql" && . "$AXL_HOME_ALIAS/8-mysql.sh"
 ################################################################################
 # ENV
 ################################################################################
@@ -116,13 +117,13 @@ alias vi='/usr/bin/vim'
 alias dl="cd $AXL_HOME/DL"
 alias aatn="cd $AXL_HOME/com/atnv2"
 alias aat="cd $AXL_HOME/com/project"
-alias aal="cd $AXL_HOME/alias"
+alias aal="cd $AXL_HOME_ALIAS"
 
 
 # fast file
 alias rs='atom ~/.m2/settings.xml'
 alias rc='atom ~/alias/'
-alias sb='. $AXL_HOME/alias/0-basic.sh'   # alias sb='source ~/.bashrc'
+alias sb='. $AXL_HOME_ALIAS/0-basic.sh'   # alias sb='source ~/.bashrc'
 
 # type function pour avoir la declaration
 alias ffun='compgen -A function  | grep -v '^[_]' | h -ni log dump fast_forward '
@@ -197,3 +198,16 @@ alias tom='atom .'
 alias leo='cd /home/ax/com/leo'
 
 # INSTALL PACKAGE - sudo dpkg -i DEB_PACKAGE
+
+
+
+#
+# difference release ET version applcatifdifference release ET version applcatif
+# versions appli avec version releases DCOM
+# 8.5.1 - version appliaction
+# num version sur appli qui match avec release globale= pas de sens
+#
+# il vaut mieux tag 8.4.b, 8.4.b
+# correller appli avec release globale (sait ce que l on va livrer)
+#
+# num de version dans le TAG

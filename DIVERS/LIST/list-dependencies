@@ -1,5 +1,34 @@
 #!/bin/bash
 
+- Notions:
+Le consultant a fait de la veille sur le sujet ou a bénéficié d'une formation mais n'a pas mis en pratique.
+
+- Pratique:
+Le consultant a travaillé quelques semaines sur le sujet (dans sa vie professionnelle ou projet personnel).
+Il a une première expérience assez simple mais peut manquer d'une vision d'ensemble.
+
+- Maîtrise:
+Le consultant a travaillé de manière approfondie dans des contextes différents.
+Il est capable de préparer et/ou animer une soirée 3T sur tout ou partie du domaine.
+
+- Expert:
+A ce niveau le consultant a également une bonne compréhension et peut débattre sur de nombreux choix associés à la compétence.
+Il peut assurer des formations internes / externes.
+
+- Super Expert:
+Le consultant peut assurer des conférences publiques sur ce sujet.
+Il est crédible, reconnu par ses pairs et difficilement critiquable.
+
+
+################################################################################
+# ALGORYTHME
+################################################################################
+algorithme du sac a dos
+
+
+
+
+
 # z-dependencies-atom-debian-node-chrome
 
 ################################################################################
@@ -48,6 +77,14 @@ apt-get install tree
 # paoloantinori/hhighlighter
 # https://github.com/paoloantinori/hhighlighter#screenshots
 curl http://beyondgrep.com/ack-2.08-single-file > ~/bin/ack && chmod 0755 !#:3
+
+################################################################################
+# ECLIPSE
+################################################################################
+
+myLyn - tache ou plugin couleur mon code (lie git) - git + eclipse
+
+
 
 ################################################################################
 # ATOM

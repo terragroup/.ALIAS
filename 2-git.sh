@@ -1,5 +1,21 @@
 #!/bin/bash
 
+
+# from DARTY HUNOUT - conseil merge
+# se mettre sur oms_cuu et faire un REBASE origin/master
+# puis se mettre sur master (je crois) et faire un merge normal
+# comme cela, il y a moins de merges a faire, c est plus SIMPLE
+#
+# ou alors si on veut garder la parralelisation, il vaut mieux faire un merge
+# ------------------------------------------------
+# apres git pull, il te faut un git merge, OU ALORS tu fais git fetch
+
+
+
+# vive la git diff - atlassian
+# http://blogs.atlassian.com/2013/06/git-diff/
+
+
 ################################################################################
 # GIT (axel)
 ################################################################################

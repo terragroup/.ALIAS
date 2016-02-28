@@ -83,7 +83,7 @@ CURRENT_COMMIT="'5f4e63e|5162b42|d9af13b|4b657e6|acfa51a|ad2e172|e869510' 20715 
 # ------------------------------------------------------------------------------
 
 # QQUE SOIT LA BRANCHE
-alias gl="git log -30 --graph --pretty=format:'  %C(yellow)%<(30)%d   %C(white)%<(100)%s  %C(cyan)%h   %C(bold blue)%<(12)%cr  ' --abbrev-commit --date=short --all  \
+alias gl="git log -30 --graph --pretty=format:'  %C(yellow)%<(30)%d   %C(white)%<(50)%s  %C(cyan)%h   %C(bold blue)%<(12)%cr  ' --abbrev-commit --date=short --all  \
 | h -i  $AXL_GIT_GL \
 | h -ni popo pipi pupu koko kiki kuku  '\[maven-release-plugin\] prepare for next development iteration|\[maven-release-plugin\] prepare release'  \
 | h -ni $CURRENT_COMMIT \

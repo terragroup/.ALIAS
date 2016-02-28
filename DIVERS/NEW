@@ -1,0 +1,3 @@
+git@github.com:mickael-moreau/hcode.git
+
+ env | h -ni java javac home = / ax

@@ -1,0 +1,186 @@
+#!/bin/bash
+
+
+################################################################################
+# z-dependencies-atom-debian-node-chrome
+################################################################################
+
+
+
+
+################################################################################
+# EXPERT LEVEL
+################################################################################
+
+- Notions:
+Le consultant a fait de la veille sur le sujet ou a bénéficié d'une formation mais n'a pas mis en pratique.
+
+- Pratique:
+Le consultant a travaillé quelques semaines sur le sujet (dans sa vie professionnelle ou projet personnel).
+Il a une première expérience assez simple mais peut manquer d'une vision d'ensemble.
+
+- Maîtrise:
+Le consultant a travaillé de manière approfondie dans des contextes différents.
+Il est capable de préparer et/ou animer une soirée 3T sur tout ou partie du domaine.
+
+- Expert:
+A ce niveau le consultant a également une bonne compréhension et peut débattre sur de nombreux choix associés à la compétence.
+Il peut assurer des formations internes / externes.
+
+- Super Expert:
+Le consultant peut assurer des conférences publiques sur ce sujet.
+Il est crédible, reconnu par ses pairs et difficilement critiquable.
+
+
+################################################################################
+# ALGORITHME
+################################################################################
+algorithme du sac a dos
+
+
+
+
+################################################################################
+# PLUGIN CHROME
+################################################################################
+# LEVEL 1
+AdBlock / uBlock
+G-calize
+Google Art Project
+EditThisCookie
+Dark Skin for Youtube
+Multi-highlight
+# LEVEL ?
+calculette ?
+KIMONO LAB (pour le crawling)
+# LEVEL 2
+Bookmark Manager
+Todoist: Liste de tâches 4.5.0
+Extensions HotKey
+Postman
+Pearls Extension
+Page Captures d écran Web - Fireshot
+MultiHighlighter
+Bureau à distance Google Chrome
+Chrome Dev Editor (developer preview)
+Chrome RDP for Google Cloud Platform
+
+################################################################################
+# DEBIAN
+################################################################################
+apt-get update
+# apt-get upgrade
+# ------------------------------------------------------------------------------
+apt-get install guake
+apt-get install gedit-plugins
+apt-get install libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev build-essential
+apt-get install python-pygments
+apt-get install nodejs
+apt-get install xclip && xclip -sel clip < ~/.ssh/id_rsa.pub
+apt-get install zsh
+apt-get install curl
+apt-get .install most
+apt-get install ack-grep
+apt-get install tree
+# ------------------------------------------------------------------------------
+# paoloantinori/hhighlighter
+# https://github.com/paoloantinori/hhighlighter#screenshots
+curl http://beyondgrep.com/ack-2.08-single-file > ~/bin/ack && chmod 0755 !#:3
+
+
+################################################################################
+# ECLIPSE
+################################################################################
+
+myLyn - tache ou plugin couleur mon code (lie git) - git + eclipse
+
+
+################################################################################
+# ATOM
+################################################################################
+wget https://atom.io/download/deb
+# ------------------------------------------------------------------------------
+apm install jshint
+apm install atom-beautify
+apm install markdown-preview
+apm install git-log
+apm install pigments
+apm install language-log
+apm install atom-typescript
+apm install  color-picker
+apm install javascript-snippets
+apm install autocomplete-plus
+apm install autocomplete-html
+apm install apm install autoprefixer
+symbols-view
+bracket-matcher
+script
+markdown-preview +++ voir en live
+bookmarks
+# JAVA
+apm install script
+apm install linter-javac
+apm install language-java
+apm install debugger
+
+quick-highlight
+# // CTRL + K m ou M             = (higlighter)
+
+################################################################################
+# NODE
+################################################################################
+# 1 - install NODE
+# 2 - install npm
+# 3 - install npm -g BOWER
+# 4 - install npm -g GULP
+# npm install (dep de gulp)
+# bower install (dependances  du projet)
+# gulp serve
+# bower init
+npm install -g typescript
+npm install -g tsd@^0.6.0
+npm install -g typescript@^1.5.0
+# tsd install angular2 es6-promise rx rx-lite
+npm install polyserve -g
+npm install -g yo
+npm install -g generator-polymer
+npm install -g yo
+npm install -g <generator-name>.
+npm install -g generator-meanstack
+npm install -g generator-express-angular
+
+curl --silent --location https://deb.nodesource.com/setup_0.12 | bash -
+mkdir -p my-project && cd $_
+yo meanstack
+
+################################################################################
+# AUTRES
+################################################################################
+
+# # -------------------------------------
+# divers
+# # -------------------------------------
+
+# # get them
+# f 'GOOGLE : wget -c https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
+# wget -c https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+# f 'rmf git-1.8.1.2.tar.gz'
+# rmf git-1.8.1.2.tar.gz
+# f 'GIT : wget https://git-core.googlecode.com/files/git-1.8.1.2.tar.gz'
+# wget https://git-core.googlecode.com/files/git-1.8.1.2.tar.gz
+
+# # -------------------------------------
+# titre '2 INSTALL THEM > OPT'
+# # -------------------------------------
+# f 'GOOGLE : dpkg -i ../DL/google-chrome-stable_current_i386.deb'
+# dpkg -i ../DL/google-chrome-stable_current_i386.deb
+# f 'tar -zxf ../DL/git-1.8.1.2.tar.gz'
+# tar -zxf ../DL/git-1.8.1.2.tar.gz
+
+# -------------------------------------
+# titre '3 GIT'
+# -------------------------------------
+# mv git-1.8.1.2 /opt/git
+# rmf git-1.8.1.2
+# cd /opt/git  && make prefix=/usr/local all  && make prefix=/usr/local install
+# update git = git clone git://git.kernel.org/pub/scm/git/git.git

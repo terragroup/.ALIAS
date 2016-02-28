@@ -1,0 +1,66 @@
+#!/bin/bash
+
+# --------------------------------------------
+# GIT
+# --------------------------------------------
+
+function git_change_commited(){
+
+# si pas push => tu utilises --amend
+# sinon :
+ git rebase -i HEAD~2
+ # tu changes avec EDIT (au lieu de pick)
+ git commit --amend
+}
+
+
+function git_init(){
+  # git init
+  git config --global user.name "regnou"
+  git config --global user.email "regnou.a@gmail.com"
+  # git config --global push.default simple
+  # git clone https://github.com/regnou/paris-master.git
+  # ou git remote add origin https://github.com/regnou/paris-master.git
+  # git init
+  # git commit -m "Hello !"
+  # git remote add origin git@github.com:regnou/ENV.git
+  # git push -u origin master
+
+  # git config -l | grep origin
+  # remote.origin.url=https://github.com/regnou/paris-master.git
+  # git config remote.origin.url git@github.com:regnou/paris-master.git
+  # git config remote.origin.url https://regnou.a:5xjwfBDo@github.com/regnou/paris-master.git
+  git config --global url."https://regnou@github.com"
+  git config --global credential.helper 'cache --timeout=28800'
+}
+
+function create_project(){
+  echo "# DEMO" >> README.md
+  git init
+  git add README.md
+  git commit -m "first commit"
+  git remote add origin https://github.com/regnou/DEMO.git
+  git push -u origin master
+  #git push --set-upstream origin master
+  git branch --set-upstream-to=origin/master-dev master
+}
+
+function generate_ssh_key(){
+  # GENERATE SSH KEY
+  # https://help.github.com/articles/generating-ssh-keys/
+
+  # start the ssh-agent in the background
+  # Add your SSH key to the ssh-agent:
+  # test connexion
+  ssh-keygen -t rsa -b 4096 -C "regnou.a@gmail.com"
+  eval "$(ssh-agent -s)"
+  ssh-add ~/.ssh/id_rsa
+  ssh -T git@github.com
+  ssh -T -p 443 git@ssh.github.com
+
+  # pour sauvegrade la connexion
+  ~/.ssh/config :
+  # Host github.com
+  Hostname ssh.github.com
+  Port 443
+}

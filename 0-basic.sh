@@ -27,7 +27,7 @@ export LC_TYPE=en_US.UTF-8
 # AXL_HOME="/home/ax"
 AXL_HOME="/home/axel"
 AXL_HOME_LOG="$AXL_HOME/LOG"
-AXL_HOME_ALIAS="$AXL_HOME/com/alias"
+AXL_HOME_ALIAS="$AXL_HOME/com/.ALIAS"
 ################################################################################
 # DEPENDENCIES
 ################################################################################
@@ -101,7 +101,7 @@ alias aal="cd $AXL_HOME_ALIAS"
 
 # fast file
 alias rs='atom ~/.m2/settings.xml'
-alias rc='atom ~/alias/'
+alias rc='atom $AXL_HOME_ALIAS'
 alias sb='. $AXL_HOME_ALIAS/0-basic.sh'   # alias sb='source ~/.bashrc'
 
 # type function pour avoir la declaration

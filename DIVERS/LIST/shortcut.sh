@@ -129,4 +129,43 @@ CTRL + m	- jump matching brace
 - autoscroll from sources (dans le petit menu setting du panel project hierarchy)
 
 
---------------------------------------------------
+
+
+
+
+#-------------------------------------------------------------------------------
+# ECLIPSE
+#-------------------------------------------------------------------------------
+
+
+ctrl + shift + E = open file COOL
+
+Alt+Shift+S, O
+generate constructor
+
+generate
+
+execute tests
+Shift-Alt-X , T
+Shift-Alt-D , T (debug)
+
+console switch
+
+CLEAR CONSOLE (ou via click droit) - Shift-F10 followed by 'r'
+
+
+ctrl + shift + E = open context file (AGREABLE)
+
+
+ctrl + shift + M ==> cela fait un import STATIC
+
+-- voir les views
+ALT + SHIFT + Q
+
+-- muy bueno (gagne temps instantiation variables)
+extract local varialbe = ALT + SHT + F
+
+
+#-------------------------------------------------------------------------------
+# ???
+#-------------------------------------------------------------------------------

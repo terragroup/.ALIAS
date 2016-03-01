@@ -34,7 +34,7 @@ AXL_HOME_ALIAS="$AXL_HOME/com/.ALIAS"
 . "$AXL_HOME_ALIAS/bin/.h.sh"
 . "$AXL_HOME_ALIAS/bin/.git-prompt.sh"
 # log
-alias cl="$AXL_HOME_ALIAS/bin/.lnav"    # reader de log : attention : dependence BINAIRE
+alias cl="$AXL_HOME_ALIAS/bin/lnav"    # reader de log : attention : dependence BINAIRE
 alias llog="cd $AXL_HOME/LOG"
 
 ################################################################################

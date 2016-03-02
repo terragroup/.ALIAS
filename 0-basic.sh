@@ -94,9 +94,11 @@ alias vi='/usr/bin/vim'
 
 # fast location
 alias dl="cd $AXL_HOME/DL"
+# bureau
 alias aatn="cd $AXL_HOME/com/atnv2"
-alias aat="cd $AXL_HOME/com/project"
-alias aal="cd $AXL_HOME_ALIAS"
+# home
+alias aaw="cd $AXL_HOME/com/0-wstk"
+
 
 
 # fast file

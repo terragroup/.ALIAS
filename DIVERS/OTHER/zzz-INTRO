@@ -263,10 +263,8 @@ config hibernate (show)
 #...............................
 #...............................
 #...............................
-# -- quel OS ? et quelle distrib
-# uname -a // host + username
-# lsb_release -a // distrib
-# -- la calculette: bc
+
+
 # -	Regular file.
 # b	Block special file.
 # c	Character special file.

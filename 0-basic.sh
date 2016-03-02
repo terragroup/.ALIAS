@@ -120,14 +120,14 @@ alias ffun='compgen -A function  | grep -v '^[_]' | h -ni log dump fast_forward 
 # TODO : ici - conditions : en fonction du user (axel, root, autre, postgres) ==> tu generes le PS1
 ################################################################################
 PURPLE="$(tput setb 5)"; TT_USER="$(tput setb 2) $(tput setaf 0)"; RED="$(tput setaf 1)";
-RED_BLACK="$(tput setb 4) $(tput setaf 7)";
+RED_BLACK="$(tput setb 0) $(tput setaf 7)";
 WHITE_RED="$(tput setb 7) $(tput setaf 0)";
 GREEN="$(tput setaf 2)"; YELLOW="$(tput setaf 3)"; END="$(tput sgr0)"
 # multi-line
 JAUNE_GIT="\[\033[01;33m\]"
 JAUNE_GIT_2="$(tput setb 6) $(tput setaf 0)"
-PS1='\n\n\n\n\n$JAUNE_GIT_2 $(__git_ps1)                                                           $END $GREEN \A $END  \d  ($(echo $?))\
-$END\n$RED_BLACK     $(dirname $(pwd))/     $END$WHITE_RED     \W     $END       $TT_USER \u $END @ $TT_USER \H $END \n>  '
+PS1='\n\n\n\n\n ($(echo $?)) $JAUNE_GIT_2                                                         $(__git_ps1)   $END $GREEN \A $END  \d  \
+$END\n$RED_BLACK     $(dirname $(pwd))/     $END$WHITE_RED     \W     $END       $TT_USER \u $END @ $TT_USER \H $END \n\n   $END $GREEN >>>   $END   '
 
 # 1-line
 #PURPLE="$(tput setb 5)"; TT_USER="$(tput setb 2)"; RED="$(tput setaf 1)"; GREEN="$(tput setaf 2)"; YELLOW="$(tput setaf 3)"; END="$(tput sgr0)"
@@ -173,7 +173,7 @@ alias du='du -h'
 
 ## extra home
 alias aapm='sudo apm install'
-alias tom='atom .'
+alias aaa='atom '
 # alias aapm='sudo apm install'
 alias leo='cd /home/ax/com/leo'
 

@@ -225,16 +225,6 @@ alias now="gs f3c8275 | grepc 'getfilter|diff \-\-' | h -ni '\.java|src/main/jav
 # gs f3c8275 | grep -v '[^\-]'
 
 
-
-
-
-
-
-# modifier en local ce qui change a chaque fois
-alias nnginx='vi /etc/nginx/sites-enabled/default'
-alias nnginxR='sudo service nginx restart'
-
-
 #
 # transporteur actif  >> Mise à disposition sur clef USB
 #

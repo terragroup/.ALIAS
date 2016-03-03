@@ -182,6 +182,10 @@ alias leo='cd /home/ax/com/leo'
 
 alias alog='rmf  a-rec-tomcat-atnv2.log && megalogrec && cl a-rec-tomcat-atnv2.log'
 
+# modifier en local ce qui change a chaque fois
+alias nnginx='vi /etc/nginx/sites-enabled/default'
+alias nnginxR='sudo service nginx restart'
+
 # INSTALL PACKAGE - sudo dpkg -i DEB_PACKAGE
 
 

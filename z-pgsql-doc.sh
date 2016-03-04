@@ -28,7 +28,7 @@
  # TODO - donner le user axel pour qu'il ait le droit d'executer sur la db
  alias gobd='su postgres && psql -f /home/axel/alias/PGSQL/JDD.sql atn'
 
- 
+
 
 # ----------------------------------------------------------------------------
 # RESTORE 1
@@ -229,3 +229,41 @@ sudo gedit /var/log/mysql/error.log &
 # savoir si user a besoin d un password   : select * from pg_shadow;
 # change de user sql  ROLE = USER         : set role 'bo_alim';
 # Pour supprimer un utilisateur           : dropuser login
+
+
+
+
+
+
+
+
+
+sudo apt-get install ack-grep
+
+UPDATE databasechangeloglock SET locked='false';
+
+
+sudo service postgresql restart
+
+# psql -h mreatn01.mre.pub -p 5432 -U atn_01 -W atn_01 atn_01
+# psql -h <host> -p <port> -U <username> -W <password> <database>
+
+alias postgres='sudo su - postgres'
+
+-- OK pour l integration
+/etc/init.d/postgresql-9.4 restart
+
+# ---------------------------------
+# CHARLES RESTAURATION BACKUP
+# ---------------------------------
+# envoie la sauvegarde en distant
+scp fdfdf.gw root@popo.fdfd /tmp
+
+backup sur app/backupMV/... (medicis/data...)
+
+drop DATABASE bdd
+arrete server bdd
+
+creer database
+relance bdd
+restaure

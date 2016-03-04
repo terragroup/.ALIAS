@@ -45,3 +45,11 @@ APPLICATION (AXL_IP base)  :     MEDICIS :     hibernate.cfg.xml
 
  # repertoire conf port TOMCAT
  /var/atnv2/tomcat/conf/server.xml
+
+
+
+
+ ----------------------------------------
+ SQL
+ ----------------------------------------
+ en mode % = externe ?

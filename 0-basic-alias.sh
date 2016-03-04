@@ -45,6 +45,7 @@ alias aapm='sudo apm install'
 alias dl="cd $AXL_HOME/DL"
 alias aatn="cd $AXL_HOME/com/atnv2"     # bureau
 alias aaw="cd $AXL_HOME/com/0-wstk"     # home
+alias aalias="cd $AXL_HOME/com/.ALIAS"     # bureau
 #-------------------------------------------------------------------------------
 # directory ---
 #-------------------------------------------------------------------------------

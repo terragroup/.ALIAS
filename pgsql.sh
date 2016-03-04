@@ -20,7 +20,6 @@ scp root@prodatnv2bdd.mre.pub:/var/lib/pgsql/backups/atnv2_production_2016-01-21
 gunzip atnv2_production_2016-01-21_23-30-01.sql.gz
 
 
-
 # Créer une archive ( compresser ) :
 # tar cvzf archive.tar.gz dossieroufichier
 # Décompresser ( Dézipper ) une archive :
@@ -39,6 +38,14 @@ gunzip atnv2_production_2016-01-21_23-30-01.sql.gz
 # ***********************************************************************************************
 # ***********************************************************************************************
 # ***********************************************************************************************
+
+
+
+
+
+
+
+
 
 
 
@@ -144,7 +151,6 @@ function restore_local(){
     # --------------------------------------------------------------------------
 }
 
-
 # ----------------------------------------------------------------------------
 # APRES le DUMP, il faut faire des changements : Attention : il faut remplcer le nom "atnv2_prod" par XXX
 # ----------------------------------------------------------------------------
@@ -174,7 +180,6 @@ function connect(){
 function remoteConnect(){
   # REC_DB_DOMAIN="10.196.165.17"
   psql -d atnv2_preprod -U bo_alim -h 10.196.165.17
-
 
   # psql -d atnv2_production -U atnv2_prod -h 10.196.164.46
 }

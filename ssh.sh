@@ -81,23 +81,3 @@ function rec_mount(){
 function usb(){
   sudo mount -t cifs -o gid=axel,uid=axel,username=adminmv,pass=innovation,sec=ntlm //10.196.164.108/archives/GROUPS/COMMUNS/ATNV2 /mnt/USB;
 }
-
-
-
-
-
-################################################################################
-# OTHERS
-################################################################################
-# PROD        - RED
-#             bind "set completion-ignore-case on"; TT_HOST="$(tput setb 4)"; TT_USER="$(tput setb 4)"; T="$(tput setaf 1)"; RED="$(tput setaf 1)"; GREEN="$(tput setaf 2)"; YELLOW="$(tput setaf 3)"; END="$(tput sgr0)";  alias rroot="cd /root"; alias cdcd="cd .."; alias grep='grep -HEin --color=always'; alias l='ls -CF --group-directories-first '; alias oopt='cd /opt ';alias eetc='cd /etc ';alias mmnt='cd /mnt ';alias vvar='cd /var ';alias uusr='cd /usr '; PS1='\n\n\n$GREEN$(dirname $(pwd))$END$RED \W $END\[\033[01;33m\]$END          $(echo $?) |$YELLOW \A $END| \d | $TT_HOST \H $END | $TT_USER \u $END\n  '
-# REC         - BLUE
-#             bind "set completion-ignore-case on"; TT_HOST="$(tput setb 1)"; TT_USER="$(tput setb 4)"; T="$(tput setaf 1)"; RED="$(tput setaf 1)"; GREEN="$(tput setaf 2)"; YELLOW="$(tput setaf 3)"; END="$(tput sgr0)";  alias rroot="cd /root"; alias cdcd="cd .."; alias grep='grep -HEin --color=always'; alias l='ls -CF --group-directories-first '; alias oopt='cd /opt ';alias eetc='cd /etc ';alias mmnt='cd /mnt ';alias vvar='cd /var ';alias uusr='cd /usr '; PS1='\n\n\n$GREEN$(dirname $(pwd))$END$RED \W $END\[\033[01;33m\]$END          $(echo $?) |$YELLOW \A $END| \d | $TT_HOST \H $END | $TT_USER \u $END\n  '
-# JENKINS     - purple
-#             bind "set completion-ignore-case on"; TT_HOST="$(tput setb 5)"; TT_USER="$(tput setb 5)"; T="$(tput setaf 1)"; RED="$(tput setaf 1)"; GREEN="$(tput setaf 2)"; YELLOW="$(tput setaf 3)"; END="$(tput sgr0)";  alias rroot="cd /root"; alias cdcd="cd .."; alias grep='grep -HEin --color=always'; alias l='ls -CF --group-directories-first '; alias oopt='cd /opt ';alias eetc='cd /etc ';alias mmnt='cd /mnt ';alias vvar='cd /var ';alias uusr='cd /usr '; PS1='\n\n\n$GREEN$(dirname $(pwd))$END$RED \W $END\[\033[01;33m\]$END          $(echo $?) |$YELLOW \A $END| \d | $TT_HOST \H $END | $TT_USER \u $END\n  '
-################################################################################
-# TODO -
-# color HOST : prod, rec, local
-# color HOST 2 : WEB, BDD, jenkins
-# color USER : root, atnv2, postgres
-################################################################################

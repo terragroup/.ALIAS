@@ -2,6 +2,10 @@
 
 # Si ca marche pas, tu redemarres TOUT
 
+# modifier en local ce qui change a chaque fois
+alias nnginx='vi /etc/nginx/sites-enabled/default'
+alias nnginxR='sudo service nginx restart'
+
 ################################################################################
 # NGINX
 ################################################################################

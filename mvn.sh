@@ -2,16 +2,6 @@
 ################################################################################
 # MVN
 ################################################################################
-# maven    : -U (force le DL)
-# install  : + compile source, + execute unit tests, + create a JAR, + install the JAR in a local repository
-# HERVE    : toujours faire un clean install, car MAVEN recreer les properties etc...
-# MVN_SEPARATOR_CYCLE=" .*---.*"
-# 'Hibernate|where|from|select|group by|from|left outer join'  \
-# 'Results :' \
-# 'Failures: 0, Errors: 0, Skipped: 0' \
-# .*\[Atn\ V2\].*
-# 'Scanning for projects...' \
-# '\Reactor Summary:' \
 
 ################################################################################
 # VARIABLE

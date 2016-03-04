@@ -1,70 +1,8 @@
 #!/bin/bash
 
-# tu reccuperes le dernier commit et le place ou il le faut
-#  git reset --soft HEAD^
-
-# from DARTY HUNOUT - conseil merge
-# se mettre sur oms_cuu et faire un REBASE origin/master
-# puis se mettre sur master (je crois) et faire un merge normal
-# comme cela, il y a moins de merges a faire, c est plus SIMPLE
-#
-# ou alors si on veut garder la parralelisation, il vaut mieux faire un merge
-# ------------------------------------------------
-# apres git pull, il te faut un git merge, OU ALORS tu fais git fetch
-
-
-
-# vive la git diff - atlassian
-# http://blogs.atlassian.com/2013/06/git-diff/
-
-
 ################################################################################
-# GIT (axel)
-################################################################################
-
-# savoir origin repo
-# git remote -v
-
-
-# ------------------------------------------------------------------------------
-# EN COURS             refs  #numero
-# SI C EST OK          fixes #numero
-# ------------------------------------------------------------------------------
-# git config --global core.excludesfile ~/.gitignore
-# git clone git@github.com:regnou/DEMO.git
-# ------------------------------------------------------------------------------
-
-# ------------------------------------------------------------------------------
-# Gestion branches
-# ------------------------------------------------------------------------------
-# > delete branch
-# git branch -d ou -D
-
-# ------------------------------------------------------------------------------
-# differents affichages
-# ------------------------------------------------------------------------------
- # gl
- # gl0
- # gl1
- # gl2
- # gl3
- # gl4
- # gll
- # gd
- # gdf
- # gs
- # gsf
- # bb
-
-# ------------------------------------------------------------------------------
-# @@ -start,count +start,count @@
-# ----------------------------------
-
-# ------------------------------------------------------------------------------
 # GL
-# ------------------------------------------------------------------------------
-# '\[maven-release-plugin\] prepare for next development iteration|\[maven-release-plugin\] prepare release|<Jenkins CI>|Jenkins CI' \
-            # '<Regnoult Axel>|Regnoult Axel'  \
+################################################################################
 AXL_GIT_GL="'fixes #' \
             'refs #' \
             'Revert \"Revert' \
@@ -78,10 +16,12 @@ AXL_GIT_GL="'fixes #' \
             'test' \
             "
 
+################################################################################
+# CURRENT COMMIT - TODO
+################################################################################
 CURRENT_COMMIT="'5f4e63e|5162b42|d9af13b|4b657e6|acfa51a|ad2e172|e869510' 20715 19020 19054 21068 22606 '615d7ff|ec4667e|ad2e172'"
 
-# ------------------------------------------------------------------------------
-
+################################################################################
 # QQUE SOIT LA BRANCHE
 alias gl="git log -30 --graph --pretty=format:'  %C(yellow)%<(30)%d   %C(white)%<(50)%s  %C(cyan)%h   %C(bold blue)%<(12)%cr  ' --abbrev-commit --date=short --all  \
 | h -i  $AXL_GIT_GL \
@@ -101,19 +41,11 @@ alias gl2='git lg -50'
 alias gl3="git log -30 --graph --pretty=format:'  %C(yellow)%<(25)%d   %C(white)%<(100)%s  %C(cyan)%h   %C(bold blue)%<(12)%cr  ' --abbrev-commit --date=short --all  "
 alias gl4='git glaaa -50'
 
-
-# ------------------------------------------------------------------------------
+################################################################################
 # STATUS
-# ------------------------------------------------------------------------------
-# On branch development
-# Your branch is ahead of 'origin/development' by 1 commit.
-#   (use "git push" to publish your local commits)
-# HEAD origin master development hotfixes
-# 'On branch|Your branch is up-to-date with|nothing to commit, working directory clean' \
-# ------------------------------------------------------------------------------
+################################################################################
 AXL_GIT_BOUCHONX="'LoginPresenter.java|Atnv2Dev.gwt.xml|applicationContext.xml|variableConfig.properties|RouterService.java|MainPresenter.java|logback.xml|settings.xml|db.changelog.xml|persistence.xml' \
                   "
-
 AXL_GIT_STATUS="'untracked files:|(use \"git add <file>...\" to include in what will be committed)|nothing added to commit but untracked files present (use \"git add\" to track)' \
               'nothing to commit, working directory clean' \
               'Changes to be committed:|\(use \"git reset HEAD <file>...\" to unstage\)' \
@@ -130,16 +62,11 @@ AXL_GIT_STATUS_detail=" 'origin/' \
         'deleted' \
         'renamed' \
         "
-
 alias a="git status | h -i $AXL_GIT_BOUCHONX | h -i $AXL_GIT_STATUS | h -ni $AXL_GIT_STATUS_detail"
 
-
-# ------------------------------------------------------------------------------
+################################################################################
 # MERGE
-# ------------------------------------------------------------------------------
-# "^diff --git.*|^index.*|^\-\-\- a/.*|^\+\+\+ b/.*" \
-# gs f3c8275 | grep 'diff \-\-.*([^/]|)+$'
-
+################################################################################
 alias gddd=' h -ni  \
     "^diff --git.*" \
     "^\+ .*" \
@@ -154,8 +81,6 @@ alias gddd=' h -ni  \
     "new file mode" \
     "index" \
     '
-# ".*/|$" \
-
 # diff ce qui est dans mon index local
 function gd()
 {
@@ -163,7 +88,6 @@ function gd()
   git diff $1 | gddd | h -i "popo" "lolo" "lili" $1
   gdf $1
 }
-
 
 function gdf()
 {
@@ -188,7 +112,6 @@ function gsf()
   # '\/java\/com\/groupemre\/atnv2\/'
 }
 
-
 # git blame
 # param : le nom de fichier
 function bb()
@@ -196,11 +119,9 @@ function bb()
   git blame -n $1 | grep Axel | h -i "2015|\.java|Regnoult Axel|\)"
 }
 
-
-# ------------------------------------------------------------------------------
+################################################################################
 # OTHER
-# ------------------------------------------------------------------------------
-
+################################################################################
 alias gst='git show $(git stash list | cut -d":" -f 1)'
 alias gb='git branch -a'
 # stash

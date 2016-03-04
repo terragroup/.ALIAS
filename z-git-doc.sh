@@ -176,3 +176,20 @@ git checkout --theirs   #
 # diff avec MELD
 ################################################################################
 sudo git diff 3d83be0 b571ec3
+
+
+
+
+
+ # OK - super - me donne de bons resultats (juste le nom du fichier apres le /)
+ # gs f3c8275 | grep 'diff \-\-'
+ # gs f3c8275 | grep 'diff \-\-' | grep '([^/]|)+$'
+ # gs f3c8275 | grep 'diff \-\-' | grep -o '([^/]|)+$' (que le nom)
+
+ # gs f3c8275 | grep 'diff \-\-.*([^/]|)+$'
+
+ # gs f3c8275 | grep 'diff \-\-' | grep -o '([^/]|)+$' (que le nom)
+ # gs f3c8275 | sed 's/diff \-\- //g'
+ # gs f3c8275 | sed 's/.* //g'
+
+ # gs f3c8275 | grep -v '[^\-]'

@@ -11,6 +11,13 @@ apm install git-log           # voir mike
 apm install seti-ui           # voir icon sexy js et autre
 apm install linter-eslint     # lintezr avec webstarterkit
 
+???? JSCS ????
+
+
+
+
+
+
 
 ################################################################################
 # creer son 1er projet
@@ -30,6 +37,21 @@ cd ..
 npm install gulp-sass --save-dev
 
 
+
+
+
+
+
+
+
+
+################################################################################
+#
+################################################################################
+
+
+
+
 ################################################################################
 #
 ################################################################################
@@ -38,5 +60,62 @@ npm install gulp-sass --save-dev
 
 
 ################################################################################
-#
+# ATOM - en cours de refacto
 ################################################################################
+wget https://atom.io/download/deb
+# ------------------------------------------------------------------------------
+apm install jshint
+apm install atom-beautify
+apm install markdown-preview
+apm install git-log
+apm install pigments
+apm install language-log
+apm install atom-typescript
+apm install  color-picker
+apm install javascript-snippets
+apm install autocomplete-plus
+apm install autocomplete-html
+apm install apm install autoprefixer
+symbols-view
+bracket-matcher
+script
+markdown-preview +++ voir en live
+bookmarks
+# JAVA
+apm install script
+apm install linter-javac
+apm install language-java
+apm install debugger
+
+quick-highlight
+# // CTRL + K m ou M             = (higlighter)
+
+
+################################################################################
+# NODE
+################################################################################
+npm install --save-dev eslint eslint-config-googlenpm install --save-dev eslint eslint-config-google
+
+# 1 - install NODE
+# 2 - install npm
+# 3 - install npm -g BOWER
+# 4 - install npm -g GULP
+# npm install (dep de gulp)
+# bower install (dependances  du projet)
+# gulp serve
+# bower init
+npm install -g typescript
+npm install -g tsd@^0.6.0
+npm install -g typescript@^1.5.0
+# tsd install angular2 es6-promise rx rx-lite
+npm install polyserve -g
+npm install -g yo
+npm install -g generator-polymer
+npm install -g yo
+npm install -g <generator-name>.
+npm install -g generator-meanstack
+npm install -g generator-express-angular
+
+curl --silent --location https://deb.nodesource.com/setup_0.12 | bash -
+mkdir -p my-project && cd $_
+yo meanstack

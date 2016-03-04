@@ -1,6 +1,29 @@
 #!/bin/bash
 
 
+
+ # ------------------------------------------------------------------------------
+ # MAN grep
+ # -E use extended regex;
+ # -o output only the matched text instead of the full line)
+ # ------------------------------------------------------------------------------
+ # ASTUCE : comme cela je sais les fichiers qui sont lies
+ alias now="gs f3c8275 | grepc 'getfilter|diff \-\-' | h -ni '\.java|src/main/java/com/groupemre/atnv2/'"
+
+ # refaire pour mettre jsute le nom du fichier
+ # gs f3c8275 | grep 'getfilter|diff \-\-' | h -ni '([^/.*\.java]|)+$'
+ # ------------------------------------------------------------------------------
+
+ # AXEL - c'est TROP restrictif
+ # alias grepc='grep --color=always';
+ # alias grepa='grep -HEin --color=always';
+
+
+ # ------------------------------------------------------------------------------
+  # ------------------------------------------------------------------------------
+   # ------------------------------------------------------------------------------
+
+
 # adde|cgr|kinepolis|ymagis|globecast|smartjog
 
 # https://www.jetbrains.com/idea/help/finding-usages-in-project.html

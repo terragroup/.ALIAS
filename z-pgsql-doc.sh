@@ -25,6 +25,11 @@
 
 
 
+ # TODO - donner le user axel pour qu'il ait le droit d'executer sur la db
+ alias gobd='su postgres && psql -f /home/axel/alias/PGSQL/JDD.sql atn'
+
+ 
+
 # ----------------------------------------------------------------------------
 # RESTORE 1
 # ----------------------------------------------------------------------------

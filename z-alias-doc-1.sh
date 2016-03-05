@@ -1,5 +1,9 @@
 #!/bin/bash
 
+
+# chsh -s /bin/bash  #change default shell to bash (instead of zsh for example)
+
+
 # savoir les DNS
 # nmcli dev list iface eth0 | grep IP4
 

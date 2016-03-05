@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 echo "-- BEGIN bash --"
 ################################################################################
 # INSTALL PACKAGE - sudo dpkg -i DEB_PACKAGE
@@ -37,14 +38,14 @@ alias oopen='gnome-open .'
 alias distance='remmina &'
 alias vi='/usr/bin/vim'
 alias idea="$AXL_HOME/dev/idea-13/bin/./idea.sh &"      # cat /home/axel/dev/idea-13 /home/axel/dev/idea-13/bin/idea64.vmoptions  # VM options are loaded from the IDE_HOME\bin\<product>[bits][.exe].vmoptions file.
-alias aaa='atom '
+alias aaa='atom .'
 alias aapm='sudo apm install'
 #-------------------------------------------------------------------------------
 # directory +++
 #-------------------------------------------------------------------------------
 alias dl="cd $AXL_HOME/DL"
 alias aatn="cd $AXL_HOME/com/atnv2"     # bureau
-alias aaw="cd $AXL_HOME/com/0-wstk"     # home
+alias qq="cd $AXL_HOME/com/MEAN"     # home
 alias aalias="cd $AXL_HOME/com/.ALIAS"     # bureau
 #-------------------------------------------------------------------------------
 # directory ---

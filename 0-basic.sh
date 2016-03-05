@@ -79,8 +79,10 @@ GREEN="$(tput setaf 2)"; YELLOW="$(tput setaf 3)"; END="$(tput sgr0)"
 JAUNE_GIT="\[\033[01;33m\]"
 JAUNE_GIT_2="$(tput setb 6) $(tput setaf 0)"
 # ------------------------------------------------------------------------------
-PS1='\n\n\n\n\n ($(echo $?)) $JAUNE_GIT_2                                                         $(__git_ps1)   $END $GREEN \A $END  \d  \
-$END\n$RED_BLACK     $(dirname $(pwd))/     $END$WHITE_RED     \W     $END       $TT_USER \u $END @ $TT_USER \H $END \n\n   $END $GREEN >>>   $END   '
+PS1='\n ($(echo $?)) $JAUNE_GIT_2                                                         $(__git_ps1)   $END $GREEN \A $END  \d  \
+$END\n$RED_BLACK     $(dirname $(pwd))/     $END$WHITE_RED     \W     $END       $TT_USER \u $END @ $TT_USER \H $END \n\n    '
+  #  $END  $GREEN >>>   $END
+
 # 1-line
 #PURPLE="$(tput setb 5)"; TT_USER="$(tput setb 2)"; RED="$(tput setaf 1)"; GREEN="$(tput setaf 2)"; YELLOW="$(tput setaf 3)"; END="$(tput sgr0)"
 #PS1='\n\n\n$GREEN$(dirname $(pwd))$END$RED \W $END\[\033[01;33m\]$(__git_ps1) $END        $(echo $?) |$GREEN \T $END| \d | \H | $TT_USER \u $END\n  '

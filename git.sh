@@ -139,12 +139,15 @@ alias gtp='git stash pop'
 alias gitp='git pull --rebase '
 alias gp='git push | h -i Everything'
 alias gm='git commit -m '
+alias gmm='git commit -m "maison"'
+alias gmM='git commit -m "bureau"'
 alias grc='git rebase --continue'
 alias gcp="git cherry-pick" # git cherry -v master
 #
 alias gc='git checkout'
 alias gcd='git checkout development'
-alias ga='git add'
+alias gaa='git add --all .'
+alias ga='git add '
 alias grH='git reset HEAD | h -n "M	    "'    # utile pour UNSTAGE (remet en normal ET NON PAS en pret a commiter)
 alias grv='git revert '
 

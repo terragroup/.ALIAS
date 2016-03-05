@@ -43,7 +43,19 @@ $LS_DIR_2 \
 LS_NUM="\s0\\-.* \s1\\-.* \s2\\-.* \s3\\-.* \s4\\-.* \s5\\-.* \s6\\-.* \s7\\-.* \s8\\-.* \s9\\-.*"
 LS_NUM_TIRET="popo"
 # LS_NUM="popo"
-alias     l='ls'
+# alias     la='ls -la'
+alias     ll='ls'
+# alias     l='ls  -nlXa --group-directories-first | h 1- 2- 3- 4- 5- 6- 7- 8- 9- | h js json md html css rc | h -ni app bower element script gulpfile babel package | h -ni node module index'
+
+    # | h 1- 2- 3- 4- 5- 6- 7- 8- 9- \
+alias     l='tree  -LACa 1 --dirsfirst \
+    | h -ni  popo pipi lolo popo popo popo pipi popo "gulpfile|json|bower|babel|html|css|rc|node|module|index|hint|lint" \
+    '
+alias     ll='tree  -LACa 2 --dirsfirst \
+        | h -ni  popo pipi lolo popo popo popo pipi popo "gulpfile|json|bower|babel|html|css|rc|node|module|index|hint|lint" \
+        '
+
+alias     la='tree  -LAaC 1 --dirsfirst '
 # alias     ls='ls -lh --group-directories-first   | awk '"'"'{print $1, $9}'"'"'  | h -ni $LS_ALL | h -ni $LS_NUM  | h -ni LS_NUM_TIRET  '
 
 # alias     la='ls -la --group-directories-first   | awk '"'"'{print $1, $9}'"'"'  | h -ni $LS_ALL | h -ni $LS_NUM  | h -ni LS_NUM_TIRET  '

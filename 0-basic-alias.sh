@@ -25,7 +25,8 @@ alias grepa='grep -HEin --color=always';
 # compress
 #-------------------------------------------------------------------------------
 alias detar='tar -xvzf '
-alias dezip='unzip'     # gunzip
+alias dezip='unzip'     #
+# gzip -d fichier.gz    # decompress  gunzip (.gz)
 #-------------------------------------------------------------------------------
 # dangeureux
 #-------------------------------------------------------------------------------

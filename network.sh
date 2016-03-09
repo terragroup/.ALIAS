@@ -10,9 +10,9 @@ AXL_IP_PORT="5432 5434 3306 8080 9090" # tomcat front (8080) tomcat back (9090) 
 H_NETSTAT="Proto|Recv-Q|Send-Q|Local Address|Foreign Address|State|PID/Program name|Timer"
 H_IFCONFIG="inet addr|Bcast|Masque|Hwaddr|Ethernet|locale|mtu|TX|collisions|octets"
 
-#-------------------------------------------------------------------------------
+#---------------------------------------------------------------------
 #
-#-------------------------------------------------------------------------------
+#---------------------------------------------------------------------
 
 alias ifconfig='ifconfig            | h -i $H_IFCONFIG adr eth0 lo $AXL_IP_PORT $AXL_IP_MASK '
 

@@ -143,7 +143,7 @@ function restore_local(){
     CREATE EXTENSION unaccent;
     CTRL+D
     # LOCAL : attention oblige mettte  -h
-    psql -h localhost -U atn  < /home/axel/EN_COURS/BACKUP-BDD-PROD/atnv2_production_
+    psql -h localhost -U atn  < /home/axel/EN_COURS/BACKUP-BDD-PROD/atnv2_production_XXXXXXX
     # --------------------------------------------------------------------------
     # PASSER LE SCRIPT D ANONYMISATION !!!
     # REPERTOIRE DU SCRIPT : /mnt/groups/INFO/MDV/00_EXPLOITATION/4_ATN_v2/1_Interventions sur les environnements/Script anonymisation

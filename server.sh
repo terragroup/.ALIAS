@@ -44,7 +44,7 @@ function stop_start_tomcat(){
   su - atnv2
   sh /var/atnv2/tomcat/bin/shutdown.sh        #  $CATALINA_HOME/bin/startup.sh
   # LOCAL :   # cd /etc/tomcat/current/
-  ps -ef | grep tomcat | grep -v grep | awk '{print $4}' | xargs kill -9 # axel grep
+  ps -ef | grep tomcat | grep -v grep | awk '{print $2}' | xargs kill -9 # axel grep
   # VERIF et kill
   ps -ef | grep tomcat
   kill -9

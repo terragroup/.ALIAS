@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# FAST AT HOME
 cd ~/com/JS
 
 echo ' ____START__    _'

@@ -1,22 +1,34 @@
-#############################
-# lancer liquibase sur ATN  #
-#############################
-# profile apply-db-migration (attention : il va tout re-executer, mais verifie tu es OK)
-# gestion de la base de donnee ==> install
+################################################################################
+# VAR
+################################################################################
+
+# attention a commenter les clefs des index : car H2  ne prend pas en compte les clefs
+
+#-------------------------------------------------------------------------------
+# Pour lancer le liquibase
+#-------------------------------------------------------------------------------
+# mettre le profil MAVEN sur:
+-  LOCALHOST
+-  APPLY-DB-MIGRATION
+# puis maven (partie DB)
+-  clean
+-  install
+
+#-------------------------------------------------------------------------------
+#
+#-------------------------------------------------------------------------------
 
 UPDATE DATABASECHANGELOGLOCK
 SET locked=0, lockgranted=null, lockedby=null
 WHERE id=1
 
-----------------------------------------
-LIQUIBASE
-----------------------------------------
+#-------------------------------------------------------------------------------
+#
+#-------------------------------------------------------------------------------
+
 runOnChange=true
 liquibase : tu me joue tout et prend les checksum
-
-
 # wiki a rajouter
-
 # liquid car jenkins sait la machine
         <profile>
                 <id>dev-AREGNOULT</id>
@@ -29,20 +41,9 @@ liquibase : tu me joue tout et prend les checksum
         </profile>
 
 
-#--------------------------------
-# Pour lancer le liquibase
-#--------------------------------
-# mettre le profil MAVEN sur:
--  LOCALHOST
--  APPLY-DB-MIGRATION
-# puis maven (partie DB)
--  clean
--  install
-
-
-#--------------------------------
+#-------------------------------------------------------------------------------
 # coutaumille.xml
-#--------------------------------
+#-------------------------------------------------------------------------------
 # si rien, il fait sur tous, mais la on a
 # besoin que sur H2
   <preConditions onFail="MARK_RAN">
@@ -50,12 +51,7 @@ liquibase : tu me joue tout et prend les checksum
         </preConditions>
 # en suppression : pas besoin car la table exite deja
 
-
-############
-# PROCESS
-############
-
-#fichier :
-liquidbase > src > main > structure > 'tu rajoutes ton fichier'
-
-# attention a commenter les clefs des index : car H2  ne prend pas en compte les clefs
+#-------------------------------------------------------------------------------
+# comment faire si tu veux changer un change que tu n'as pas le droit
+#-------------------------------------------------------------------------------
+tu supprimes la ligne dans datachangebaselog

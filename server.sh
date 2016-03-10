@@ -40,14 +40,18 @@ function update_nginx_local(){
 # ------------------------------------------------------------------------------
 function stop_start_tomcat(){
 # ------------------------------------------------------------------------------
-  ssh root@PRODATNV2WEB.mre.pub
+  # ssh root@PRODATNV2WEB.mre.pub
+  # sur ma machine je peux faire :
+  prodwww
   su - atnv2
-  sh /var/atnv2/tomcat/bin/shutdown.sh        #  $CATALINA_HOME/bin/startup.sh
+  # sh /var/atnv2/tomcat/bin/shutdown.sh        #  $CATALINA_HOME/bin/startup.sh
   # LOCAL :   # cd /etc/tomcat/current/
-  ps -ef | grep tomcat | grep -v grep | awk '{print $2}' | xargs kill -9 # axel grep
+  # ps -ef | grep tomcat | grep -v grep | awk '{print $2}' | xargs kill -9 # axel grep
+  # AVEC mon grep color, je dois prendre le 4eme
+  ps -ef | grep tomcat | grep -v grep | awk '{print $4}' | xargs kill -9 # axel grep
   # VERIF et kill
-  ps -ef | grep tomcat
-  kill -9
+  # ps -ef | grep tomcat
+  # kill -9
   sh /var/atnv2/tomcat/bin/startup.sh
 }
 

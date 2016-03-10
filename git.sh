@@ -135,6 +135,10 @@ alias gt='git stash'
 # alias gtl='git stash list --date=local'
 alias gtl='git stash list '
 alias gtp='git stash pop'
+# git stash pop "stash@{0}" 
+
+
+
 #
 alias gitp='git pull --rebase '
 alias gp='git push | h -i Everything'

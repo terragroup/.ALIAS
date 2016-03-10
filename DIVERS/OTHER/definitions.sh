@@ -27,7 +27,11 @@ return fonctionFille;
 }
 var fille = fonctionParente();
 fille();
-fonctionParente renvoie sa fonction interne et le code en bas de appelle cette fonction. Même si fonctionParente a fini de s’exécuter à ce moment-là, l’environnement local dans lequel variable a la valeur locale existe toujours, et fonctionFille continue de l’utiliser. Ce phénomène s’appelle une fermeture lexicale (ou closure en anglais).
+
+
+fonctionParente renvoie sa fonction interne et le code en bas de appelle cette fonction.
+Même si fonctionParente a fini de s’exécuter à ce moment-là, l’environnement local dans lequel variable a la valeur locale existe toujours, et fonctionFille continue de l’utiliser.
+Ce phénomène s’appelle une fermeture lexicale (ou closure en anglais).
 
 
 ################################################################################

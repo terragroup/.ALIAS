@@ -267,3 +267,17 @@ arrete server bdd
 creer database
 relance bdd
 restaure
+
+
+
+
+
+
+
+# rename table
+ALTER TABLE complexe_cpx ALTER COLUMN cpx_codehost RENAME TO cpx_temp;
+#
+UPDATE complexe_cpx SET cpx_codehost = lpad(('' || cpx_temp), 5, '0');
+#
+ALTER TABLE complexe_cpx DROP COLUMN cpx_temp;
+#

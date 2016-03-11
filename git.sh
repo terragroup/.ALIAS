@@ -1,5 +1,20 @@
 #!/bin/bash
 
+
+# STASH ONLY certains fichiers
+# tu fais git add sur certains elements et puis tu fais
+# git stash save --keep-index
+# et ca ne va stasher que ces fichiers
+
+
+# git checkout --ours <filename>
+# git checkout --theirs <filename>
+
+
+
+
+
+
 # ------------------------------------------------------------------------------
 # REGLE : LORSQUE TU CHERRY PICK : IL FAUT ABSOLUEMENT QUE TU METTES :
 # PICK (avec la coloration syntaxique : sinon tu ne comprend plus rien)
@@ -135,7 +150,7 @@ alias gt='git stash'
 # alias gtl='git stash list --date=local'
 alias gtl='git stash list '
 alias gtp='git stash pop'
-# git stash pop "stash@{0}" 
+# git stash pop "stash@{0}"
 
 
 

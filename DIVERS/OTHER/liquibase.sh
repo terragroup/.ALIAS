@@ -1,5 +1,5 @@
 ################################################################################
-# VAR
+# LIQUIBASE
 ################################################################################
 
 # attention a commenter les clefs des index : car H2  ne prend pas en compte les clefs
@@ -15,17 +15,20 @@
 -  install
 
 #-------------------------------------------------------------------------------
-#
+# repair DATABASECHANGELOG
 #-------------------------------------------------------------------------------
-
 UPDATE DATABASECHANGELOGLOCK
 SET locked=0, lockgranted=null, lockedby=null
 WHERE id=1
 
 #-------------------------------------------------------------------------------
-#
+# comment faire si tu veux changer un change que tu n'as pas le droit
 #-------------------------------------------------------------------------------
+tu supprimes la ligne dans datachangebaselog
 
+#-------------------------------------------------------------------------------
+# repair 2
+#-------------------------------------------------------------------------------
 runOnChange=true
 liquibase : tu me joue tout et prend les checksum
 # wiki a rajouter
@@ -40,7 +43,6 @@ liquibase : tu me joue tout et prend les checksum
                 </properties>
         </profile>
 
-
 #-------------------------------------------------------------------------------
 # coutaumille.xml
 #-------------------------------------------------------------------------------
@@ -50,8 +52,3 @@ liquibase : tu me joue tout et prend les checksum
             <dbms type="h2"/>
         </preConditions>
 # en suppression : pas besoin car la table exite deja
-
-#-------------------------------------------------------------------------------
-# comment faire si tu veux changer un change que tu n'as pas le droit
-#-------------------------------------------------------------------------------
-tu supprimes la ligne dans datachangebaselog

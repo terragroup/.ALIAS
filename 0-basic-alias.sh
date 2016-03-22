@@ -1,5 +1,14 @@
 #!/bin/bash
 
+alias ccd='cd /home/axel/com/GO/1-todo-list/app'
+alias ppy='python -m SimpleHTTPServer 8080'
+alias ccp='cat gulpfile.js  | h -ni serve task src ".*//.*" "element|index|script|images|bower_components" app dist "static|pipe|require" gulp'
+alias ccpp='cat gulpfile.babel.js  | h -ni serve task src ".*//.*" "element|index|script|images|bower_components" app dist "static|pipe|require" gulp'
+alias ccb='cat bower.json  | h -ni iron polymer paper element layout "input|button|menu|drawer|panel|checkbox|fab|icon|flex|selector|style|toggle|toolbar|item|material|header"'
+alias ccbb='ccp & ccb'
+alias nnp='npm install && bower install'
+
+
 
 echo "-- BEGIN bash --"
 ################################################################################

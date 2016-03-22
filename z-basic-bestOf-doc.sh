@@ -15,3 +15,6 @@ usermod --move-home --login <new-login-name> --home <new-home-dir> <old-login-na
 # add user
 useradd -m tom
 passwd tom
+
+# INSTALLATION PKG
+sudo dpkg --install

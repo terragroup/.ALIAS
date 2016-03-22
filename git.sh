@@ -1,6 +1,15 @@
 #!/bin/bash
 
 
+function github(){
+  # CLI commands for github API v3 (replace all CAPS keywords):
+  curl -u 'regnou' https://api.github.com/user/repos -d '{"name":$1}'
+  git clone https://github.com/regnou/$1.git
+  # Remember replace USER with your username and REPO with your repository/application name!
+  # git remote add origin git@github.com:regnou/$1.git
+  # git push origin master
+}
+
 # STASH ONLY certains fichiers
 # tu fais git add sur certains elements et puis tu fais
 # git stash save --keep-index

@@ -21,10 +21,9 @@ JAUNE_GIT="\[\033[01;33m\]"
 JAUNE_GIT_2="$(tput setb 6) $(tput setaf 0)"
 # ------------------------------------------------------------------------------
 
-
-PS1='\n ($(echo $?)) $JAUNE_GIT_2                                                         $(__git_ps1)   $END $GREEN \A $END  \d  \
-$END\n$RED_BLACK     $(dirname $(pwd))/     $END$WHITE_RED     \W     $END       $TT_USER \u $END @ $TT_USER \H $END \n\n    '
-
+PS1='\n$JAUNE_GIT_2                                                               $(__git_ps1)   $END $GREEN        \A $END      \d  \
+$END\n$WHITE_RED($(echo $?))  $(dirname $(pwd))/     $END                               $WHITE_RED     \W     $END       $TT_USER \u $END @ $TT_USER \H $END \n\n    '
+# RED_BLACK
 
 
   #  $END  $GREEN >>>   $END

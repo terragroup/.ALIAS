@@ -26,8 +26,7 @@ clean package -DskipTests=true -P atnv2_production
 
 
 
- # INSTALLATION PKG
- sudo dpkg --install
+ 
 
 
  # ------------------------------------------------------------------------------

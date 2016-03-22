@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # FAST AT HOME
-cd ~/com/JS
+# cd ~/com
+alias cdd='cd ~/com/GO'
 
 echo ' ____START__    _'
 echo '/  __//  _ \  / \'
@@ -69,5 +70,8 @@ echo "source 7-network" && . "$AXL_HOME_ALIAS/network.sh"
 
 
 alias ss='source ~/.bashrc'
-alias ggulp='gulp serve'
+alias ggg='gulp serve'
 alias aaz='atom '
+
+alias bi='bower install'
+alias ni='npm install'

@@ -10,7 +10,7 @@ alias ccpp='cat gulpfile.babel.js  | h -ni serve task src ".*//.*" "element|inde
 alias ccb='cat bower.json  | h -ni iron polymer paper element layout "input|button|menu|drawer|panel|checkbox|fab|icon|flex|selector|style|toggle|toolbar|item|material|header"'
 alias ccbb='ccp & ccb'
 
-
+alias kkk="ack "
 
 #-------------------------------------------------------------------------------
 #  now
@@ -18,7 +18,7 @@ alias ccbb='ccp & ccb'
 # 1
 alias gogit='gaa && gm "base project" && gp'
 # 2
-alias uup='ncu -u && ncu -m bower'
+alias nncu='ncu -u && ncu -m bower'
 # 3
 alias nnp='sudo npm install && bower install'
 

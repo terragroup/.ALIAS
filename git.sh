@@ -1,26 +1,50 @@
 #!/bin/bash
 
+function gitSpeed()
+{
+  git clone https://github.com/regnou/1-P-130.git
+  git clone https://github.com/regnou/2-P-light-130.git
+  git clone https://github.com/regnou/3-W-061.git
+  git clone https://github.com/regnou/4-W-P.git
+  git clone https://github.com/regnou/0-MS-2.0.0.git
+}
 
-function github(){
-  # CLI commands for github API v3 (replace all CAPS keywords):
-  curl -u 'regnou' https://api.github.com/user/repos -d '{"name":$1}'
-  git clone https://github.com/regnou/$1.git
+
+# function gitInit()
+# {
+  # curl -u 'regnou' https://api.github.com/user/repos -d '{"name":"1-P-130"}'
+  # curl -u 'regnou' https://api.github.com/user/repos -d '{"name":"4-W-P.git"}'
+  # curl -u 'regnou' https://api.github.com/user/repos -d '{"name":"2-P-light-130"}'
+  # curl -u 'regnou' https://api.github.com/user/repos -d '{"name":"3-W-061"}'
+  # curl -u 'regnou' https://api.github.com/user/repos -d '{"name":"0-MS-2.0.0"}'
+  # # curl -u yourUsername -X POST https://api.github.com/user/repos -d '{"name":"nameOfRepo"}'
+  # curl -X DELETE -H 'Authorization: token 73aa994f11809b82838ff15fbd0fc4e7c0a9fe57' https://api.github.com/repos/regnou/0-MS2
+  # curl -X DELETE -H 'Authorization: token 73aa994f11809b82838ff15fbd0fc4e7c0a9fe57' https://api.github.com/repos/regnou/polymer-starter-kit-1.3.0
+  # curl -X DELETE -H 'Authorization: token 73aa994f11809b82838ff15fbd0fc4e7c0a9fe57' https://api.github.com/repos/regnou/
+  # curl -X DELETE -H 'Authorization: token 73aa994f11809b82838ff15fbd0fc4e7c0a9fe57' https://api.github.com/repos/regnou/
+  # curl -X DELETE -H 'Authorization: token 73aa994f11809b82838ff15fbd0fc4e7c0a9fe57' https://api.github.com/repos/regnou/
+# }
+
+# function github()
+# {
+#   # CLI commands for github API v3 (replace all CAPS keywords):
+#   curl -u 'regnou' https://api.github.com/user/repos -d '{"name":$1}'
+#   git clone https://github.com/regnou/$1.git
   # Remember replace USER with your username and REPO with your repository/application name!
   # git remote add origin git@github.com:regnou/$1.git
   # git push origin master
-}
+# }
+
+
+
 
 # STASH ONLY certains fichiers
 # tu fais git add sur certains elements et puis tu fais
 # git stash save --keep-index
 # et ca ne va stasher que ces fichiers
 
-
 # git checkout --ours <filename>
 # git checkout --theirs <filename>
-
-
-
 
 
 
@@ -179,4 +203,4 @@ alias ga='git add '
 alias grH='git reset HEAD | h -n "M	    "'    # utile pour UNSTAGE (remet en normal ET NON PAS en pret a commiter)
 alias grv='git revert '
 
-alias gtag='git tag | h -ni 2.2.3 2.2.4 2.2.5 '
+alias gtag='git tag | h -ni 2.2.3 2.2.4 2.2.5'

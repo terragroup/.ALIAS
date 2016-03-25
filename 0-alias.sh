@@ -1,19 +1,31 @@
 #!/bin/bash
+################################################################################
+# AXEL ALIAS
+################################################################################
 
-alias ccd='cd /home/axel/com/GO/1-todo-list/app'
+alias ccd='cd /home/axel/com/Axel'
 alias ppy='python -m SimpleHTTPServer 8080'
 alias ccp='cat gulpfile.js  | h -ni serve task src ".*//.*" "element|index|script|images|bower_components" app dist "static|pipe|require" gulp'
 alias ccpp='cat gulpfile.babel.js  | h -ni serve task src ".*//.*" "element|index|script|images|bower_components" app dist "static|pipe|require" gulp'
 alias ccb='cat bower.json  | h -ni iron polymer paper element layout "input|button|menu|drawer|panel|checkbox|fab|icon|flex|selector|style|toggle|toolbar|item|material|header"'
 alias ccbb='ccp & ccb'
-alias nnp='npm install && bower install'
 
 
 
-echo "-- BEGIN bash --"
-################################################################################
-# INSTALL PACKAGE - sudo dpkg -i DEB_PACKAGE
-################################################################################
+#-------------------------------------------------------------------------------
+#  now
+#-------------------------------------------------------------------------------
+# 1
+alias gogit='gaa && gm "base project" && gp'
+# 2
+alias uup='ncu -u && ncu -m bower'
+# 3
+alias nnp='sudo npm install && bower install'
+
+# clavier asus... bttn eteindre,
+# lenovo - clavier PRO
+
+
 #-------------------------------------------------------------------------------
 # log
 #-------------------------------------------------------------------------------
@@ -78,6 +90,32 @@ alias ffun='compgen -A function  | grep -v '^[_]' | h -ni log dump fast_forward 
 alias df='df -h'
 alias du='du -h'
 alias mywget="wget http://redmine.mre.pub/projects/medicis-recap/repository"
+#-------------------------------------------------------------------------------
+#
+#-------------------------------------------------------------------------------
+
+
+# FAST AT HOME
+# cd ~/com
+alias cdd='cd ~/com/GO'
+
+alias aalias='alias | h  = alias /home/axel com DL'
+
+alias ss='source ~/.bashrc'
+alias ggg='gulp serve'
+alias aaz='atom '
+
+alias bi='bower install'
+alias ni='npm install'
+
+#-------------------------------------------------------------------------------
+#
+#-------------------------------------------------------------------------------
+
+
+
+
+
 ################################################################################
 # divers function
 ################################################################################

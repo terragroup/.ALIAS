@@ -18,15 +18,17 @@ function git_init(){
   # git init
   git config --global user.name "regnou"
   git config --global user.email "regnou.a@gmail.com"
-  # git config --global push.default simple
-  # 
-  # git clone https://github.com/regnou/paris-master.git
-  # ou git remote add origin https://github.com/regnou/paris-master.git
+  git config --global push.default simple
   #
-  # git init
-  # git commit -m "Hello !"
-  # git remote add origin git@github.com:regnou/ENV.git
-  # git push -u origin master
+  git clone https://github.com/regnou/paris-master.git
+  # ou
+  git remote add origin https://github.com/regnou/paris-master.git
+  #
+  git init
+  git commit -m "Hello !"
+  git remote add origin git@github.com:regnou/ENV.git
+  git push -u origin master
+
 
   # git config -l | grep origin
   # remote.origin.url=https://github.com/regnou/paris-master.git

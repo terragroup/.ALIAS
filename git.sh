@@ -10,6 +10,7 @@ function gitSpeed()
 }
 
 
+
 # function gitInit()
 # {
   # curl -u 'regnou' https://api.github.com/user/repos -d '{"name":"1-P-130"}'
@@ -189,17 +190,26 @@ alias gtp='git stash pop'
 
 #
 alias gitp='git pull --rebase '
-alias gp='git push | h -i Everything'
+
+alias ga='git add '
+alias gaa='git add --all .'
+
 alias gm='git commit -m '
-alias gmm='git commit -m "maison"'
+alias gmm='git commit -m "fake"'
+
+alias gp='git push | h -i Everything'
+alias gpp='gaa && gmm && gp'
+
+
+
+
 alias gmM='git commit -m "bureau"'
 alias grc='git rebase --continue'
 alias gcp="git cherry-pick" # git cherry -v master
 #
 alias gc='git checkout'
 alias gcd='git checkout development'
-alias gaa='git add --all .'
-alias ga='git add '
+
 alias grH='git reset HEAD | h -n "M	    "'    # utile pour UNSTAGE (remet en normal ET NON PAS en pret a commiter)
 alias grv='git revert '
 

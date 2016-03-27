@@ -1,4 +1,18 @@
 #!/bin/bash
+
+#-------------------------------------------------------------------------------
+#  now
+#-------------------------------------------------------------------------------
+# 1
+alias gogit='gaa && gm "base project" && gp'
+# 2
+alias nn1='sudo npm install; bower install'
+alias nn2='ncu -u && ncu -m bower'
+
+# To update global packages, you can use
+# npm install -g <package>:  npm -a/--upgradeAll;
+alias nnn='nn1 && nn2'
+
 ################################################################################
 # AXEL ALIAS
 ################################################################################
@@ -11,16 +25,6 @@ alias ccb='cat bower.json  | h -ni iron polymer paper element layout "input|butt
 alias ccbb='ccp & ccb'
 
 alias kkk="ack "
-
-#-------------------------------------------------------------------------------
-#  now
-#-------------------------------------------------------------------------------
-# 1
-alias gogit='gaa && gm "base project" && gp'
-# 2
-alias nncu='ncu -u && ncu -m bower'
-# 3
-alias nnp='sudo npm install && bower install'
 
 # clavier asus... bttn eteindre,
 # lenovo - clavier PRO

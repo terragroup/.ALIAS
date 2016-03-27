@@ -51,9 +51,17 @@ LS_NUM_TIRET="popo"
 # tout defaire ici
 # alias     ll='ls'
 #     # | h 1- 2- 3- 4- 5- 6- 7- 8- 9- \
-alias     l='tree  -LACa 1 --dirsfirst \
-    | h -ni  popo pipi lolo popo popo popo pipi popo "gulpfile|json|bower|babel|html|css|rc|node|module|index|hint|lint" \
-    '
+# //////////////////////////////////////////////////////////////////////////////
+# LE BON LS d habitude
+# //////////////////////////////////////////////////////////////////////////////
+# alias     l='tree  -LACa 1 --dirsfirst \
+#     | h -ni  popo pipi lolo popo popo popo pipi popo "gulpfile|json|bower|babel|html|css|rc|node|module|index|hint|lint" \
+#     '
+# //////////////////////////////////////////////////////////////////////////////
+# TMP
+alias l='ls -a'
+
+
 # alias     ll='tree  -LACa 2 --dirsfirst \
 #         | h -ni  popo pipi lolo popo popo popo pipi popo "gulpfile|json|bower|babel|html|css|rc|node|module|index|hint|lint" \
 #         '

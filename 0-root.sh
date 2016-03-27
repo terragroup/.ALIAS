@@ -1,6 +1,36 @@
 #!/bin/bash
 
+# ------------------------------------------------------------------------------
+# SSH A FAIRE
+# ----------------------------------------------------------------------------
+
+# FAIRE L INSTALL AVEC TT LES DEPENDANCES AUTO
+
+# refaire passwd axel
+# sudo passwd axel
+
+
+
+# // TODO :
+# 1 - autocomplete comme zsh (navigation)
+# 2 - m si 1ere lettre est mauvaise : faire auto-complete //
+
+# https://github.com/robbyrussell/oh-my-zsh //
+
+# changer taille terminal terminator
+# ~/.config/terminator/config
+#       size = 900, 600
+
+
+# a chercher :
+# - rajouter le PWWD dans sudo directement au lieu de le rataper
+
 # INSTALL PACKAGE - sudo dpkg -i DEB_PACKAGE
+
+# alias     ls='ls -lh --group-directories-first   | awk '"'"'{print $1, $9}'"'"'  | h -ni $LS_ALL | h -ni $LS_NUM  | h -ni LS_NUM_TIRET  '
+
+# desinstaller le programme SCREEN - quel est la cmd uninstall
+
 
 ################################################################################
 # Axel REGNOULT - BASHRC - 1er nov
@@ -45,15 +75,15 @@ PATH=$JAVA_HOME/bin:bin:$M2_HOME/bin:$CATALINA_HOME/bin:$PATH:/opt/ack
 ################################################################################
 # DIVERS
 ################################################################################
-bind    "set completion-ignore-case on"
+# bind    "set completion-ignore-case on"
 stty    -ixon                                           # disable flow control
-shopt   -s histappend                                   # Make bash append rather than overwrite the history on disk
+# shopt   -s histappend                                   # Make bash append rather than overwrite the history on disk
 ################################################################################
 # IMPORT SOURCE
 ################################################################################
 echo "source basic-mre"       && . "$AXL_HOME_ALIAS/basic-mre.sh"
 echo "source 0-alias"         && . "$AXL_HOME_ALIAS/0-alias.sh"
-echo "source 0-prompt"        && . "$AXL_HOME_ALIAS/0-prompt.sh"
+# echo "source 0-prompt"        && . "$AXL_HOME_ALIAS/0-prompt.sh"
 # ------------------------------------------------------------------------------
 echo "source 1-ls"            && . "$AXL_HOME_ALIAS/ls.sh"
 echo "source 1-ssh"           && . "$AXL_HOME_ALIAS/ssh.sh"

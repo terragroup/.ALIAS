@@ -25,7 +25,10 @@ alias nnetstat='sudo netstat -antop | h -i 127.0.0.1 listen java postgres nginx 
 alias sstatus='sudo service nginx status; sudo service postgresql status; sudo service mysql status'
 
 alias ppid="ps axo pid,ppid,pgrp,tty,tpgid,sess,comm |awk '$2==1\' |awk '$1==$3\'"
-alias ppid-all="ps -lA | awk '$12 == "?" {print $4, $14}'"
+
+# ne marche pas sur ZSH
+# alias ppid-all="ps -lA | awk '$12 == "?" {print $4, $14}'"
+
 alias zombie="ps -lA | grep '^. Z'"
 # free -m
 # alias myps="ps -eo size,pid,user,command --sort -size | awk '{ hr=$1/1024 ; printf("%13.2f Mb ",hr) } { for ( x=4 ; x<=NF ; x++ ) { printf("%s ",$x) } print "" }'"

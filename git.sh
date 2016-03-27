@@ -1,7 +1,10 @@
 #!/bin/bash
 
+
+
 function gitSpeed()
 {
+  # git clone https://github.com/regnou/.ALIAS.git
   git clone https://github.com/regnou/1-P-130.git
   git clone https://github.com/regnou/2-P-light-130.git
   git clone https://github.com/regnou/3-W-061.git
@@ -198,8 +201,7 @@ alias gm='git commit -m '
 alias gmm='git commit -m "fake"'
 
 alias gp='git push | h -i Everything'
-alias gpp='gaa && gmm && gp'
-
+alias gpp='gaa && gmm && gp'            # NEW
 
 
 

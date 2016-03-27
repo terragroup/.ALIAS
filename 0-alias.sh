@@ -4,10 +4,11 @@
 #  now
 #-------------------------------------------------------------------------------
 # 1
-alias gogit='gaa && gm "base project" && gp'
+
 # 2
-alias nn1='sudo npm install; bower install'
-alias nn2='ncu -u && ncu -m bower'
+
+alias nn1='echo ">>>>> npm   install"               && sudo npm install;  echo ">>>>> bower install"                    && bower install'
+alias nn2='echo ">>>>> bower ncu -u (package.json)" && sudo ncu -u;       echo ">>>>> bower ncu -m bower (bower.json)"  && sudo ncu -m bower'
 
 # To update global packages, you can use
 # npm install -g <package>:  npm -a/--upgradeAll;
@@ -30,7 +31,7 @@ alias nnn='nn1 && nn2'
 # AXEL ALIAS
 ################################################################################
 
-alias ccd='cd /home/axel/com/Axel'
+alias ccd='cd /home/axel/com/axel'
 alias ppy='python -m SimpleHTTPServer 8080'
 alias ccp='cat gulpfile.js  | h -ni serve task src ".*//.*" "element|index|script|images|bower_components" app dist "static|pipe|require" gulp'
 alias ccpp='cat gulpfile.babel.js  | h -ni serve task src ".*//.*" "element|index|script|images|bower_components" app dist "static|pipe|require" gulp'
@@ -96,11 +97,12 @@ alias alog='rmf  a-rec-tomcat-atnv2.log && megalogrec && cl a-rec-tomcat-atnv2.l
 #-------------------------------------------------------------------------------
 alias rs='atom ~/.m2/settings.xml'
 alias rc='atom $AXL_HOME_ALIAS'
-alias sb='. $AXL_HOME_ALIAS/0-basic.sh'   # alias sb='source ~/.bashrc'
+alias sb='. $AXL_HOME_ALIAS/0-root.sh'   # alias sb='source ~/.bashrc'
 #-------------------------------------------------------------------------------
 # type function pour avoir la declaration
 #-------------------------------------------------------------------------------
-alias ffun='compgen -A function  | grep -v '^[_]' | h -ni log dump fast_forward '
+# TODO - a reparer sous ZSH
+# alias ffun='compgen -A function  | grep -v '^[_]' | h -ni log dump fast_forward '
 #-------------------------------------------------------------------------------
 # moins important
 #-------------------------------------------------------------------------------

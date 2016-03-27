@@ -59,7 +59,7 @@ LS_NUM_TIRET="popo"
 #     '
 # //////////////////////////////////////////////////////////////////////////////
 # TMP
-alias l='ls -a'
+# alias l='ls -a'
 
 
 # alias     ll='tree  -LACa 2 --dirsfirst \
@@ -69,10 +69,12 @@ alias l='ls -a'
 # alias     la='tree  -LAaC 1 --dirsfirst '
 
 
-
-
-
 # alias     ls='ls -lh --group-directories-first   | awk '"'"'{print $1, $9}'"'"'  | h -ni $LS_ALL | h -ni $LS_NUM  | h -ni LS_NUM_TIRET  '
 
 # alias     la='ls -la --group-directories-first   | awk '"'"'{print $1, $9}'"'"'  | h -ni $LS_ALL | h -ni $LS_NUM  | h -ni LS_NUM_TIRET  '
 # alias    lla='ls -A  --group-directories-first   | h -i $LS_ALL ' # -A: all but . and ..
+
+  #  | awk '"'"'{print $1, $9}'"'"'  | h -ni $LS_ALL | h -ni $LS_NUM  | h -ni LS_NUM_TIRET
+ # alias     l='ls -a --group-directories-first'
+# alias     l='ls -a --group-directories-first'
+# . com/.ALIAS/0-root.sh

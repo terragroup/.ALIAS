@@ -79,7 +79,7 @@ lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen
 # Show last commit
 lc = log ORIG_HEAD.. --stat --no-merges
 
-# -- DARTY -- 
+# -- DARTY --
 # lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s -- %cn %C(bold blue)<%ad>%Creset' --abbrev-commit --date=relative
 # lgf = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s <%ad>' --abbrev-commit --date=relative --name-status
 # -- DARTY --

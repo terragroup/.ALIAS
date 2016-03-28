@@ -51,6 +51,9 @@ npm install -g generator-express-angular
 # ------------------------------------------------------------------------------
 # LOCAL
 # ------------------------------------------------------------------------------
+sudo npm install babel-core babel-preset-es2015 --save-dev
+
+
 npm install     --save-dev eslint eslint-config-google
 npm install     --save-dev stylelint-config-standard       # pour pouvoir linter le css (creer un fichier )
 # npm install     --save-dev eslint-config-xo                # pour faire marcher le linter de starter kit

@@ -1,5 +1,10 @@
 #!/bin/bash
 
+
+
+# <!-- To specify DOM to use for an element’s local DOM, use the <dom-module> element. Give the <dom-module> an id attribute that matches its element’s is property and put a <template> inside the <dom-module>. Polymer will automatically clone this template’s contents into the element’s local DOM. -->
+
+
 #-------------------------------------------------------------------------------
 #  now
 #-------------------------------------------------------------------------------
@@ -131,9 +136,9 @@ alias ni='npm install'
 #
 #-------------------------------------------------------------------------------
 
+alias cl='clear ; l'
 
-
-
+alias yyy='yo polymer:el '
 
 ################################################################################
 # divers function

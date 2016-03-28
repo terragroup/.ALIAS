@@ -4,6 +4,17 @@
 #
 ##############################################################################//
 
+function gitSpeed()
+{
+    git clone https://github.com/regnou/.ALIAS.git
+  git clone https://github.com/regnou/1-P-130.git
+  git clone https://github.com/regnou/2-P-light-130.git
+  git clone https://github.com/regnou/3-W-061.git
+  git clone https://github.com/regnou/4-W-P.git
+  git clone https://github.com/regnou/0-MS-2.0.0.git
+}
+//
+
 1 - WSTK 8
 2 - WSTK + todo APP (bleue) + polymer
 3 - polymer todo app 2 (rouge)

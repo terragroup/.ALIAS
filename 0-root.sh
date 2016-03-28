@@ -9,6 +9,8 @@
 # refaire passwd axel
 # sudo passwd axel
 
+# change default shell
+# chsh -s /bin/zsh
 
 
 # // TODO :

@@ -27,6 +27,8 @@ apm install linter              # root plugin linter                -- obligatoi
 apm install linter-eslint       # lintezr js // avec webstarterkit  -- obligatoire
 apm install linter-stylelint    # linter css                        -- obligatoire
 apm install linter-htmlhint
+apm install linter-polymer
+
 # apm install polymer-atom        # linter polymer
 # apm install polymerjs-snippets  # https://atom.io/packages/polymerjs-snippets
 
@@ -45,7 +47,13 @@ apm install atom-polymer        # autocomplete POLYMER Rob
 apm install Atom-PolymerSnippets
 apm install tern.js             # SUPER : AUTOCOMPLETE JS - Adds support for ES5, ES6 (JavaScript 2015)...
                                 # ...Node.js, jQuery, Angular and more
+                                # https://atom.io/packages/atom-ternjs
+                                #
                                 # ctrl + alt + shift + D = GO TO DEFINITION FUNCTION ++++
+                                # ctrl + alt + shift + E = FIND references
+                                # ctrl + alt + shift + Z = back from definition
+                                # ctrl + alt + shift + C = rename variable
+                                # alt + o : show doc
 # ------------------------------------------------------------------------------
 # REF
 # ------------------------------------------------------------------------------

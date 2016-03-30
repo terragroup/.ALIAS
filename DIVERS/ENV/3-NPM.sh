@@ -33,12 +33,12 @@ sudo npm install -g bower                       # 1 - install BOWER
 sudo npm install -g gulp                        # 2 - install GULP
 sudo npm install -g yo                          # 3 - install YEOMAN
 sudo npm install -g generator-polymer           # 4 - install YO POLYMER
+sudo npm install -g polylint
+sudo npm install -g polyserve
 
-npm install -g polyserve
-npm install -g yo
-npm install -g generator-polymer
-npm install -g generator-meanstack
-npm install -g generator-express-angular
+
+sudo npm install -g generator-meanstack
+sudo npm install -g generator-express-angular
 
 # npm install -g npm                            # Installer   la version de NPM
 # sudo npm install -g mean-cli                  # creer son 1er projet MEAN

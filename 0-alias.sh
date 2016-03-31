@@ -84,6 +84,8 @@ alias distance='remmina &'
 alias vi='/usr/bin/vim'
 alias idea="$AXL_HOME/dev/idea-13/bin/./idea.sh &"      # cat /home/axel/dev/idea-13 /home/axel/dev/idea-13/bin/idea64.vmoptions  # VM options are loaded from the IDE_HOME\bin\<product>[bits][.exe].vmoptions file.
 alias aaa='atom .'
+alias aaaa='atom app/scripts/main.js app/styles/main.css app/index.html atom gulpfile.babel package.json bower.json  atom app/elements/elements.html atom app/elements/elements.html atom app/elements/axel/axel-app/axel-app.html  atom app/elements/axel/axel-body/axel-body.html  atom app/elements/axel/axel-header/axel-header.html  atom app/elements/axel/axel-footer/axel-footer.html'
+
 alias aapm='sudo apm install'
 #-------------------------------------------------------------------------------
 # directory +++

@@ -43,20 +43,29 @@ function create_project(){
   git commit -m "first commit"
   git remote add origin https://github.com/regnou/DEMO.git
   git push -u origin master
-  #git push --set-upstream origin master
+  # git push --set-upstream origin master
   git branch --set-upstream-to=origin/master-dev master
 }
 
+
+
+#
+# AVEC CA : GITHUB ne te demande plus le password
+#
 function generate_ssh_key(){
+  #
   # GENERATE SSH KEY
   # https://help.github.com/articles/generating-ssh-keys/
+  #
 
   # start the ssh-agent in the background
-  # Add your SSH key to the ssh-agent:
-  # test connexion
   ssh-keygen -t rsa -b 4096 -C "regnou.a@gmail.com"
   eval "$(ssh-agent -s)"
+  # Add your SSH key to the ssh-agent:
   ssh-add ~/.ssh/id_rsa
+
+  # LA TU FAIS L AJOUT DE LA CLEF PUBLIQUE DANS GITHUB ! et tu fais :
+  # test connexion
   ssh -T git@github.com
   ssh -T -p 443 git@ssh.github.com
 
@@ -70,7 +79,6 @@ function generate_ssh_key(){
 
 
 #!/bin/bash
-
 
 # tu reccuperes le dernier commit et le place ou il le faut
 #  git reset --soft HEAD^

@@ -2,6 +2,8 @@
 # NPM TOOL (node.js)
 ################################################################################
 
+
+
 # ------------------------------------------------------------------------------
 # CONFIG / UPDATE TOOL
 # ------------------------------------------------------------------------------
@@ -37,6 +39,8 @@ sudo npm install -g polylint
 sudo npm install -g polyserve
 
 
+sudo npm install -g firebase-tools
+
 sudo npm install -g generator-meanstack
 sudo npm install -g generator-express-angular
 
@@ -52,6 +56,8 @@ sudo npm install -g generator-express-angular
 # LOCAL
 # ------------------------------------------------------------------------------
 sudo npm install babel-core babel-preset-es2015 --save-dev
+
+npm install --save-dev gulp-babel gulp-sourcemaps gulp-crisper babel-preset-es2015
 
 
 npm install     --save-dev eslint eslint-config-google

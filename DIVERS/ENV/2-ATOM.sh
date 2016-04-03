@@ -18,6 +18,10 @@
 CTRL + SHFT + P                 # open command pallette
 CTRL + SHFT + S                 # TOUS LES SNIPPETS de LA PAGE
 
+ctrl +alt + m   : selecteionne inner bracket
+ctrl + m        : next brace
+
+
 # GIT-DIFF : CORE ; FAIRE SETTING ET AJOUTER 'show icons in editor gutter'
 
 # ------------------------------------------------------------------------------

@@ -12,12 +12,17 @@
 
 # 2
 
-alias nn1='echo ">>>>> npm   install"               && sudo npm install;  echo ">>>>> bower install"                    && bower install'
-alias nn2='echo ">>>>> bower ncu -u (package.json)" && sudo ncu -u;       echo ">>>>> bower ncu -m bower (bower.json)"  && sudo ncu -m bower'
+# alias nn1='echo ">>>>> npm   install "               && sudo npm install ;  echo ">>>>> bower install"                    && bower install | h -ni bower gulp npm install polymer '
+# alias nn2='echo ">>>>> bower ncu -u (package.json)" && sudo ncu -u | h -ni bower gulp npm install polymer ;       echo ">>>>> bower ncu -m bower (bower.json)"  && sudo ncu -m bower -u | h -ni bower gulp npm install polymer '
 
-# To update global packages, you can use
+
+alias nn1='echo ">>>>> npm   install "               &&  npm install ;  echo ">>>>> bower install"                    && bower install | h -ni bower gulp npm install polymer '
+alias nn2='echo ">>>>> bower ncu -u (package.json)" &&  sudo ncu -u | h -ni bower gulp npm install polymer ;       echo ">>>>> bower ncu -m bower (bower.json)"  &&  sudo ncu -m bower -u | h -ni bower gulp npm install polymer '
+
+ # To update global packages, you can use
 # npm install -g <package>:  npm -a/--upgradeAll;
-alias nnn='nn1 && nn2'
+# alias nnn='nn1 && nn2'
+alias nnn='nn1'
 
 # git clone https://github.com/regnou/3-P-todo
 # curl -u 'regnou' https://api.github.com/user/repos -d '{"name":"3-P-todo"}'
@@ -128,7 +133,7 @@ alias cdd='cd ~/com/GO'
 alias aalias='alias | h  = alias /home/axel com DL'
 
 alias ss='source ~/.bashrc'
-alias ggg='gulp serve'
+alias ggg='gulp serve | h -ni css finished lint styles app js serving 3000 3001 starting reloading PSK'
 alias aaz='atom '
 
 alias bi='bower install'
@@ -161,4 +166,10 @@ function cp_ws() {
     # ignorer en cas d'erreur
     mv "$2/.metadata/.plugins/org.eclipse.core.runtime/.settings" "$2/.metadata/.plugins/org.eclipse.core.runtime/.settings.old"
     cp -R "$1/.metadata/.plugins/org.eclipse.core.runtime/.settings" "$2/.metadata/.plugins/org.eclipse.core.runtime/.settings"
+}
+function ffast(){
+rmf *
+sudo rmf node_modules
+git clone https://github.com/StartPolymer/polymer-starter-kit-plus.git
+chmod 666 *
 }

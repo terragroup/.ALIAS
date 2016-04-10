@@ -1,7 +1,7 @@
 //##############################################################################
-# 
-#                                   IDEA 
-# 
+#
+#                                   IDEA
+#
 ##############################################################################//
 
 # ------------------------------------------------------------------------------
@@ -13,6 +13,24 @@
 # ------------------------------------------------------------------------------
 # SHORTCUT IDEA
 # ------------------------------------------------------------------------------
+itar - Settings | Live Templates for more details.
+
+
+F2 or shift F2          - go to next error
+
+
+
+ctrl + alt + shift + N  - go to next symbol (function, attribute...) -- en lien avec ctrl + f12
+cttrl + F12             - SHOW FUNCTIONS/ATTRIBUTES / FILE
+
+ALT + SHIFT + F         - ajouter aux favoris
+CTRL + W                - select de block en block, de l interiueur vers l exterieur
+CTRL + P                - PROPOSE LES ---  ARGUMENTS DE LA FONCTION --- : c est de la balle ++++
+
+
+CTRL + ALT + V          - permet d extract une experession compliquee en variable
+
+
 CTRL + ALT + L          - format
 ALT  + F7               - FIND USAGE (references ?)
 CTRL + ALT + h          - call hierarchy
@@ -24,9 +42,12 @@ ALT + u                 - monte method parente
 shift + F10             -
 CTRL + shift + F10      -
 CTRL + ALT + L          -
+
+CTRL + F12              - affiche members pour naviguer vite
+
 CTRL + ALT + o          - import inutile
 shift + f6              - rename
-CTRL +B                 - CTRL + click
+CTRL  + B               - EQUIVALENT A CTRL + click sur les fonctions
 ALT + insert
 CTRL + ALT + m          - external method
                          + v = var
@@ -84,6 +105,21 @@ CTRL + m        	- jump matching brace
 - Preferences -> Editor -> Other -> "Show quick doc on mouse move"
 - File | Settings | Appearance and Behavior | System Settings | Updates (desactivate updates)
 - autoscroll from sources (dans le petit menu setting du panel project hierarchy)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ################################################################################

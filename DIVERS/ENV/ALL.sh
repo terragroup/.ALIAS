@@ -64,7 +64,7 @@ super + d                     = montrer le bureau
 # select zone rapide > dans cmd Mint
 shutter -s
 
-
+shutter -s
 
 ################################################################################
 # vi

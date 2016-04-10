@@ -4,6 +4,23 @@
 #
 ##############################################################################//
 
+
+
+//##############################################################################
+1 - POUR CREER UN PROJET GITHUB, FAIRE ATTENTION AU TYPE DE CLONE SSH
+git clone git@github.com:regnou/0-MS-2.0.0.git
+2 - puis verifier avec :
+➜  ms+ git:(master) ✗ git config -l | grep emote.origin.url
+remote.origin.url=git@github.com:regnou/0-MS-2.0.0.git
+
+
+
+
+//##############################################################################
+
+
+
+
 # 5 http://polymerelements.github.io/app-layout-templates
 git clone https://github.com/PolymerElements/app-layout-templates
 

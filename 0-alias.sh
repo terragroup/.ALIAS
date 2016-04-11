@@ -143,7 +143,7 @@ alias ni='npm install'
 #
 #-------------------------------------------------------------------------------
 
-alias cl='clear ; l'
+# alias cl='clear ; l'
 
 alias yyy='yo polymer:el '
 

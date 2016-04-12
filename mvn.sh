@@ -37,7 +37,9 @@ $MVN_OTHER"
 # ATTENTION : j ai laisse le PROFILE de atn (useless dans les autres projets)
 # alias   c='mvn clean install -U -Dgpg.skip=true    -P Atnv2_Local,gwt-dev,resources-dev   -DskipTests  2>&1     | h -i $MVN_ALL'
 alias   c='mvn clean install -U -Dgpg.skip=true    -P Atnv2_Local,gwt-dev,resources-dev   -DskipTests  2>&1     | h -i error info warn debug'
-alias  ct='mvn clean install -U -Dgpg.skip=true    -P Atnv2-TU,gwt-dev,resources-dev                   2>&1     | grep -v "DATABASECHANGELOG|executed|changeset|expected\ postgresql,\ got\ h2|Successfully\ released\ change\ log\ lock|Successfully\ acquired\ change\ log\ lock"   |  h -i $MVN_ALL'
+# alias  ct='mvn clean install -U -Dgpg.skip=true    -P Atnv2-TU,gwt-dev,resources-dev                   2>&1     | grep -v "DATABASECHANGELOG|executed|changeset|expected\ postgresql,\ got\ h2|Successfully\ released\ change\ log\ lock|Successfully\ acquired\ change\ log\ lock"   |  h -i  error info warn debug'
+alias  ct='mvn clean install -U -Dgpg.skip=true    -P Atnv2-TU,gwt-dev,resources-dev                   2>&1     | h -i  error info warn debug caused atnv2 0'
+# alias  ct='mvn clean install -U -Dgpg.skip=true    -P Atnv2-TU,gwt-dev,resources-dev                   2>&1     | grep -v "DATABASECHANGELOG|executed|changeset|expected\ postgresql,\ got\ h2|Successfully\ released\ change\ log\ lock|Successfully\ acquired\ change\ log\ lock"   |  h -i $MVN_ALL'
 
 # AUTRE MRE (attention, existe profile LIQUIBASE)
 alias  cf='cd /home/axel/com/atnv2/frontend    && mvn clean install -U -P Atnv2_Local,gwt-dev,resources-dev -DskipTests  2>&1        | h -i $MVN_ALL        && cd ..'

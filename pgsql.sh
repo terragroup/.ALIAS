@@ -77,9 +77,17 @@ function dump_prod(){
   BACKUP_DIR="/var/lib/pgsql/backups"
   DATE=$(date +"%Y-%m-%d_%H-%M-%S")
   SAVE_FILE=${BACKUP_DIR}/${PGDATABASE}_${DATE}.sql.gz  # ~/dump-atn-preprod-
+
+  # SAVE_FILE=/var/lib/pgsql/backups/atnv2_production_2016-04-11_18-07-11.sql.gz
+
   echo 'su - postgres -c "pg_dump -O ${PGDATABASE} | gzip > ${SAVE_FILE}"'
   # GO
   su - postgres -c "pg_dump -O ${PGDATABASE} | gzip > ${SAVE_FILE}"
+
+  # su - postgres -c "pg_dump -O atnv2_production | gzip > /var/lib/pgsql/backups/atnv2_production_2016-04-11_18-07-11.sql.gz"
+  
+
+
   # ou NON ZIPPE
   # pg_dump –U user –W basededonnée > atnv2_production_2015-11-02_23-30-01.sql
 }

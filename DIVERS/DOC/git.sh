@@ -1,5 +1,52 @@
 #!/bin/bash
 
+
+------------------------------------------------------------------------------------------------------
+
+# Pour savoir a qui on se connecte : le client a une liste des KNOWS HOST des serveurs auxquels il se connecte
+# Donc, il faut AJOUTER LA CLED PUBLIQUE DU SERVEUR dans ce fichier, comme cela, on sait avec qui on se connecte
+~/.ssh/known_hosts on the client manually.
+
+
+# savoir ton fingerprint
+ssh-keygen -lf axel-key.pub
+2048 45:46:75:03:d2:5a:f4:ff:bb:5b:8d:b8:1b:7e:21:fd  axel@axel-HP-Compaq-8200-Elite-SFF-PC (RSA)
+
+
+------------------------------------------------------------------------------------------------------
+
+
+
+
+
+# FONCTIONNEMENT COMMIT
+- tu commits avec FIXES (ca fera passer le status a RESOLU)
+- puis tu click sur le SHA et tu vas dans le depot (ca met un peu de temps a rafraichir et c est OK)
+
+#----------------------------
+# Besoin de supprimer des commits
+#----------------------------
+git rebase -i HEAD~4        # il va te proposer d editer un fichier et tu vas pouvoir supprimer les lignes que tu souhaites supprimer
+git push -f origin hotfixes # il te faudra le -f
+
+
+#----------------------------
+#
+#----------------------------
+git fetch --tag
+git tag IMDV-2.19.18
+
+#
+wget http://redmine.mre.pub/projects/medicis-recap/repository
+
+#
+git://gitorious.mre.pub/medicis/medicis.git
+1bb372fe3049332e88d1ac62561532764f76294d
+echo 1bb372fe3049332e88d1ac62561532764f76294d >> .git/refs/heads/hotfixes
+
+
+
+
 # --------------------------------------------
 # GIT
 # --------------------------------------------

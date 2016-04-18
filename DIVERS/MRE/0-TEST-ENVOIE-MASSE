@@ -1,0 +1,46 @@
+tester l envoie en masse
+
+
+
+
+# https://www.sslshopper.com/article-most-common-openssl-commands.html
+# CHECK VALIDITE DU CERTIFICAT !
+openssl pkcs12 -info -in client-cert.p12
+
+
+
+
+- S1611
+- ** - Il faut tjs tester la creation en masse avec une GOLD
+- ** - verifier le certificat ?
+- transporteur : smartjog
+-
+- liste des CPX > regarde si etat est DISPONIBLE > regarde addresse smartjog> c est bien a 7815
+
+
+
+
+
+================================
+= CINEMATIQUE
+================================
+
+________________________________
+AUTRES REFERENTIELS / 1 > liste des complexes
+________________________________
+abbeville le rex
+Smartjog ETAT RESEAU :DISPO
+statut : valident
+
+________________________________
+GESTION DES DCP
+________________________________
+
+--------------------------------
+
+________________________________
+GESTION DES PDD
+________________________________
+> envoi en masse des playlists
+--------------------------------
+statut : a envoyer ! PUIS ENVOIE !

@@ -1,0 +1,49 @@
+<configuration>
+
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>/tmp/atnv2.log</file>
+
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>/tmp/atnv2.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+      <maxHistory>15</maxHistory>
+    </rollingPolicy>
+
+    <encoder>
+      <pattern>%date;%t;%level;%X{login};%logger{10};%msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%date -%t - %level - [%X{login}] - %logger{10} - %L - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="TEMP" class="com.groupemre.atnv2.services.administration.TempAppender">
+    <encoder>
+      <pattern>%date -%t - %level - [%X{login}] - %logger{10} - %L - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <logger name="com.groupemre.atnv2.services.router.RouterService" level="trace"/>
+  <logger name="com.groupemre.atnv2.multirouter" level="trace"/>
+  <logger name="com.groupemre.atnv2.globecast" level="trace"/>
+  <logger name="com.groupemre.atnv2.smartjog" level="trace"/>
+  <logger name="com.groupemre.atnv2.services.dcp" level="trace"/>
+  <!--<logger name="com.groupemre.atnv2.services.pdd.PddService" level="info"/>-->
+  <logger name="com.groupemre.atnv2.services.pdd.UsbService" level="info"/>
+  <!--<logger name="com.groupemre.atnv2.services.delivery.router.backup.CGRBackupStrategy" level="info"/>-->
+
+  <!--AXEL-->
+  <logger name="com.groupemre.atnv2.services.pdd.PddService" level="debug"/>
+
+
+  <root level="warn">
+    <appender-ref ref="FILE"/>
+    <appender-ref ref="STDOUT"/>
+    <appender-ref ref="TEMP"/>
+  </root>
+
+  <jmxConfigurator />
+
+</configuration>

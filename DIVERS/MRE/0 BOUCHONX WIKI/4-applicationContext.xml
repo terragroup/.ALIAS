@@ -1,0 +1,740 @@
+<!-- BOUCHON TEMPLATE CRON 0 -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+                           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+                           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+
+  <import resource="classpath:net/bull/javamelody/monitoring-spring-datasource.xml"/>
+  <import resource="classpath:context/security-context.xml"/>
+  <import resource="classpath:context/utils-context.xml"/>
+  <import resource="classpath:context/db-context.xml"/>
+  <import resource="classpath:context/importer-context.xml"/>
+  <import resource="classpath:context/router-context.xml"/>
+  <import resource="classpath:context/mail-context.xml"/>
+
+  <util:properties id="atnConfig" location="classpath:/variableConfig.properties"/>
+
+
+  <context:component-scan base-package="com.groupemre.socle"/>
+  <context:component-scan base-package="com.groupemre.atnv2"/>
+  <tx:annotation-driven transaction-manager="transactionManager"/>
+
+  <mvc:annotation-driven>
+    <mvc:message-converters register-defaults="true">
+      <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+        <property name="objectMapper">
+          <bean class="com.groupemre.socle.serialization.SocleObjectMapper"/>
+        </property>
+      </bean>
+    </mvc:message-converters>
+  </mvc:annotation-driven>
+
+
+  <!-- Début des jobs monitorables depuis l'interface WEB -->
+
+  <!-- Backup des playlists CGR sur un FTP -->
+  <bean id="jobBackupCGROnFtp" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="cgrBackupStrategy"/>
+    <property name="targetMethod" value="executeStrategy"/>
+  </bean>
+  <bean id="cronBackupCGROnFtp" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobBackupCGROnFtp"/>
+    <!--<property name="cronExpression" value="0 0 16 ? * MON"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="backupCGROnFtpSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="transfer"/>
+    <property name="cronTrigger" ref="cronBackupCGROnFtp"/>
+  </bean>
+  <bean name="cgrBackupStrategy" class="com.groupemre.atnv2.services.delivery.router.backup.CGRBackupStrategy">
+    <property name="date">
+      <bean class="java.util.Date"/>
+    </property>
+  </bean>
+
+  <!-- Mise à jour des routeurs -->
+  <bean id="jobUpdateRouter" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="routerService"/>
+    <property name="targetMethod" value="updateRouters"/>
+  </bean>
+  <bean id="cronUpdateRouter" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobUpdateRouter"/>
+    <!--<property name="cronExpression" value="${scheduler.cron.server.state}"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="updateRouterSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="import"/>
+    <property name="cronTrigger" ref="cronUpdateRouter"/>
+  </bean>
+
+  <!-- E-mail pour les fichiers de log non reçus. -->
+  <bean id="jobEmailFichierLogNonRecu" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="emailFichierLogNonRecuService"/>
+    <property name="targetMethod" value="run"/>
+  </bean>
+  <bean id="cronEmailFichierLogNonRecu" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobEmailFichierLogNonRecu"/>
+    <!--<property name="cronExpression" value="0 0 8 ? * THU"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="emailFichierLogNonRecuSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="transfer"/>
+    <property name="cronTrigger" ref="cronEmailFichierLogNonRecu"/>
+  </bean>
+
+  <!-- Rafraîchissement de la vue d'analyse des faits de diffusion. -->
+  <bean id="jobRefreshAnalyseFaitDiffusion" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="faitDeDiffusionService"/>
+    <property name="targetMethod" value="refreshView"/>
+  </bean>
+  <bean id="cronRefreshAnalyseFaitDiffusion" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobRefreshAnalyseFaitDiffusion"/>
+    <!--<property name="cronExpression" value="0 0 3 * * ?"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="refreshAnalyseFaitDiffusionSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="transfer"/>
+    <property name="cronTrigger" ref="cronRefreshAnalyseFaitDiffusion"/>
+  </bean>
+
+  <!-- Rafraîchissement de la vue du bilan de campagne commerciale. -->
+  <bean id="jobRefreshBilanCommercial" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="bilanCampagneCommercialeService"/>
+    <property name="targetMethod" value="refreshView"/>
+  </bean>
+  <bean id="cronRefreshBilanCommercial" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobRefreshBilanCommercial"/>
+    <!--<property name="cronExpression" value="0 30 3 * * ?"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="refreshBilanCommercialSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="transfer"/>
+    <property name="cronTrigger" ref="cronRefreshBilanCommercial"/>
+  </bean>
+
+  <!-- Rafraîchissement de la vue des diffusions. -->
+  <bean id="jobRefreshDiffusion" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="diffusionService"/>
+    <property name="targetMethod" value="refreshView"/>
+  </bean>
+  <bean id="cronRefreshDiffusion" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobRefreshDiffusion"/>
+    <!--<property name="cronExpression" value="0 0 5 * * ?"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="refreshDiffusionSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="transfer"/>
+    <property name="cronTrigger" ref="cronRefreshDiffusion"/>
+  </bean>
+
+  <!-- Synchronisation des booléens de présence des DCPs-->
+  <bean id="jobCheckPresenceDcp" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="checkPresenceDcpService"/>
+    <property name="targetMethod" value="checkPresenceDcp"/>
+  </bean>
+  <bean id="cronCheckPresenceDcp" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobCheckPresenceDcp"/>
+    <!--<property name="cronExpression" value="0 42 3 * * ?"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="checkPresenceDcpSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="checkPresenceDcpFactoryBean"/>
+    <property name="cronTrigger" ref="cronCheckPresenceDcp"/>
+  </bean>
+  <bean id="checkPresenceDcpFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    <property name="taskExecutor">
+      <bean class="org.springframework.core.task.SyncTaskExecutor"/>
+    </property>
+    <property name="triggers">
+      <list>
+        <ref bean="cronCheckPresenceDcp"/>
+      </list>
+    </property>
+  </bean>
+
+  <!-- Import des DCP -->
+  <bean id="jobImportDcp" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="routerService"/>
+    <property name="targetMethod" value="importDcp"/>
+  </bean>
+  <bean id="cronImportDcp" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobImportDcp"/>
+    <!--<property name="cronExpression" value="0 0/5 * * * ?"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="importDcpSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="import"/>
+    <property name="cronTrigger" ref="cronImportDcp"/>
+  </bean>
+
+  <!--PATCH BUG :https://bugs.openjdk.java.net/browse/JDK-8028111-->
+  <bean id="jobPatch64000" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="patch64000Service"/>
+    <property name="targetMethod" value="patch"/>
+  </bean>
+  <bean id="cronPatch64000" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobPatch64000"/>
+    <!--<property name="cronExpression" value="0 0 0/4 * * ?"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="patch64000XMLSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="patch"/>
+    <property name="cronTrigger" ref="cronPatch64000"/>
+  </bean>
+  <bean id="patch" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    <property name="taskExecutor">
+      <bean class="org.springframework.core.task.SyncTaskExecutor"/>
+    </property>
+    <property name="triggers">
+      <list>
+        <ref bean="cronPatch64000"/>
+      </list>
+    </property>
+  </bean>
+  <!--end - PATCH BUG :https://bugs.openjdk.java.net/browse/JDK-8028111-->
+
+  <!-- Envoi d'un e-mail aux complexes non livrés -->
+  <bean id="jobSendEmailToNonDeliveredComplexes" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="routerContentDeliveryService"/>
+    <property name="targetMethod" value="sendEmailToNotDeliveredComplexes"/>
+  </bean>
+  <bean id="cronSendEmailToNonDeliveredComplexe" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobSendEmailToNonDeliveredComplexes"/>
+    <!--<property name="cronExpression" value="0 0 0/1 * * ?"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="sendEmailToNonDeliveredComplexeSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="sendEmail"/>
+    <property name="cronTrigger" ref="cronSendEmailToNonDeliveredComplexe"/>
+  </bean>
+  <bean id="sendEmail" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    <property name="taskExecutor">
+      <bean class="org.springframework.core.task.SyncTaskExecutor"/>
+    </property>
+    <property name="triggers">
+      <list>
+        <ref bean="cronSendEmailToNonDeliveredComplexe"/>
+      </list>
+    </property>
+  </bean>
+
+  <!--Envois des contenus aux routeurs (Smartjog + Globecast)-->
+  <bean id="jobSendContentToRouter" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="routerService"/>
+    <property name="targetMethod" value="sendContentToRouter"/>
+  </bean>
+  <bean id="cronSendContentToRouter" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobSendContentToRouter"/>
+    <!--<property name="cronExpression" value="0 0/5 * * * ?"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="sendContentToRouterSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="sender"/>
+    <property name="cronTrigger" ref="cronSendContentToRouter"/>
+  </bean>
+
+  <!-- Envoi des contenus au FTP local (Smartjog uniquement) -->
+  <bean id="jobTransferFtpPlaylistToLocalServer" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="routerService"/>
+    <property name="targetMethod" value="ftpTransferPlaylistToSendToRouter"/>
+  </bean>
+  <bean id="cronTransferFtpPlaylistToLocalServer" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobTransferFtpPlaylistToLocalServer"/>
+    <!--<property name="cronExpression" value="0 0/2 * * * ?"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="transferFtpPlaylistToLocalServerSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="ftp"/>
+    <property name="cronTrigger" ref="cronTransferFtpPlaylistToLocalServer"/>
+  </bean>
+
+  <!-- Batch de suppression des envois de contenu antérieurs à une semaine cinéma-->
+  <bean id="jobDeleteOldContent" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="routerService"/>
+    <property name="targetMethod" value="deleteRouterContentDelivery"/>
+  </bean>
+  <bean id="cronDeleteOldContent" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobDeleteOldContent"/>
+    <!--<property name="cronExpression" value="0 0 1 ? * WED"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="deleteOldContentSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="delete"/>
+    <property name="cronTrigger" ref="cronDeleteOldContent"/>
+  </bean>
+  <bean id="delete" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    <property name="taskExecutor">
+      <bean class="org.springframework.core.task.SyncTaskExecutor"/>
+    </property>
+    <property name="triggers">
+      <list>
+        <ref bean="cronDeleteOldContent"/>
+      </list>
+    </property>
+  </bean>
+
+  <!-- Transfert des DCPs vers les routeurs -->
+  <bean id="jobTransferDcpToRouter" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="routerService"/>
+    <property name="targetMethod" value="transferDcp"/>
+  </bean>
+  <bean id="cronTransferDcpToRouter" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobTransferDcpToRouter"/>
+    <!--<property name="cronExpression" value="0 0/5 * * * ?"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="transferDcpToRouterSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="transfer"/>
+    <property name="cronTrigger" ref="cronTransferDcpToRouter"/>
+  </bean>
+
+  <!-- TransferFtpExportDcpToRouter -->
+  <bean id="jobTransferFtpExportDcpToRouter" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="routerService"/>
+    <property name="targetMethod" value="ftpTransferExportDcp"/>
+  </bean>
+  <bean id="cronTransferFtpExportDcpToRouter" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobTransferFtpExportDcpToRouter"/>
+    <!--<property name="cronExpression" value="0 0/5 * * * ?"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="transferFtpExportDcpToRouterSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="transfer"/>
+    <property name="cronTrigger" ref="cronTransferFtpExportDcpToRouter"/>
+  </bean>
+
+  <!-- Transfert des contenus cachés vers les complexes -->
+  <bean id="jobTransferHiddenDcpToComplexe" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="routerService"/>
+    <property name="targetMethod" value="transferHiddenDcp"/>
+  </bean>
+  <bean id="cronTransferHiddenDcpToComplexe" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobTransferHiddenDcpToComplexe"/>
+    <!--<property name="cronExpression" value="0 0/5 * * * ?"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="transferHiddenDcpToComplexeSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="transfer"/>
+    <property name="cronTrigger" ref="cronTransferHiddenDcpToComplexe"/>
+  </bean>
+
+  <!-- Update State Transfer Dcp To Router -->
+  <bean id="jobUpdateStateTransferDcpToRouter" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="routerService"/>
+    <property name="targetMethod" value="updateStateTransferredDcp"/>
+  </bean>
+  <bean id="cronUpdateStateTransferDcpToRouter" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobUpdateStateTransferDcpToRouter"/>
+    <!--<property name="cronExpression" value="0 0/5 * * * ?"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="updateStateTransferDcpToRouterSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="transfer"/>
+    <property name="cronTrigger" ref="cronUpdateStateTransferDcpToRouter"/>
+  </bean>
+
+  <!-- Update Smartjog Directory -->
+  <bean id="jobUpdateSmartjogDirectoryId" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="smartjogSpecifiqueService"/>
+    <property name="targetMethod" value="updateSmartjogDirectoryId"/>
+  </bean>
+  <bean id="cronUpdateSmartjogDirectoryId" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobUpdateSmartjogDirectoryId"/>
+    <!--<property name="cronExpression" value="0 0/5 * * * ?"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="updateSmartjogDirectoryIdFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    <property name="taskExecutor">
+      <bean class="org.springframework.core.task.SyncTaskExecutor"/>
+    </property>
+    <property name="triggers">
+      <list>
+        <ref bean="cronUpdateSmartjogDirectoryId"/>
+      </list>
+    </property>
+  </bean>
+  <bean id="updateSmartjogDirectoryIdSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="updateSmartjogDirectoryIdFactoryBean"/>
+    <property name="cronTrigger" ref="cronUpdateSmartjogDirectoryId"/>
+  </bean>
+  <!-- Fin des jobs monitorables depuis l'interface WEB -->
+
+  <!-- Update State Imported Dcp -->
+  <bean id="jobUpdateStateImportedDcp" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="routerService"/>
+    <property name="targetMethod" value="updateStateImportedDcp"/>
+  </bean>
+  <bean id="cronUpdateStateImportedDcp" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobUpdateStateImportedDcp"/>
+    <!--<property name="cronExpression" value="0 0/5 * * * ?"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="updateStateImportedDcpSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="import"/>
+    <property name="cronTrigger" ref="cronUpdateStateImportedDcp"/>
+  </bean>
+
+  <!-- Transfer Ftp Imported Dcp -->
+  <bean id="jobTransferFtpImportedDcp" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="routerService"/>
+    <property name="targetMethod" value="ftpTransferImportedDcp"/>
+  </bean>
+  <bean id="cronTransferFtpImportedDcp" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobTransferFtpImportedDcp"/>
+    <!--<property name="cronExpression" value="0 0/5 * * * ?"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="transferFtpImportedDcpSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="import"/>
+    <property name="cronTrigger" ref="cronTransferFtpImportedDcp"/>
+  </bean>
+
+  <!-- ValidateAndSaveDcpFromRouter -->
+  <bean id="jobValidateAndSaveDcpFromRouter" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="routerService"/>
+    <property name="targetMethod" value="saveAndValidateImportedDcp"/>
+  </bean>
+  <bean id="cronValidateAndSaveDcp" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobValidateAndSaveDcpFromRouter"/>
+    <!--<property name="cronExpression" value="0 0/5 * * * ?"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="validateAndSaveDcpSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="import"/>
+    <property name="cronTrigger" ref="cronValidateAndSaveDcp"/>
+  </bean>
+
+  <!-- Update State Transferred Content -->
+  <bean id="jobUpdateStateTransferredContent" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="routerService"/>
+    <property name="targetMethod" value="updateStateTransferredContent"/>
+  </bean>
+  <bean id="cronUpdateStateTransferredContent" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobUpdateStateTransferredContent"/>
+    <!--<property name="cronExpression" value="0 0/5 * * * ?"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="updateStateTransferredContentSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="modifier"/>
+    <property name="cronTrigger" ref="cronUpdateStateTransferredContent"/>
+  </bean>
+
+  <!-- Suppression des fichiers archivés sur le FTP d'Ymagis -->
+  <bean id="jobDeleteYmagisArchiveOnFtp" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="smartJogPlatformService"/>
+    <property name="targetMethod" value="cleanBackupedPlaylistOnFtp"/>
+  </bean>
+  <bean id="cronDeleteYmagisArchive" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobDeleteYmagisArchiveOnFtp"/>
+    <!--<property name="cronExpression" value="0 0 2 ? * WED"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="deleteYmagisArchiveSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="transfer"/>
+    <property name="cronTrigger" ref="cronDeleteYmagisArchive"/>
+  </bean>
+
+  <!-- Purge des demandes de log -->
+  <bean id="jobPurgeDemandeLog" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="demandeLogService"/>
+    <property name="targetMethod" value="purge"/>
+  </bean>
+  <bean id="cronPurgeDemandeLog" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobPurgeDemandeLog"/>
+    <!--<property name="cronExpression" value="0 0 2 ? * WED"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="purgeDemandeLogSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="transfer"/>
+    <property name="cronTrigger" ref="cronPurgeDemandeLog"/>
+  </bean>
+
+  <!-- Envoi des demandes de log Smartjog -->
+  <bean id="jobSendDemandeLogSmartJog" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="demandeLogSmartjog"/>
+    <property name="targetMethod" value="sendDemandeLogsEnAttente"/>
+  </bean>
+  <bean id="cronSendDemandeLogSmartJog" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobSendDemandeLogSmartJog"/>
+    <!--<property name="cronExpression" value="0 15 * * * ?"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="sendDemandeLogSmartJogSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="transfer"/>
+    <property name="cronTrigger" ref="cronSendDemandeLogSmartJog"/>
+  </bean>
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Réception des logs CDS -->
+   <bean id="jobReceptionLogsCDS" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+     <property name="targetObject" ref="receptionLogCDS"/>
+     <property name="targetMethod" value="run"/>
+   </bean>
+   <bean id="cronReceptionLogsCDS" class="org.springframework.scheduling.quartz.CronTriggerBean">
+     <property name="jobDetail" ref="jobReceptionLogsCDS"/>
+     <!--<property name="cronExpression" value="0 0 21 * * ?"/>-->
+     <property name="cronExpression" value="0 0 0/4 * * ?"/>
+   </bean>
+   <bean id="receptionLogsCDSSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+     <property name="scheduler" ref="receptionlogs"/>
+     <property name="cronTrigger" ref="cronReceptionLogsCDS"/>
+   </bean>
+
+  <!-- Réception des logs ADDE -->
+  <bean id="jobReceptionLogsADDE" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="receptionLogADDE"/>
+    <property name="targetMethod" value="run"/>
+  </bean>
+  <bean id="cronReceptionLogsADDE" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobReceptionLogsADDE"/>
+    <!--<property name="cronExpression" value="0 0 6 * * ?"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="receptionLogsADDESchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="receptionlogs"/>
+    <property name="cronTrigger" ref="cronReceptionLogsADDE"/>
+  </bean>
+
+  <!-- Réception des logs Ymagis -->
+  <bean id="jobReceptionLogsYmagis" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="receptionLogYmagis"/>
+    <property name="targetMethod" value="run"/>
+  </bean>
+  <bean id="cronReceptionLogsYmagis" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobReceptionLogsYmagis"/>
+    <!--<property name="cronExpression" value="0 0 7 * * ?"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="receptionLogsYmagisSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="receptionlogs"/>
+    <property name="cronTrigger" ref="cronReceptionLogsYmagis"/>
+  </bean>
+
+  <!-- Réception des logs Kinepolis -->
+  <bean id="jobReceptionLogsKinepolis" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="receptionLogKinepolis"/>
+    <property name="targetMethod" value="run"/>
+  </bean>
+  <bean id="cronReceptionLogsKinepolis" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobReceptionLogsKinepolis"/>
+    <!--<property name="cronExpression" value="0 15 7 * * ?"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="receptionLogsKinepolisSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="receptionlogs"/>
+    <property name="cronTrigger" ref="cronReceptionLogsKinepolis"/>
+  </bean>
+
+  <!-- Réception des logs CGR -->
+  <bean id="jobReceptionLogsCGR" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="receptionLogCGR"/>
+    <property name="targetMethod" value="run"/>
+  </bean>
+  <bean id="cronReceptionLogsCGR" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobReceptionLogsCGR"/>
+    <!--<property name="cronExpression" value="0 30 6 * * ?"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="receptionLogsCGRSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="receptionlogs"/>
+    <property name="cronTrigger" ref="cronReceptionLogsCGR"/>
+  </bean>
+
+  <!-- Réception des logs Smartjog -->
+  <bean id="jobReceptionLogsSmartjog" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="receptionLogSmartjog"/>
+    <property name="targetMethod" value="run"/>
+  </bean>
+  <bean id="cronReceptionLogsSmartjog" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobReceptionLogsSmartjog"/>
+    <!--<property name="cronExpression" value="0 0 21 * * ?"/>-->
+    <property name="cronExpression" value="0 0 0/0 * * ?"/>
+  </bean>
+  <bean id="receptionLogsSmartjogSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="receptionlogs"/>
+    <property name="cronTrigger" ref="cronReceptionLogsSmartjog"/>
+  </bean>
+
+  <!-- Réception des logs Globecast -->
+  <bean id="jobReceptionLogsGlobecast" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="receptionLogGlobecast"/>
+    <property name="targetMethod" value="run"/>
+  </bean>
+  <bean id="cronReceptionLogsGlobecast" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobReceptionLogsGlobecast"/>
+    <!--<property name="cronExpression" value="0 30 7 * * ?"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="receptionLogsGlobecastSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="receptionlogs"/>
+    <property name="cronTrigger" ref="cronReceptionLogsGlobecast"/>
+  </bean>
+
+  <!-- Rapprochement entre les lignes d'offre Medicis et les lignes de contrat ATN -->
+  <bean id="jobRapprochementLigneOffreMedicis" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="contratService"/>
+    <property name="targetMethod" value="rapprochementLigneOffreMedicis"/>
+  </bean>
+  <bean id="cronRapprochementLigneOffreMedicis" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobRapprochementLigneOffreMedicis"/>
+    <!--<property name="cronExpression" value="0 20 4 * * ?"/>-->
+    <property name="cronExpression" value="0 0 0 * * ?"/>
+  </bean>
+  <bean id="rapprochementLigneOffreMedicisSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="receptionlogs"/>
+    <property name="cronTrigger" ref="cronRapprochementLigneOffreMedicis"/>
+  </bean>
+
+
+  <bean id="import" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    <property name="taskExecutor">
+      <bean class="org.springframework.core.task.SyncTaskExecutor"/>
+    </property>
+    <property name="triggers">
+      <list>
+        <ref bean="cronUpdateRouter"/>
+        <ref bean="cronImportDcp"/>
+        <ref bean="cronUpdateStateImportedDcp"/>
+        <ref bean="cronTransferFtpImportedDcp"/>
+        <ref bean="cronValidateAndSaveDcp"/>
+      </list>
+    </property>
+  </bean>
+
+  <bean id="transfer" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    <property name="taskExecutor">
+      <bean class="org.springframework.core.task.SyncTaskExecutor"/>
+    </property>
+    <property name="triggers">
+      <list>
+        <ref bean="cronTransferFtpExportDcpToRouter"/>
+        <ref bean="cronTransferDcpToRouter"/>
+        <ref bean="cronUpdateStateTransferDcpToRouter"/>
+        <ref bean="cronTransferHiddenDcpToComplexe"/>
+        <ref bean="cronDeleteYmagisArchive"/>
+        <ref bean="cronBackupCGROnFtp"/>
+        <ref bean="cronPurgeDemandeLog"/>
+        <ref bean="cronSendDemandeLogSmartJog"/>
+        <ref bean="cronEmailFichierLogNonRecu"/>
+        <ref bean="cronRefreshAnalyseFaitDiffusion"/>
+        <ref bean="cronRefreshBilanCommercial"/>
+        <ref bean="cronRefreshDiffusion"/>
+      </list>
+    </property>
+  </bean>
+
+  <!--Séparation du transfert ftp des fichiers playlist et de la mise à jour des envois pour optimiser la supervision Smartjog -->
+  <bean id="ftp" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    <property name="taskExecutor">
+      <bean class="org.springframework.core.task.SyncTaskExecutor"/>
+    </property>
+    <property name="triggers">
+      <list>
+        <ref bean="cronTransferFtpPlaylistToLocalServer"/>
+      </list>
+    </property>
+  </bean>
+  <bean id="sender" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    <property name="taskExecutor">
+      <bean class="org.springframework.core.task.SyncTaskExecutor"/>
+    </property>
+    <property name="triggers">
+      <list>
+        <ref bean="cronSendContentToRouter"/>
+      </list>
+    </property>
+  </bean>
+  <bean id="modifier" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    <property name="taskExecutor">
+      <bean class="org.springframework.core.task.SyncTaskExecutor"/>
+    </property>
+    <property name="triggers">
+      <list>
+        <ref bean="cronUpdateStateTransferredContent"/>
+      </list>
+    </property>
+  </bean>
+
+  <bean id="receptionlogs" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    <property name="taskExecutor">
+      <bean class="org.springframework.core.task.SyncTaskExecutor"/>
+    </property>
+    <property name="triggers">
+      <list>
+        <ref bean="cronReceptionLogsADDE"/>
+        <ref bean="cronReceptionLogsCGR"/>
+        <ref bean="cronReceptionLogsKinepolis"/>
+        <ref bean="cronReceptionLogsYmagis"/>
+        <ref bean="cronReceptionLogsSmartjog"/>
+        <ref bean="cronReceptionLogsGlobecast"/>
+        <ref bean="cronRapprochementLigneOffreMedicis"/>
+      </list>
+    </property>
+  </bean>
+
+  <!-- Beans managés via JMX -->
+  <bean id="jmxAttributeSource" class="org.springframework.jmx.export.annotation.AnnotationJmxAttributeSource"/>
+  <!-- RECUPERATION DU SERVEUR MBEAN DE LA PLATEFORME -->
+  <bean id="mbeanServer" class="java.lang.management.ManagementFactory" factory-method="getPlatformMBeanServer"/>
+
+  <!-- utilisation du MBean exporter de Spring pour exposer les méthodes setLogLevel et setCronExpression dans JMX -->
+  <bean id="exporter" class="org.springframework.jmx.export.MBeanExporter" lazy-init="false">
+    <property name="beans">
+      <map>
+        <entry key="com.groupemre.atnv2.jmx:name=ImportDcpSchedulerChanger" value-ref="importDcpSchedulerChanger"/>
+        <entry key="com.groupemre.atnv2.jmx:name=TransferDcpSchedulerChanger" value-ref="transferDcpToRouterSchedulerChanger"/>
+        <entry key="com.groupemre.atnv2.jmx:name=SendContentToRouterSchedulerChanger" value-ref="sendContentToRouterSchedulerChanger"/>
+        <entry key="com.groupemre.atnv2.jmx:name=TransferFtpPlaylistToLocalServerSchedulerChanger" value-ref="transferFtpPlaylistToLocalServerSchedulerChanger"/>
+        <entry key="com.groupemre.atnv2.jmx:name=JobPach64000XMLSchedulerChanger" value-ref="patch64000XMLSchedulerChanger"/>
+        <entry key="com.groupemre.atnv2.jmx:name=BackupCgrOnFtp" value-ref="backupCGROnFtpSchedulerChanger"/>
+        <entry key="com.groupemre.atnv2.jmx:name=SendEmailToNonDeliveredComplexes" value-ref="sendEmailToNonDeliveredComplexeSchedulerChanger"/>
+        <entry key="com.groupemre.atnv2.jmx:name=DeleteOldContentSchedulerChanger" value-ref="deleteOldContentSchedulerChanger"/>
+        <entry key="com.groupemre.atnv2.jmx:name=CheckPresenceDcpSchedulerChanger" value-ref="checkPresenceDcpSchedulerChanger"/>
+      </map>
+    </property>
+    <property name="server" ref="mbeanServer"/>
+    <property name="assembler" ref="metadataAssembler"/>
+    <property name="namingStrategy" ref="namingStrategy"/>
+  </bean>
+  <bean id="namingStrategy" class="org.springframework.jmx.export.naming.MetadataNamingStrategy">
+    <property name="attributeSource" ref="jmxAttributeSource"/>
+  </bean>
+  <bean id="metadataAssembler" class="org.springframework.jmx.export.assembler.MetadataMBeanInfoAssembler">
+    <property name="attributeSource" ref="jmxAttributeSource"/>
+  </bean>
+
+  <bean id="smartJogPlatformService" class="com.groupemre.atnv2.smartjog.service.SmartJogPlatformService"/>
+
+  <bean id="marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+    <property name="packagesToScan">
+      <list>
+        <value>com.groupemre.atnv2.services.analog.demandelog.xml</value>
+        <value>com.groupemre.atnv2.services.analog.reception.xml</value>
+        <value>com.groupemre.atnv2.xml.dcp.bean.cpl</value>
+      </list>
+    </property>
+    <property name="marshallerProperties">
+      <map>
+        <entry key="jaxb.formatted.output"><value type="java.lang.Boolean">true</value></entry>
+      </map>
+    </property>
+  </bean>
+</beans>

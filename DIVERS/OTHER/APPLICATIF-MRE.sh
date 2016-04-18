@@ -1,33 +1,9 @@
 #le fichier est :
 
-
-
-
-
-#-------------------------------------------------------------------------------
-# TEST LIQUIBASE
-#-------------------------------------------------------------------------------
-LANCER  LIQUIBASE  # AVEC PROFIL :   apply-db-migration     +       atnv2-local
-                   # AVEC MVN : clean + install
-LANCER  TU
-LANCE   APP
-
-
 # ------------------------------------------------------------------------------
 # Profil lancer ATN
 # ------------------------------------------------------------------------------
 atnv2-LOCAL + gwt-dev + (localhost ?) + resources-dev
-
-
-
-
-
-
-
-
-
-
-
 
 ################################################################################
 # VERIF FONCTIONNEL
@@ -36,8 +12,6 @@ atnv2-LOCAL + gwt-dev + (localhost ?) + resources-dev
 # 2 - verif : le complexe est dispo ( Autre ref > list cpx > regarder ETAT RESEAU (doit etre disponible pour le cpx))
 # 3 - verif : gestion des DCPS > liste des DCP > verifid en BASE booleen a TRUE pour CATALOGUE smart et globecast
 # -----> je traduis les DCP doivent etre dans le catalogue smart et globecast (a faire tous les matins)
-
-
 
 
  #
@@ -77,65 +51,17 @@ atnv2-LOCAL + gwt-dev + (localhost ?) + resources-dev
  # 2015-12-10 15:55:25,300 -import_QuartzSchedulerThread - ERROR - [] - c.g.a.m.u.ClientFtp - 252 - Le router smartjog ne peut pas s'identifier au client FTP. L'upload n'a pu avoir lieu2015-12-10 15:55:25,300 -import_QuartzSchedulerThread - ERROR - [] - c.g.a.m.u.ClientFtp - 252 - Le router smartjog ne peut pas s'identifier au client FTP. L'upload n'a pu avoir lieu
  # ------------------------------------------------------------------------------
 
-
-
-
 /home/axel/com/medicis/imdv-intranet/src/main/webapp/WEB-INF/hibernate.cfg.xml
-
 
 #-------------------------------------------------------------------------------
 
-
 ######################################################################
-# INTELLIJ IDEA
-######################################################################
-# le merge
-tu fais click droit > git > merge
-Dans le 3 merge-tool, celui du centre sera le RESULTANT,
-et les 2 autres de chaques cotes sont :
-a gauche : remote
-a droite : local
-
-
-######################################################################
-
 
 # A IGNORER (dans global ?)
 modifié:         imdv-intranet/src/main/webapp/META-INF/context.xml
 modifié:         imdv-intranet/src/main/webapp/WEB-INF/classes/application.properties
 modifié:         imdv-intranet/src/main/webapp/WEB-INF/classes/log4j.properties
 modifié:         imdv-intranet/src/main/webapp/welcome.html
-
-# FONCTIONNEMENT COMMIT
-- tu commits avec FIXES (ca fera passer le status a RESOLU)
-- puis tu click sur le SHA et tu vas dans le depot (ca met un peu de temps a rafraichir et c est OK)
-
-
-#----------------------------
-# Besoin de supprimer des commits
-#----------------------------
-git rebase -i HEAD~4        # il va te proposer d editer un fichier et tu vas pouvoir supprimer les lignes que tu souhaites supprimer
-git push -f origin hotfixes # il te faudra le -f
-
-
-
-#----------------------------
-#
-#----------------------------
-git fetch --tag
-git tag IMDV-2.19.18
-
-
-
-#
-wget http://redmine.mre.pub/projects/medicis-recap/repository
-
-
-#
-git://gitorious.mre.pub/medicis/medicis.git
-1bb372fe3049332e88d1ac62561532764f76294d
-echo 1bb372fe3049332e88d1ac62561532764f76294d >> .git/refs/heads/hotfixes
-
 
 
 
@@ -144,8 +70,7 @@ echo 1bb372fe3049332e88d1ac62561532764f76294d >> .git/refs/heads/hotfixes
 #-------------------------------------------------------------------------------
 # - RECETTE OK ?
 #-------------------------------------------------------------------------------
-- verifier en RECETTE que l on arrive bien a se connecter :
-- liste des CPX > regarde si etat est DISPONIBLE > regarde addresse smartjog> c est bien a 7815
+
 #-------------------------------------------------------------------------------
 
 ################################################################################

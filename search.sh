@@ -92,7 +92,7 @@ alias ack='ack-grep'
 # ack-grep --print0 -irl 'Online' | xargs -0 -L1 sed  -i 's/Online/Healthy/g'
 
 # 2 - -H : force filename
-alias ccc='ack -H --ignore-dir=target --ignore-dir=.idea --ignore-dir=bower_components --ignore-dir=node_modules  --ignore-dir=dist'
+alias sss='ack -H --ignore-dir=target --ignore-dir=.idea --ignore-dir=bower_components --ignore-dir=node_modules  --ignore-dir=dist'
 
 # 3 - ack-grep  "ymagis"  --ignore-dir=target --ignore-dir=.idea
 #

@@ -1,0 +1,243 @@
+----------------------------------------
+GWT
+----------------------------------------
+Complexe Model = service cote frontend
+Grid > RouterContentDeliveryPropertyAccess.java
+Simplevalueleafeditor<Complexe>
+
+----------------------------------------
+TODO
+----------------------------------------
+tunner .mycnf
+gitignore
+
+----------------------------------------
+SQL
+----------------------------------------
+en mode % = externe ?
+
+----------------------------------------
+TABLE PORTS
+----------------------------------------
+input = se connecter ?
+output = pour se connecter
+
+----------------------------------------
+passage linux
+----------------------------------------
+birt : pasage sous linux : arrive a demarer mais pas a arreter
+voir chronogramme
+policie d ecriture
+
+
+
+----------------------------------------
+Pb remina : ~/.freerdp/.knowhost (supprimer la ligne pour avoir un new certif)
+Pour la 2.20 : 90% de la migration linux est faite (on peut basculer)
+----------------------------------------
+
+Jenkins demande a Ansible de deployer les JOB Talend
+
+---------------------------------------
+\u00E9 - é
+
+
+----------------------------------------
+FACTURATION / REDEVANCE
+----------------------------------------
+le 20 de chaques mois
+lance batch redevance et attendre qu il se termine
+On avait lance la factu, puis les job (qui enchaine avec le BI)
+Facturation --> compta (SAP (generale analytique) + cadillac (autre compta))
+
+-> il existe des spec :  a voir
+
+- il faut l arreter ?
+en 2.20 (jenkins lance le batch a notre place)
+
+batch facturation = lire proc
+
+----------------------------------------
+Livraison
+----------------------------------------
+
+le numero du tag : IMDV-2.19.18
+en prod : retirer IMDV
+
+attend finit ordo et redemarre l appli
+
+
+
+----------------------------------------
+WIKI
+----------------------------------------
+il manque les USERS
+WGET 'url depot'
+
+
+----------------------------------------
+les repertoires distants:
+i - appli
+r - archivageg - group
+user - mon rep perso
+
+
+----------------------------------------
+MERCREDI (1er du mois)
+----------------------------------------
+/////
+- arrete les server TOMCAT et redemarre
+- sauvegarde
+- ?
+/////
+1 - arrete USERS2
+2 - save BDD (job) sur le reseau
+(1x par mois : on save la base de prod sans compression)
+3 - resave sur ma becane en local
+4 - tel fab et demande si remote la BDD de prod en preprod
+(deplace save : de i: (la ou il a fait la sauvegarde) vers R (la ou le job de restau va s executer))
+5 - puis redemarrre SQL
+////// resaure le dump de prod sur son server* Restaur_01...sav..med-liquid : lance 02 puis 03
+
+
+----------------------------------------
+LIVRAISON
+----------------------------------------
+tel fab
+stop TOMCAT 'fin init synchro'
+restaure BDD (fab : OUI / NON)
+LIVRAISON
+MAJ REDMINE
+relance TOMCAT
+merge de stable sur next OU si depuis hotfixes sur next/stable
+
+
+
+----------------------------------------
+LES BRANCHES
+----------------------------------------
+master
+  hotfix
+    stable
+      next
+
+
+merge la hot sur stable :
+  - gitp sur la hot
+--
+
+
+-------------
+IDEA
+-------------
+PASSER LA BASE DE PROD SUR L INTEGRATION
+----------------------------------------
+
+1 - copie la base de prod qui est save tous les soirs
+2 - attendre la fin de la copie et lancer le job : RESTAU-SAVE
+3 - regarde date + version BDD dans console output (car on l a renomee dump.sql)
+
+- tel fab
+- passe le liquibase (base propre <=> celle de prod)
+
+
+----------------------------------------
+sauvegarde
+----------------------------------------
+//  REMONTE BDD = restaure la sauvegarde
+
+restaure + sauve + compress => sur re
+--
+zo
+sauve + sauve (pas compress) = en local
+LORSQU IL RESTAURE : il PURGE
+RESTAURE = ECRASER
+
+
+----------------------------------------
+BATCH
+----------------------------------------
+attention : attention si 2 se marchent dessus en m temps
+ -> symptome : temps de traitement long
+
+clurk = machine sauvegarde windows : (DCP ATN : clurk : please retourve le DCP atn que j ai perdu)
+
+archivage = garde les donnees plus longtemps (> 20j)
+
+workflow plugin = gere l enchainement des job
+promote plugin = pour Livraison
+
+
+----------------------------------------
+ATN - arnaud denoyelle
+----------------------------------------
+globecast = sur FTP
+smartjob = via WS
+
+JSR 303 -
+
+
+----------------------------------------
+IDEA
+----------------------------------------
+delegate method
+
+
+----------------------------------------
+selection event - handler
+
+
+----------------------------------------
+ATN
+----------------------------------------
+job crone / code
+
+edit rate = nbre img par specify
+gerer les balises : Arnaud
+dossier : xxx_ECL_xxx
+
+
+G:/FormationDCP (support des courts) - A LIRE
+
+
+
+----------------------------------------
+#!/bin/bash
+
+-- dernieres notes Arnaud
+
+GRID : RouterContentDeliveryPropertyAccess.java
+
+----------------------
+Validator
+
+ComplexeValidation.java
+les validations sont dans le modele ==> il faut recompiler
+
+
+validator sur les groupes ?
+
+@Inject valider => que si la classe dessus est injectable
+
+implement Has_error
+ - drivers (set constraint validation)
+
+--------------------------------------------------------------------------------
+10.196.165.31
+user
+superuser
+medicisdb6
+
+--------------------------------------------------------------------------------
+               FactoryModel.getModel().invoke(requete, reponse, pattern);
+               // FactoryView.getView().invoke(requete, reponse, pattern);
+
+               final View view = (View) FactoryView.getView();
+               view.setServletContext(this.getServletContext()).invoke(requete, reponse, pattern);
+
+-- exploded = pour le deploiement a chaud
+
+\u00E9		- liste redevances ecran
+
+
+##########################################

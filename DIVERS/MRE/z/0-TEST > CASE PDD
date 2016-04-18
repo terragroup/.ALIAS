@@ -1,0 +1,56 @@
+#!bin/bash
+
+# -------------------------------------------
+# 21068
+# redmine : usb - pas de salles dans le complexe
+# -------------------------------------------
+
+complexe:  CARROZ D ARACHE CHOUCA (j ai supprime les salles)
+==> ce n est pas la salle, mais le numero de la salle que je supprime
+
+JDD usb
+S1540
+carbon blanc favol
+MDV
+arte_adv_f_fr-xx_51_2k_20150901_fff_iop
+SALLE : (la seule))
+
+# -------------------------------------------
+# redmine : afficher : PDD non envoye car deja existant
+# -------------------------------------------
+#  PDD valides pour mes tests d envois :
+# ------------------------------------------------------------------------------
+CELA_MARCHE_________()
+'ROADOFTHEDEAD_TLR_F_FR-XX_FR_51_2K_20151030_OV'
+'LeGrandPartage_TSR-Concierge_F_FR-XX_FR_51_2K_WBD_20151014_TST_IOP_OV'
+'FallOut4_ADV-30_F_FR-XX_FR_51_2K_CJP_20151027_TST_OV'
+'MICROSOFT_ADV_F_FR-XX_FR_51_2K_20151030_ECL_OV'
+
+################################################################################
+# -- CLEF USB - procedure TEST -- #
+# case : tu fais un envoi avec un pdd, et tu refais un envoi avec le meme PDD, et si il n y a rien a envoyer ==> donc
+################################################################################
+
+################################################################################
+# CAS A TESTER 1 : AUCUN DCP a renvoyer
+################################################################################
+1 - autre referentiel > liste des complexes > dispo clef usb
+# transporteur actif
+ex : villen d ascq melies
+# ________________________________________________________________________________
+
+2 - gestion PD > liste PDD > (carbon blanc) (S1540)
+attention : si > 4 semaine, compare pas PDD
+ex : PDD envoye ==> regarde dedans quels DCP :
+                    - DOMUS_ADV-2_F_239_FR-XX_51_2K_20150923_M141_IOP_OV
+
+ - complete le status en ajouitant le PDD
+ - terminator_tlr-D-3D_F_FR-XX_FR_51_2K_PC_20150506_DUK_IOP-3D_OV
+
+
+Peugeot308GTI_ADV_F-235_FR-XX_FR_51_2K_20151013_TEF_IOP_OV
+# ________________________________________________________________________________
+3 - gestion des PDD > envoie en masse des playlist
+   - choisis semaine
+
+################################################################################

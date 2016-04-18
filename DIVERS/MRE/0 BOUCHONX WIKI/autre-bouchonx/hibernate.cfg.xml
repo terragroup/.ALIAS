@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"classpath://org/hibernate/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+    
+           
+  		<!-- FICHIER  DE CONFIGURATION POUR L'APPLICATION ************FRONT OFFICE (APPLICATION USUELLE) ************-->
+  		
+  		<!-- Debug - uniquement pour le developpement -->
+		<property name="show_sql">false</property>
+		<property name="format_sql">false</property>
+
+		<!-- Paramétres pour la connexion à la base de données -->
+
+		<property name="hibernate.connection.driver_class">net.bull.javamelody.JdbcDriver</property>
+		<property name="hibernate.connection.driver">org.gjt.mm.mysql.Driver</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <!-- localhost -->
+        <!--AXEL-->
+        <property name="hibernate.connection.username">admin</property>
+        <property name="hibernate.connection.password">adm1n</property>
+        <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/medicisdb?characterEncoding=utf8&amp;characterSetResults=utf8&amp;connectionCollation=latin1_swedish_ci</property>
+
+        <!-- Use the C3P0 connection pool. -->
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.timeout">1800</property>
+        <!-- In case the database was restarted or the network lost, validate idle connections each minute. -->
+        <property name="hibernate.c3p0.idle_test_period">60</property>
+        <!-- /* ping */ au debut de cette requete a une signification particuliere pour le driver mysql. -->
+        <property name="hibernate.c3p0.preferredTestQuery">/* ping */ select 1</property>
+        
+        <!-- Second-level cache with ehcache and without query cache, see ehcache.xml. -->
+        <property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.use_query_cache">false</property>
+        <property name="hibernate.cache.use_minimal_puts">false</property>
+        <property name="max_fetch_depth">3</property>
+
+        <!-- Bind the getCurrentSession() method to the thread. -->
+        <property name="current_session_context_class">thread</property>
+
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.referentiel-->
+
+ 		<mapping class="fr.mediavision.referentiel.beans.LangueBean" />
+ 		<mapping class="fr.mediavision.referentiel.beans.SocieteBean" />
+ 		<mapping class="fr.mediavision.referentiel.beans.UtilisateurBean" />
+ 		<mapping class="fr.mediavision.referentiel.beans.ProfilBean" />
+ 		<mapping class="fr.mediavision.referentiel.beans.FonctionBean" />
+ 		<mapping class="fr.mediavision.referentiel.beans.TraceBean" />
+ 		<mapping class="fr.mediavision.referentiel.beans.RoleUtilisateurBean" />
+ 		<mapping class="fr.mediavision.referentiel.beans.SessionBean" />
+ 		<mapping class="fr.mediavision.referentiel.beans.StrategieBean" />
+ 		<mapping class="fr.mediavision.referentiel.beans.VariableConfigBean" />
+ 		<mapping class="fr.mediavision.referentiel.beans.FichierConfigurableBean" />
+ 		<mapping class="fr.mediavision.referentiel.beans.SynchroObjetBean" />
+ 		<mapping class="fr.mediavision.referentiel.beans.JourFerieBean" />
+ 		<mapping class="fr.mediavision.referentiel.beans.ListeImpressionMasseBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.refProduit-->
+
+ 		<mapping class="fr.mediavision.refproduit.beans.PrestationBean" />
+ 		<mapping class="fr.mediavision.refproduit.beans.DeclencheurFacturationBean" />
+ 		<mapping class="fr.mediavision.refproduit.beans.PressionBean" />
+ 		<mapping class="fr.mediavision.refproduit.beans.TvaSocieteBean" />
+ 		<mapping class="fr.mediavision.refproduit.beans.ConditionPaiementBean" />
+ 		<mapping class="fr.mediavision.refproduit.beans.FamilleProduitBean" />
+ 		<mapping class="fr.mediavision.refproduit.beans.SousFamilleProduitBean" />
+ 		<mapping class="fr.mediavision.refproduit.beans.CategorieProduitBean" />
+ 		<mapping class="fr.mediavision.refproduit.beans.StatutProduitBean" />
+ 		<mapping class="fr.mediavision.refproduit.beans.TypeComposantProduitBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.gestionSalles-->
+
+ 		<mapping class="fr.mediavision.gestionsalles.beans.SalleBean" />
+ 		<mapping class="fr.mediavision.gestionsalles.beans.ContributionNumeriqueBean" />
+ 		<mapping class="fr.mediavision.gestionsalles.beans.FeuilleMontantCtnBean" />
+ 		<mapping class="fr.mediavision.gestionsalles.beans.TypeAccordCtnBean" />
+ 		<mapping class="fr.mediavision.gestionsalles.beans.TiersInvestisseursBean" />
+ 		<mapping class="fr.mediavision.gestionsalles.beans.PrestationSalleBean" />
+ 		<mapping class="fr.mediavision.gestionsalles.beans.CoefficientPrestationBean" />
+ 		<mapping class="fr.mediavision.gestionsalles.beans.TypePrestationBean" />
+ 		<mapping class="fr.mediavision.gestionsalles.beans.GeneriqueBandeBean" />
+ 		<mapping class="fr.mediavision.gestionsalles.beans.MotifFermetureBean" />
+ 		<mapping class="fr.mediavision.gestionsalles.beans.FermetureSalleBean" />
+ 		<mapping class="fr.mediavision.gestionsalles.beans.RenovationBean" />
+ 		<mapping class="fr.mediavision.gestionsalles.beans.RegieBean" />
+ 		<mapping class="fr.mediavision.gestionsalles.beans.FrequentationBean" />
+ 		<mapping class="fr.mediavision.gestionsalles.beans.SourceFrequentationBean" />
+ 		<mapping class="fr.mediavision.gestionsalles.beans.SupportProjectionBean" />
+ 		<mapping class="fr.mediavision.gestionsalles.beans.DoubleBandePonctuelleBean" />
+ 		<mapping class="fr.mediavision.gestionsalles.beans.EtatSalleEtComplexeBean" />
+ 		<mapping class="fr.mediavision.gestionsalles.beans.TypeNoyauBean" />
+ 		<mapping class="fr.mediavision.gestionsalles.beans.TypeTMSBean" />
+ 		<mapping class="fr.mediavision.gestionsalles.beans.RegisseurBean" />
+ 		<mapping class="fr.mediavision.gestionsalles.beans.TypeEntiteBean" />
+ 		<mapping class="fr.mediavision.gestionsalles.beans.FermetureDefinitiveSalleBean" />
+ 		<mapping class="fr.mediavision.gestionsalles.beans.QualiteGeneriqueBean" />
+ 		<mapping class="fr.mediavision.gestionsalles.beans.SupportProjectionSalleBean" />
+ 		<mapping class="fr.mediavision.gestionsalles.beans.RoutageSalleBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.gestionCalendriers-->
+
+ 		<mapping class="fr.mediavision.gestioncalendriers.beans.CalendrierBean" />
+ 		<mapping class="fr.mediavision.gestioncalendriers.beans.TypeMailleTemporelleBean" />
+ 		<mapping class="fr.mediavision.gestioncalendriers.beans.MethodeBean" />
+ 		<mapping class="fr.mediavision.gestioncalendriers.beans.PointeurBean" />
+ 		
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.gestionComplexes-->
+
+ 		<mapping class="fr.mediavision.gestioncomplexes.beans.ComplexeBean" />
+ 		<mapping class="fr.mediavision.gestioncomplexes.beans.RoutageBean" />
+ 		<mapping class="fr.mediavision.gestioncomplexes.beans.CiviliteBean" />
+ 		<mapping class="fr.mediavision.gestioncomplexes.beans.TiersBean" />
+ 		<mapping class="fr.mediavision.gestioncomplexes.beans.RoleBean" />
+ 		<mapping class="fr.mediavision.gestioncomplexes.beans.AdresseBean" />
+ 		<mapping class="fr.mediavision.gestioncomplexes.beans.BureauDistributeurBean" />
+ 		<mapping class="fr.mediavision.gestioncomplexes.beans.RoleTiersBean" />
+ 		<mapping class="fr.mediavision.gestioncomplexes.beans.PrestationComplexeBean" />
+ 		<mapping class="fr.mediavision.gestioncomplexes.beans.StrateBean" />
+ 		<mapping class="fr.mediavision.gestioncomplexes.beans.FermetureComplexeBean" />
+ 		<mapping class="fr.mediavision.gestioncomplexes.beans.FermetureDefinitiveComplexeBean" />
+        <mapping class="fr.mediavision.gestioncomplexes.beans.CoefficientCategorieFilmBean" />
+        <mapping class="fr.mediavision.gestioncomplexes.beans.TypeTMSComplexeBean" />
+        <mapping class="fr.mediavision.gestioncomplexes.beans.TypeGroupeBean" />
+        <mapping class="fr.mediavision.gestioncomplexes.beans.GroupeBean" />
+        <mapping class="fr.mediavision.gestioncomplexes.beans.GroupeComplexeBean" />
+        <mapping class="fr.mediavision.gestioncomplexes.beans.EnsembleGroupeBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.gestionBAC-->
+
+ 		<mapping class="fr.mediavision.gestionbac.beans.BACBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.gestionSelections-->
+
+ 		<mapping class="fr.mediavision.gestionselections.beans.EnsembleSelectionBean" />
+ 		<mapping class="fr.mediavision.gestionselections.beans.CritereBean" />
+ 		<mapping class="fr.mediavision.gestionselections.beans.SelectionBean" />
+ 		<mapping class="fr.mediavision.gestionselections.beans.ArticulationBean" />
+ 		<mapping class="fr.mediavision.gestionselections.beans.OperateurBean" />
+ 		<mapping class="fr.mediavision.gestionselections.beans.AttributBean" />
+ 		<mapping class="fr.mediavision.gestionselections.beans.TypeAttributBean" />
+ 		<mapping class="fr.mediavision.gestionselections.beans.TypeObjetBean" />
+ 		<mapping class="fr.mediavision.gestionselections.beans.ComparateurBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.gestionAlertes-->
+
+ 		<mapping class="fr.mediavision.gestionalertes.beans.AlerteQuotidienneBean" />
+ 		<mapping class="fr.mediavision.gestionalertes.beans.HistoriqueAlerteBean" />
+ 		<mapping class="fr.mediavision.gestionalertes.beans.ParametreAlerteBean" />
+ 		<mapping class="fr.mediavision.gestionalertes.beans.AlertTypeBean" />
+ 		<mapping class="fr.mediavision.gestionalertes.beans.BooleanOperatorBean" />
+ 		<mapping class="fr.mediavision.gestionalertes.beans.MoyenCommunicationBean" />
+ 		<mapping class="fr.mediavision.gestionalertes.beans.AlerteBean" />
+ 		<mapping class="fr.mediavision.gestionalertes.beans.FonctionEmettriceBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.gestionChampsParametrables-->
+
+ 		<mapping resource="ParametreComplexeBean.hbm.xml" />
+ 		<mapping class="fr.mediavision.gestionchampsparametrables.beans.ChampParametrableBean" />
+ 		<mapping class="fr.mediavision.gestionchampsparametrables.beans.ListeValeursChampBean" />
+ 		<mapping resource="ParametreSalleBean.hbm.xml" />
+ 		<mapping class="fr.mediavision.gestionchampsparametrables.beans.TypeChampParametrableBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.gestionINSEE-->
+
+ 		<mapping class="fr.mediavision.gestioninsee.beans.CommuneBean" />
+ 		<mapping class="fr.mediavision.gestioninsee.beans.ZoneChalandiseBean" />
+ 		<mapping class="fr.mediavision.gestioninsee.beans.ZonePUIBean" />
+ 		<mapping class="fr.mediavision.gestioninsee.beans.RegionBean" />
+ 		<mapping class="fr.mediavision.gestioninsee.beans.DepartementBean" />
+ 		<mapping class="fr.mediavision.gestioninsee.beans.AgglomerationBean" />
+ 		<mapping class="fr.mediavision.gestioninsee.beans.PaysBean" />
+ 		
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.gestionTarif-->
+
+ 		<mapping class="fr.mediavision.gestiontarif.beans.BaremeBean" />
+ 		<mapping class="fr.mediavision.gestiontarif.beans.TypeBaremeBean" />
+ 		<mapping class="fr.mediavision.gestiontarif.beans.IndiceBaremeBean" />
+ 		<mapping class="fr.mediavision.gestiontarif.beans.MinorationBean" />
+ 		<mapping class="fr.mediavision.gestiontarif.beans.TrancheAbattementBean" />
+ 		<mapping class="fr.mediavision.gestiontarif.beans.UniteTrancheAbattementBean" />
+ 		<mapping class="fr.mediavision.gestiontarif.beans.TypeEmplacementMultipleBean" />
+ 		<mapping class="fr.mediavision.gestiontarif.beans.CgvBean" />
+ 		<mapping class="fr.mediavision.gestiontarif.beans.MinorationAssietteBean" />
+ 		<mapping class="fr.mediavision.gestiontarif.beans.MinorationConditionBean" />
+ 		<mapping class="fr.mediavision.gestiontarif.beans.TarifComposantBean" />
+ 		<mapping class="fr.mediavision.gestiontarif.beans.TarifTypeBean" />
+ 		<mapping class="fr.mediavision.gestiontarif.beans.TarifBean" />
+ 		<mapping class="fr.mediavision.gestiontarif.beans.TarifTrancheBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.gestionEspace-->
+
+ 		<mapping class="fr.mediavision.gestionespace.beans.EspaceBean" />
+ 		<mapping class="fr.mediavision.gestionespace.beans.TypologieEspaceBean" />
+ 		<mapping class="fr.mediavision.gestionespace.beans.EmplacementValorisableBean" />
+ 		<mapping class="fr.mediavision.gestionespace.beans.EspacePrestationBean" />
+ 		<mapping class="fr.mediavision.gestionespace.beans.TypePlaylistBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.gestionAudiences-->
+
+ 		<mapping class="fr.mediavision.gestionaudiences.beans.AudienceBean" />
+ 		<mapping class="fr.mediavision.gestionaudiences.beans.BaremeRepartitionBean" />
+ 		<mapping class="fr.mediavision.gestionaudiences.beans.SourceAudienceBean" />
+ 		
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.gestionProduits-->
+
+ 		<mapping class="fr.mediavision.gestionproduits.beans.ProduitCadreBean" />
+ 		<mapping class="fr.mediavision.gestionproduits.beans.PressionProduitBean" />
+ 		<mapping class="fr.mediavision.gestionproduits.beans.ComposantProduitBean" />
+ 		<mapping class="fr.mediavision.gestionproduits.beans.ComposantSallesBean" />
+ 		<mapping class="fr.mediavision.gestionproduits.beans.ComposantComplexesBean" />
+ 		<mapping class="fr.mediavision.gestionproduits.beans.ComposantBACSBean" />
+ 		
+ 		<mapping class="fr.mediavision.gestionproduits.beans.FilmAttributBean" />
+ 		<mapping class="fr.mediavision.gestionproduits.beans.FilmAttributFilmBean" />
+ 		<mapping class="fr.mediavision.gestionproduits.beans.FilmAttributFilmIdBean" />
+ 		<mapping class="fr.mediavision.gestionproduits.beans.FilmBean" />
+        <mapping class="fr.mediavision.gestionproduits.beans.CategorieFilmBean" />
+ 		<mapping class="fr.mediavision.gestionproduits.beans.SuiviFilmBean" />
+ 		<mapping class="fr.mediavision.gestionproduits.beans.SuiviFilmFilmBean" />
+ 		<mapping class="fr.mediavision.gestionproduits.beans.SuiviFilmFilmIdBean" />
+ 		<mapping class="fr.mediavision.gestionproduits.beans.ProduitCadreSuiviFilmBean" />
+ 		<mapping class="fr.mediavision.gestionproduits.beans.ProduitCadreSuiviFilmIdBean" />
+ 		<mapping class="fr.mediavision.gestionproduits.beans.ProduitCadreProgrammeSalleVirtuelleBean" />
+ 		<mapping class="fr.mediavision.gestionproduits.beans.ProduitCadreProgrammeSalleVirtuelleIdBean" />
+ 		<mapping class="fr.mediavision.gestionproduits.beans.ProgrammeSalleVirtuelleBean" />
+ 		<mapping class="fr.mediavision.gestionproduits.beans.TypeSuiviFilmBean" />
+ 		
+ 		
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.gestionSelectionsProduits-->
+
+ 		<mapping class="fr.mediavision.gestionselectionsproduits.beans.SelectionProduitBean" />
+ 		<mapping class="fr.mediavision.gestionselectionsproduits.beans.UniteBean" />
+ 		<mapping class="fr.mediavision.gestionselectionsproduits.beans.StatutSelectionProduitBean" />
+ 		<mapping class="fr.mediavision.gestionselectionsproduits.beans.StatutUniteBean" />
+ 		<mapping class="fr.mediavision.gestionselectionsproduits.beans.RotationBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.gestionObjetsTemporaires-->
+
+ 		<mapping class="fr.mediavision.gestionobjetstemporaires.beans.LotTemporaireBean" />
+ 		<mapping class="fr.mediavision.gestionobjetstemporaires.beans.ReferenceTemporaireBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.gestionTiersCommerciaux-->
+
+ 		<mapping class="fr.mediavision.gestiontierscommerciaux.beans.TiersCommercialBean" />
+ 		<mapping class="fr.mediavision.gestiontierscommerciaux.beans.ResponsableTiersCommercialBean" />
+ 		<mapping class="fr.mediavision.gestiontierscommerciaux.beans.TypeStructureBean" />
+ 		<mapping class="fr.mediavision.gestiontierscommerciaux.beans.AdresseTiersCommercialBean" />
+ 		<mapping class="fr.mediavision.gestiontierscommerciaux.beans.TypeAdresseBean" />
+ 		<mapping class="fr.mediavision.gestiontierscommerciaux.beans.CoordonneeTiersCommercialBean" />
+ 		<mapping class="fr.mediavision.gestiontierscommerciaux.beans.TypeCoordonneeBean" />
+ 		<mapping class="fr.mediavision.gestiontierscommerciaux.beans.ContactTiersCommercialBean" />
+ 		<mapping class="fr.mediavision.gestiontierscommerciaux.beans.DomaineContactBean" />
+ 		<mapping class="fr.mediavision.gestiontierscommerciaux.beans.CoordonneeContactBean" />
+ 		<mapping class="fr.mediavision.gestiontierscommerciaux.beans.RoleTiersCommercialBean" />
+ 		<mapping class="fr.mediavision.gestiontierscommerciaux.beans.EtatRisqueBean" />
+ 		<mapping class="fr.mediavision.gestiontierscommerciaux.beans.ModalitePaiementBean" />
+ 		<mapping class="fr.mediavision.gestiontierscommerciaux.beans.AssujettissementTvaBean" />
+ 		<mapping class="fr.mediavision.gestiontierscommerciaux.beans.TauxRemunerationBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.gestionSecodip-->
+
+ 		<mapping class="fr.mediavision.gestionsecodip.beans.MarqueBean" />
+ 		<mapping class="fr.mediavision.gestionsecodip.beans.CategorieSecodipBean" />
+ 		<mapping class="fr.mediavision.gestionsecodip.beans.ProduitAnnonceurBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.gestionSpots-->
+
+ 		<mapping class="fr.mediavision.gestionspots.beans.SpotBean" />
+ 		<mapping class="fr.mediavision.gestionspots.beans.MorceauSpotBean" />
+ 		<mapping class="fr.mediavision.gestionspots.beans.NatureSpotBean" />
+ 		<mapping class="fr.mediavision.gestionspots.beans.TrancheAgeMorceauBean" />
+ 		<mapping class="fr.mediavision.gestionspots.beans.FormatMorceauBean" />
+ 		<mapping class="fr.mediavision.gestionspots.beans.StatutMorceauBean" />
+ 		<mapping class="fr.mediavision.gestionspots.beans.TypeMorceauBean" />
+ 		<mapping class="fr.mediavision.gestionspots.beans.IntercalaireBean" />
+ 		<mapping class="fr.mediavision.gestionspots.beans.ResultQualificationMorceauBean" />
+ 		<mapping class="fr.mediavision.gestionspots.beans.StatutSpotBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.gestionAffaires-->
+
+ 		<mapping class="fr.mediavision.gestionaffaires.beans.AffaireBean" />
+ 		<mapping class="fr.mediavision.gestionaffaires.beans.StatutAffaireBean" />
+ 		<mapping class="fr.mediavision.gestionaffaires.beans.NatureChiffreAffaireBean" />
+ 		<mapping class="fr.mediavision.gestionaffaires.beans.PortefeuilleCommercialBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.gestionOffres-->
+
+ 		<mapping class="fr.mediavision.gestionoffres.beans.OffreContratBean" />
+ 		<mapping class="fr.mediavision.gestionoffres.beans.StatutOffreBean" />
+ 		<mapping class="fr.mediavision.gestionoffres.beans.MinorationsOffreBean" />
+ 		<mapping class="fr.mediavision.gestionoffres.beans.DocumentImportBean" />
+ 		<mapping class="fr.mediavision.gestionoffres.beans.OffreContratConcurrentBean" />
+ 		<mapping class="fr.mediavision.gestionoffres.beans.TypeObjetPermissiviteBean" />
+ 		<mapping class="fr.mediavision.gestionoffres.beans.TypeSeuilPermissiviteBean" />
+ 		<mapping class="fr.mediavision.gestionoffres.beans.MatricePermissiviteBean" />
+ 		<mapping class="fr.mediavision.gestionoffres.beans.DocumentOffreBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.gestionLignesOffres-->
+
+ 		<mapping class="fr.mediavision.gestionlignesoffres.beans.LigneOffreBean" />
+ 		<mapping class="fr.mediavision.gestionlignesoffres.beans.StatutLigneOffreBean" />
+ 		<mapping class="fr.mediavision.gestionlignesoffres.beans.TypeLigneOffreBean" />
+ 		<mapping class="fr.mediavision.gestionlignesoffres.beans.SchemaInstallationGroupeDiffusionBean" />
+ 		<mapping class="fr.mediavision.gestionlignesoffres.beans.SchemaInstallationMailleBean" />
+ 		<mapping class="fr.mediavision.gestionlignesoffres.beans.SchemaInstallationMailleMorceauSpotBean" />
+ 		<mapping class="fr.mediavision.gestionlignesoffres.beans.ModeRepartitionInstallationBean" />
+ 		<mapping class="fr.mediavision.gestionlignesoffres.beans.AbattementBaremeParametrableBean" />
+ 		<mapping class="fr.mediavision.gestionlignesoffres.beans.SuppressionSpotBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.gestionMaterielsServices-->
+
+ 		<mapping class="fr.mediavision.gestionmaterielsservices.beans.MaterielServiceBean" />
+ 		<mapping class="fr.mediavision.gestionmaterielsservices.beans.RegroupementMaterielServiceBean" />
+ 		<mapping class="fr.mediavision.gestionmaterielsservices.beans.FamilleMetierBean" />
+ 		<mapping class="fr.mediavision.gestionmaterielsservices.beans.RegleCalculBean" />
+ 		<mapping class="fr.mediavision.gestionmaterielsservices.beans.TypeTarifBean" />
+ 		<mapping class="fr.mediavision.gestionmaterielsservices.beans.PlanComptesCGBean" />
+ 		<mapping class="fr.mediavision.gestionmaterielsservices.beans.PlanComptesAnalytiquesBean" />
+        <mapping class="fr.mediavision.gestionmaterielsservices.beans.DossierComptableBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.calculPrixOffre-->
+
+ 		<mapping class="fr.mediavision.calculprixoffre.beans.FeuilleMontantLigneBean" />
+ 		<mapping class="fr.mediavision.calculprixoffre.beans.AuditNetRegieFMLBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.faisabilite-->
+
+ 		<mapping class="fr.mediavision.faisabilite.beans.CalendrierDeDiffusionBean" />
+ 		<mapping class="fr.mediavision.faisabilite.beans.CelluleCDDBean" />
+ 		<mapping class="fr.mediavision.faisabilite.beans.MailleCDDBean" />
+ 		<mapping class="fr.mediavision.faisabilite.beans.IndicateursMailleCDDBean" />
+ 		<mapping class="fr.mediavision.faisabilite.beans.EmplacementsRefusesBean" />
+ 		<mapping class="fr.mediavision.faisabilite.beans.SalleParcUtileMoinsLigneOffreBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.ordonnancement-->
+
+ 		<mapping class="fr.mediavision.ordonnancement.beans.ProgrammeDeDiffusionBean" />
+ 		<mapping class="fr.mediavision.ordonnancement.beans.IndicateursPddPrestationBean" />
+ 		<mapping class="fr.mediavision.ordonnancement.beans.ProjectionElementaireBean" />
+ 		<mapping class="fr.mediavision.ordonnancement.beans.IndicateursPddEmplacementBean" />
+ 		<mapping class="fr.mediavision.ordonnancement.beans.StatutProgrammeDeDiffusionBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.gestionBesoins-->
+
+ 		<mapping class="fr.mediavision.gestionbesoins.beans.BesoinMaterielServiceBean" />
+ 		<mapping class="fr.mediavision.gestionbesoins.beans.BesoinCopieArgentiqueBean" />
+ 		<mapping class="fr.mediavision.gestionbesoins.beans.CommandeLivraisonBesoinBean" />
+ 		<mapping class="fr.mediavision.gestionbesoins.beans.BesoinIndiceDureeMorceauSpotBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.refDocumentaire-->
+
+ 		<mapping class="fr.mediavision.refdocumentaire.beans.BonCommandeBean" />
+ 		<mapping class="fr.mediavision.refdocumentaire.beans.StatutBonCommandeBean" />
+ 		<mapping class="fr.mediavision.refdocumentaire.beans.CalendrierProjectionsBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.controles-->
+
+ 		 		 		
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.gestionTiersLaboratoire-->
+
+ 		<mapping class="fr.mediavision.gestiontierslaboratoire.beans.TiersLaboratoireBean" />
+ 		<mapping class="fr.mediavision.gestiontierslaboratoire.beans.ContactTiersLaboratoireBean" />
+ 		<mapping class="fr.mediavision.gestiontierslaboratoire.beans.MoyenRelanceBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.ordresExecution-->
+
+ 		<mapping class="fr.mediavision.ordresexecution.beans.ActionPlanifieeBean" />
+ 		<mapping class="fr.mediavision.ordresexecution.beans.DelaiParSupportProjectionBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.echangesDonnees-->
+
+ 		<mapping class="fr.mediavision.echangesdonnees.beans.ModeEnvoiPlaylistBean" />
+ 		<mapping class="fr.mediavision.echangesdonnees.beans.OperateurAtelierBean" />
+ 		
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.gestionAnomalies-->
+
+ 		<mapping class="fr.mediavision.gestionanomalies.beans.DepassementSalleBean" />
+ 		<mapping class="fr.mediavision.gestionanomalies.beans.AnomaliesDegreUrgenceBean" />
+ 		<mapping class="fr.mediavision.gestionanomalies.beans.FileAttenteEmplacementValorisableBean" />
+ 		<mapping class="fr.mediavision.gestionanomalies.beans.AnomaliesSallesFermeesBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.gestionAvisDeMontage-->
+
+ 		<mapping class="fr.mediavision.gestionavisdemontage.beans.AvisDeMontageBean" />
+ 		<mapping class="fr.mediavision.gestionavisdemontage.beans.StatutPartieAvisDeMontageBean" />
+ 		<mapping class="fr.mediavision.gestionavisdemontage.beans.PartieAvisDeMontageBean" />
+ 		<mapping class="fr.mediavision.gestionavisdemontage.beans.ReferentielFinaleAdresseBean" />
+ 		<mapping class="fr.mediavision.gestionavisdemontage.beans.FinaleAdresseBean" />
+        <mapping class="fr.mediavision.gestionavisdemontage.beans.FinaleAdresseTmpBean" />
+        <mapping class="fr.mediavision.gestionavisdemontage.beans.FinaleAdresseComplexeTmpBean" />
+ 		<mapping class="fr.mediavision.gestionavisdemontage.beans.RegleGenerationAvisDeMontageBean" />
+ 		<mapping class="fr.mediavision.gestionavisdemontage.beans.ProjectionPartieAvisDeMontageBean" />
+ 		<mapping class="fr.mediavision.gestionavisdemontage.beans.OperationAvisDeMontageBean" />
+ 		<mapping class="fr.mediavision.gestionavisdemontage.beans.TypeOperationAvisDeMontageBean" />
+ 		<mapping class="fr.mediavision.gestionavisdemontage.beans.StatutAnnulationAvisDeMontageBean" />
+ 		<mapping class="fr.mediavision.gestionavisdemontage.beans.TypeAnnulationAvisDeMontageBean" />
+ 		<mapping class="fr.mediavision.gestionavisdemontage.beans.AnnulationAvisDeMontageBean" />
+ 		<mapping class="fr.mediavision.gestionavisdemontage.beans.CodeLaisseSurPlaceBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.gestionPdd-->
+
+ 		<mapping class="fr.mediavision.gestionpdd.beans.MethodeCalculDepassementBean" />
+ 		<mapping class="fr.mediavision.gestionpdd.beans.MethodeCalculDepassementPrestationBean" />
+ 		<mapping class="fr.mediavision.gestionpdd.beans.MethodeCalculDepassementSalleBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.tdbCalculBesoin-->
+
+ 		<mapping class="fr.mediavision.tdbcalculbesoin.beans.TdbGlobalDepassementBean" />
+ 		<mapping class="fr.mediavision.tdbcalculbesoin.beans.TdbDetailleDepassementBean" />
+ 		<mapping class="fr.mediavision.tdbcalculbesoin.beans.PddDepassementTemporaireBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.facturation-->
+
+ 		<mapping class="fr.mediavision.facturation.beans.ExemplaireBean" />
+ 		<mapping class="fr.mediavision.facturation.beans.FactureBean" />
+ 		<mapping class="fr.mediavision.facturation.beans.FluxPlanifiesBean" />
+ 		<mapping class="fr.mediavision.facturation.beans.JournalFacturationBean" />
+ 		<mapping class="fr.mediavision.facturation.beans.LigneFactureBean" />
+ 		<mapping class="fr.mediavision.facturation.beans.NaturePieceBean" />
+ 		<mapping class="fr.mediavision.facturation.beans.ParametresFacturationBean" />
+ 		<mapping class="fr.mediavision.facturation.beans.StatutFluxPlanifiesBean" />
+ 		<mapping class="fr.mediavision.facturation.beans.SpotFactureBean" />
+ 		<mapping class="fr.mediavision.facturation.beans.TypeAcheminementBean" />
+ 		<mapping class="fr.mediavision.facturation.beans.TypeExemplaireBean" />
+ 		<mapping class="fr.mediavision.facturation.beans.TypeFacturationBean" />
+ 		<mapping class="fr.mediavision.facturation.beans.TypeFluxPlanifiesBean" />
+ 		<mapping class="fr.mediavision.facturation.beans.TypeLigneFactureBean" />
+ 		<mapping class="fr.mediavision.facturation.beans.TypologieFacturationBean" />
+ 		<mapping class="fr.mediavision.facturation.beans.VenteAuxiliaireBean" />
+ 		<mapping class="fr.mediavision.facturation.beans.VenteGeneraleEtAnalytiqueBean" />
+ 		<mapping class="fr.mediavision.facturation.beans.CorrectionFacturationBean" />
+        <mapping class="fr.mediavision.facturation.beans.CauseCorrectionFacturationBean" />
+        <mapping class="fr.mediavision.facturation.beans.HistoriqueCorrectionFacturationBean" />
+        <mapping class="fr.mediavision.facturation.beans.StatutCorrectionFacturationBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.gestionContratRegie-->
+
+ 		<mapping class="fr.mediavision.gestioncontratregie.beans.ConditionRedevanceEtFraisBean" />
+ 		<mapping class="fr.mediavision.gestioncontratregie.beans.ContratRegieBean" />
+ 		<mapping class="fr.mediavision.gestioncontratregie.beans.ContratRegieComplexeBean" />
+ 		<mapping class="fr.mediavision.gestioncontratregie.beans.ContratRegieSalleBean" />
+ 		<mapping class="fr.mediavision.gestioncontratregie.beans.MethodeCalculRedevanceBean" />
+ 		<mapping class="fr.mediavision.gestioncontratregie.beans.ModePresentationBean" />
+ 		<mapping class="fr.mediavision.gestioncontratregie.beans.ReferentielConditionsRedevanceEtFraisComplementairesBean" />
+ 		<mapping class="fr.mediavision.gestioncontratregie.beans.RoleTiersExploitantContratRegieBean" />
+ 		<mapping class="fr.mediavision.gestioncontratregie.beans.StatutContratRegieBean" />
+ 		<mapping class="fr.mediavision.gestioncontratregie.beans.TypeContratRegieBean" />
+ 		<mapping class="fr.mediavision.gestioncontratregie.beans.TypeEcheanceBean" />
+ 		<mapping class="fr.mediavision.gestioncontratregie.beans.TypeClotureBean" />
+ 		<mapping class="fr.mediavision.gestioncontratregie.beans.TypeReconductionBean" />
+ 		<mapping class="fr.mediavision.gestioncontratregie.beans.PrestationSalleHistoriqueBean" />
+ 		<mapping class="fr.mediavision.gestioncontratregie.beans.PrestationComplexeHistoriqueBean" />
+ 		<mapping class="fr.mediavision.gestioncontratregie.beans.PrimeOperateurBean" />
+ 		<mapping class="fr.mediavision.gestioncontratregie.beans.ConditionRedevanceEtFraisLotTmpBean" />
+ 		<mapping class="fr.mediavision.gestioncontratregie.beans.PrestationSalleComplexeLotTmpBean" />
+
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.gestionRedevance-->
+
+ 		<mapping class="fr.mediavision.gestionredevance.beans.DetailDepensesBean" />
+ 		<mapping class="fr.mediavision.gestionredevance.beans.LigneDetailDepensesBean" />
+ 		<mapping class="fr.mediavision.gestionredevance.beans.TypeDepensesBean" />
+ 		<mapping class="fr.mediavision.gestionredevance.beans.StatutDetailDepensesBean" />
+ 		<mapping class="fr.mediavision.gestionredevance.beans.ModeReglementBean" />
+ 		<mapping class="fr.mediavision.gestionredevance.beans.StatutReleveDeCompteBean" />
+ 		<mapping class="fr.mediavision.gestionredevance.beans.FactureFournisseurBean" />
+ 		<mapping class="fr.mediavision.gestionredevance.beans.ReleveDeCompteBean" />
+ 		<mapping class="fr.mediavision.gestionredevance.beans.AvanceBean" />
+ 		<mapping class="fr.mediavision.gestionredevance.beans.DetailAvanceBean" />
+ 		<mapping class="fr.mediavision.gestionredevance.beans.ExportRedevanceBean" />
+ 		<mapping class="fr.mediavision.gestionredevance.beans.TypeExportRedevanceBean" />
+        <mapping class="fr.mediavision.gestionredevance.beans.FluxPlanifiesRedevanceBean" />
+ 		 		
+  		<!-- Mapping hibernate pour le composant : fr.mediavision.gestionControlesSalles-->
+
+ 		<mapping class="fr.mediavision.gestioncontrolessalles.beans.ControleurBean" />
+ 		<mapping class="fr.mediavision.gestioncontrolessalles.beans.ControleSalleBean" />
+ 		<mapping class="fr.mediavision.gestioncontrolessalles.beans.ControleMorceauBean" />
+ 		<mapping class="fr.mediavision.gestioncontrolessalles.beans.StatutControleurBean" />
+ 		<mapping class="fr.mediavision.gestioncontrolessalles.beans.StatutControleBean" />
+ 		<mapping class="fr.mediavision.gestioncontrolessalles.beans.ModeRemboursementBean" />
+
+        <!-- Mapping hibernate pour le composant : fr.mediavision.gestionhistoriquefermeture-->
+        <mapping class="fr.mediavision.gestionhistorique.beans.HistoriqueFermetureBean" />
+
+        <!-- Association hibernate -->
+        <mapping class="fr.mediavision.referentiel.beans.SocieteUtilisateurBean" />
+        <mapping class="fr.mediavision.referentiel.beans.SocieteUtilisateurIdBean" />
+        <mapping class="fr.mediavision.referentiel.beans.UtilisateurProfilBean" />
+        <mapping class="fr.mediavision.referentiel.beans.UtilisateurProfilIdBean" />
+        <mapping class="fr.mediavision.referentiel.beans.UtilisateurRoleBean" />
+        <mapping class="fr.mediavision.referentiel.beans.UtilisateurRoleIdBean" />
+        <mapping class="fr.mediavision.referentiel.beans.ProfilFonctionBean" />
+        <mapping class="fr.mediavision.referentiel.beans.ProfilFonctionIdBean" />
+        <mapping class="fr.mediavision.referentiel.beans.ProfilStrategieBean" />
+        <mapping class="fr.mediavision.referentiel.beans.ProfilStrategieIdBean" />
+        <mapping class="fr.mediavision.gestionsalles.beans.SelectionsSallesBean" />
+        <mapping class="fr.mediavision.gestionsalles.beans.SelectionsSallesIdBean" />
+        <mapping class="fr.mediavision.gestioncalendriers.beans.CalendrierTypeMailleTemporelleBean" />
+        <mapping class="fr.mediavision.gestioncalendriers.beans.CalendrierTypeMailleTemporelleIdBean" />
+        <mapping class="fr.mediavision.gestionselections.beans.SelectionsComplexesBean" />
+        <mapping class="fr.mediavision.gestionselections.beans.SelectionsComplexesIdBean" />
+        <mapping class="fr.mediavision.gestionselections.beans.TypeAttributComparateursPossiblesBean" />
+        <mapping class="fr.mediavision.gestionselections.beans.TypeAttributComparateursPossiblesIdBean" />
+        <mapping class="fr.mediavision.gestiontarif.beans.CgvMinorationBean" />
+        <mapping class="fr.mediavision.gestiontarif.beans.CgvMinorationIdBean" />
+        <mapping class="fr.mediavision.gestionproduits.beans.ProduitCadreBaremeBean" />
+        <mapping class="fr.mediavision.gestionproduits.beans.ProduitCadreBaremeIdBean" />
+        <mapping class="fr.mediavision.gestionselectionsproduits.beans.SalleUniteBean" />
+        <mapping class="fr.mediavision.gestionselectionsproduits.beans.SalleUniteIdBean" />
+        <mapping class="fr.mediavision.gestiontierscommerciaux.beans.TiersCommercialRoleBean" />
+        <mapping class="fr.mediavision.gestiontierscommerciaux.beans.TiersCommercialRoleIdBean" />
+        <mapping class="fr.mediavision.gestionaffaires.beans.PortefeuilleCommercialUtilisateurBean" />
+        <mapping class="fr.mediavision.gestionaffaires.beans.PortefeuilleCommercialUtilisateurIdBean" />
+        <mapping class="fr.mediavision.gestionlignesoffres.beans.LigneOffreComposantProduitBean" />
+        <mapping class="fr.mediavision.gestionlignesoffres.beans.LigneOffreComposantProduitIdBean" />
+        <mapping class="fr.mediavision.gestionlignesoffres.beans.LigneOffreSpotBean" />
+        <mapping class="fr.mediavision.gestionlignesoffres.beans.LigneOffreSpotIdBean" />
+        <mapping class="fr.mediavision.gestionmaterielsservices.beans.RegleCalculFamilleMetierBean" />
+        <mapping class="fr.mediavision.gestionmaterielsservices.beans.RegleCalculFamilleMetierIdBean" />
+        <mapping class="fr.mediavision.gestionavisdemontage.beans.AnnulationAvisMontageMorceauBean" />
+        <mapping class="fr.mediavision.gestionavisdemontage.beans.AnnulationAvisMontageMorceauIdBean" />
+        <mapping class="fr.mediavision.gestionavisdemontage.beans.FinaleAdresseComplexeBean" />
+        <mapping class="fr.mediavision.gestionavisdemontage.beans.FinaleAdresseComplexeIdBean" />
+        <mapping class="fr.mediavision.gestionredevance.beans.DetailContratRegieBean" />
+        <mapping class="fr.mediavision.gestionredevance.beans.DetailContratRegieIdBean" />
+        <mapping class="fr.mediavision.gestionredevance.beans.DepensesOffresBean" />
+        <mapping class="fr.mediavision.gestionredevance.beans.DepensesOffresIdBean" />
+        <mapping class="fr.mediavision.gestionredevance.beans.ExportRedevancesRelevesDeCompteBean" />
+        <mapping class="fr.mediavision.gestionredevance.beans.ExportRedevancesRelevesDeCompteIdBean" />
+        <mapping class="fr.mediavision.gestionredevance.beans.ExportRedevanceTiersBean" />
+        <mapping class="fr.mediavision.gestionredevance.beans.ExportRedevanceTiersIdBean" />
+    </session-factory>
+</hibernate-configuration>

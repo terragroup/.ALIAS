@@ -4,6 +4,26 @@
 #
 ##############################################################################//
 
+###############################################################################
+# IDEA
+################################################################################
+
+# 2 - hot deploy = tu active dans le fichier backend/pom.xml (line  <scanIntervalSeconds>2</scanIntervalSeconds>)
+# -----> et puis : CTRL + SHIFT + F9 (> compile juste le fichier qui a change)
+
+
+
+######################################################################
+# INTELLIJ IDEA
+######################################################################
+# le merge
+tu fais click droit > git > merge
+Dans le 3 merge-tool, celui du centre sera le RESULTANT,
+et les 2 autres de chaques cotes sont :
+a gauche : remote
+a droite : local
+
+
 # ------------------------------------------------------------------------------
 # PLUGIN IDEA
 # ------------------------------------------------------------------------------

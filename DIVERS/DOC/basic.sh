@@ -18,6 +18,12 @@
 # GET  = scp FILE DEST_HOST:dossier  > scp error.log  axel@10.196.165.188:/home/axel/error.log
 # POST = scp DEST_HOST:dossier FILE
 
+scp client-cert.p12  axel@10.196.165.163:/home/axel/DL
+
+
+
+
+
 # - je vois dans DEPLOY :
 clean process-resources -P ${ENVIRONNEMENT}
 # - mais je change avec :
@@ -26,7 +32,7 @@ clean package -DskipTests=true -P atnv2_production
 
 
 
- 
+
 
 
  # ------------------------------------------------------------------------------

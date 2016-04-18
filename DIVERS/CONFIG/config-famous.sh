@@ -10,14 +10,8 @@ ATN LOGGER
  # repertoire conf port TOMCAT
  /var/atnv2/tomcat/conf/server.xml
 
+
  ###############################################################################
  #  SQL
  ################################################################################
  en mode % = externe ?
-
- ###############################################################################
- # IDEA
- ################################################################################
-
- # 2 - hot deploy = tu active dans le fichier backend/pom.xml (line  <scanIntervalSeconds>2</scanIntervalSeconds>)
- # -----> et puis : CTRL + SHIFT + F9 (> compile juste le fichier qui a change)

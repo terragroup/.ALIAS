@@ -1,0 +1,19 @@
+##
+
+# -------------------
+# Axel bouchonx
+# -------------------
+imdv-intranet/src/main/webapp/WEB-INF/classes/application.properties
+imdv-intranet/src/main/webapp/WEB-INF/classes/hibernate.cfg.xml
+imdv-intranet/src/main/webapp/WEB-INF/classes/log4j.properties
+imdv-intranet/src/main/webapp/META-INF/context.xml
+imdv-intranet/src/main/webapp/welcome.html
+
+# -------------------
+# 
+# -------------------
+
+
+
+
+

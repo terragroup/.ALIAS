@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="./ui/lib/ext/2.2/resources/css/ext-all.css" />
+<link rel="stylesheet" type="text/css" href="./ui/app/css/style.css" />
+<title>Intranet Médicis</title>
+</head>
+<body id="p_welcome">
+<script language="JavaScript">
+
+if (location.search != "")
+{
+	var x = location.search.substr(1).split(";")
+	for (var i=0; i<x.length; i++)
+	{
+		var y = x[i].split("=");
+		if (y[0] = "auth") {
+			//alert("hello");
+		//	window.open('/index.html', 'mediavision', 'width=1024,height=768,toolbar=no,status=no,menubar=yes,directories=no,location=no');
+		}
+	}
+}	
+
+</script>
+
+<form action="j_security_check" method="post" id="formLogon">
+<h1>Connexion à l'Intranet Médicis</h1>
+<!--bouchonx-->
+<p class="text"><label for="username">Identifiant</label> <input type="text" id="username" name="j_username" value="admin"/></p>
+<p class="secret"><label for="password">Mot de passe</label> <input type="password" id="password" name="j_password" value="mediavision"/></p>
+<p class="submit"><input type="submit" id="submit_formLogon" value="Se connecter" /></p>
+</form>
+</body>
+</html>

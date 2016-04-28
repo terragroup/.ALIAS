@@ -38,6 +38,7 @@ itar - Settings | Live Templates for more details.
 
 F2 or shift F2          - go to next error
 
+ctrl + alt + PAGE DOWN  - go to next GIT modif
 
 
 ctrl + alt + shift + N  - go to next symbol (function, attribute...) -- en lien avec ctrl + f12

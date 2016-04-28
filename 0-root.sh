@@ -27,7 +27,15 @@
 # a chercher :
 # - rajouter le PWWD dans sudo directement au lieu de le rataper
 
-# INSTALL PACKAGE - sudo dpkg -i DEB_PACKAGE
+
+
+# ----------------------------------------------------
+# INSTALL PACKAGE
+# sudo dpkg -i .deb
+# sudo dpkg - --force-depends --install .deb
+# ----------------------------------------------------
+
+
 
 # alias     ls='ls -lh --group-directories-first   | awk '"'"'{print $1, $9}'"'"'  | h -ni $LS_ALL | h -ni $LS_NUM  | h -ni LS_NUM_TIRET  '
 

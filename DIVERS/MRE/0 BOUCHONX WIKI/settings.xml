@@ -13,7 +13,8 @@
     <mirror>
       <id>forgemre</id>
       <name>Forge MRE</name>
-      <url>http://nexus.mre.pub/content/groups/public</url>
+      <url>http://prodnexusweb.mdv.pub/content/groups/public</url>
+      <!--<url>http://nexus.mre.pub/content/groups/public</url>-->
       <mirrorOf>*</mirrorOf>
     </mirror>
   </mirrors>
@@ -46,7 +47,6 @@
         <!-- SSH -->
         <deploy.sshkeyfile>/home/user/.ssh/id_rsa</deploy.sshkeyfile>
 
-
         <!-- Nginx -->
         <nginx.host>localhost</nginx.host>
         <!-- GWT -->
@@ -61,29 +61,49 @@
         <tomcat.catalina.base>/var/atnv2/backend</tomcat.catalina.base>
         <tomcat.webapp.path>ROOT</tomcat.webapp.path>
 
-        <multirouter.smartjog.certificat>/home/backend/certificats/catalogueTest/</multirouter.smartjog.certificat>
-        <!-- <multirouter.smartjog.certificat.password>innovation</multirouter.smartjog.certificat.password> -->
-        <multirouter.smartjog.certificat.password>2316</multirouter.smartjog.certificat.password>
-        <multirouter.smartjog.id.catalog>10977</multirouter.smartjog.id.catalog>
-        <multirouter.smartjog.id.server.local>8674</multirouter.smartjog.id.server.local>
-        <multirouter.smartjog.mediavision.billto>9199SJ82991</multirouter.smartjog.mediavision.billto>
+        <!-- TRANSPORTEUR (serveur local de test smartjog) -->
         <multirouter.smartjog.ftp.host>10.196.165.232</multirouter.smartjog.ftp.host>
         <multirouter.smartjog.ftp.mdp>5KGoesrr</multirouter.smartjog.ftp.mdp>
-        <multirouter.globecast.local.services.address>http://10.196.164.15:9090</multirouter.globecast.local.services.address>
+        <multirouter.smartjog.id.catalog>10977</multirouter.smartjog.id.catalog>
+        <multirouter.smartjog.id.server.local>8674</multirouter.smartjog.id.server.local>
+
         <multirouter.smartjog.id.ba.directory.catalog>17303165</multirouter.smartjog.id.ba.directory.catalog>
         <multirouter.smartjog.id.generale.directory.catalog>25371825</multirouter.smartjog.id.generale.directory.catalog>
 
+        <multirouter.smartjog.mediavision.billto>9199SJ82991</multirouter.smartjog.mediavision.billto>
 
-        <!-- 10.196.164.31 -->
+
+
+
+        <!-- SMARTJOG CERTIFICAT -->
+        <!--URL LOCAL : DONC ATTENTION A NE PAS COMMITER CE FICHIER !!!-->
+        <multirouter.smartjog.certificat>/home/axel/com/atnv2/config/src/main/resources/certificats/catalogueTest/</multirouter.smartjog.certificat>
+        <!--PWD RCT / LOCAL -->
+        <multirouter.smartjog.certificat.password>5732</multirouter.smartjog.certificat.password>
+
+
+        <!--URL PROD/REC -->
+        <!--<multirouter.smartjog.certificat>/home/backend/certificats/catalogueTest/</multirouter.smartjog.certificat>   -->
+        <!--PWD PROD -->
+        <!--<multirouter.smartjog.certificat.password>2316</multirouter.smartjog.certificat.password>-->
+        <!--OLD PWD : innovation -->
+
+
+        <!-- GLOBECAST -->
+        <multirouter.globecast.local.services.address>http://10.196.164.15:9090</multirouter.globecast.local.services.address>
+
+        <!-- BACKUP-->
         <multirouter.backup.smartjog.ftp.host>INTEGMDSWEB.mre.pub</multirouter.backup.smartjog.ftp.host>
         <multirouter.backup.smartjog.ftp.port>21</multirouter.backup.smartjog.ftp.port>
         <multirouter.backup.smartjog.ftp.login>adminmv</multirouter.backup.smartjog.ftp.login>
         <multirouter.backup.smartjog.ftp.mdp>innovation</multirouter.backup.smartjog.ftp.mdp>
 
-        <!--<multirouter.backup.smartjog.ftp.host>preprodbatchs</multirouter.backup.smartjog.ftp.host>-->
-        <!--<multirouter.backup.smartjog.ftp.port>21</multirouter.backup.smartjog.ftp.port>-->
-        <!--<multirouter.backup.smartjog.ftp.login>atn</multirouter.backup.smartjog.ftp.login>-->
-        <!--<multirouter.backup.smartjog.ftp.mdp>atn</multirouter.backup.smartjog.ftp.mdp>-->
+        <!-- BACKUP GAUMONT -->
+        <multirouter.backup.gaumont.ftp.host>93.188.171.182</multirouter.backup.gaumont.ftp.host>
+        <multirouter.backup.gaumont.ftp.port>2222</multirouter.backup.gaumont.ftp.port>
+        <multirouter.backup.gaumont.ftp.login>user_mediavision</multirouter.backup.gaumont.ftp.login>
+        <multirouter.backup.gaumont.ftp.mdp>xbLUQU&amp;5L</multirouter.backup.gaumont.ftp.mdp>
+
 
         <scheduler.cron.server.state>0 0/5 * * * ?</scheduler.cron.server.state>
 
@@ -93,13 +113,14 @@
         <playlist.issuer>Mediavision</playlist.issuer>
         <playlist.contentKind>Advertissement</playlist.contentKind>
 
-        <!-- Conf USB (ELLE qui est utilisee EST EN BASE donc elle devrait etre inutile) -->
+        <!-- Conf USB -->
         <copy.usb.xml.path>/mnt/archives/GROUPS/COMMUNS/ATNV2/USB/Recette</copy.usb.xml.path>
         <copy.usb.windows.xml.path>\\\\10.196.164.108\\archives\\GROUPS\\COMMUNS\\ATNV2\\USB\\Recette</copy.usb.windows.xml.path>
 
         <!-- Mail -->
-
-        <mail.host.url>smtp.gmail.com</mail.host.url>
+        <!--#23533 - Gestion des mails - Embarquer le bon, fichier de paramétrage mail.properties-->
+        <!--<mail.host.url>smtp.gmail.com</mail.host.url>-->
+        <mail.host.url>ex.mail.ovh.net</mail.host.url>
         <mail.host.port>587</mail.host.port>
         <mail.username>atliernumrecette</mail.username>
         <mail.password>innovation12</mail.password>
@@ -107,7 +128,8 @@
         <!-- Valeur optionnel -->
         <mail.ccMail>${mail.username}@gmail.com</mail.ccMail>
         <!-- Temps en ms de fréquence d'envoie des mails, possible de ne rien mettre -->
-        <mail.send.frequency>1500</mail.send.frequency>
+        <!--<mail.send.frequency>1500</mail.send.frequency>-->
+        <mail.send.frequency>5000</mail.send.frequency>
         <!-- Valeur possible :TLS,SSL,"rien" -->
         <mail.security.protocol>TLS</mail.security.protocol>
 

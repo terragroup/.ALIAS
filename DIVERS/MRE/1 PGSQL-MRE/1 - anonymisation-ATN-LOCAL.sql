@@ -27,8 +27,15 @@ ATTENTION CE N EST PAS POUR LA RECETTE CAR J Y AIS MIS MON MAIL
 
 
 update complexe_cpx set cpx_adressemail='axel.regnoult.mre@gmail.com';
+
+
 -- POUR TAPER SUR LES COMPLEXES
 -- update routeur_rou set rou_adressereseau=1234 where rou_nom='SMARTJOG';
+
+-- AXEL : 7815 - previens les filles de l ATN - smartjog marchera...
+-- update routeur_rou set rou_adressereseau=7815 where rou_nom='SMARTJOG';
+
+
 update routeur_rou set rou_adressereseau=1234 where rou_nom='SMARTJOG';
 update routeur_rou set rou_adressereseau='1000001' where rou_nom='GLOBECAST';
 update utilisateur_usr set usr_email = 'axel.regnoult.mre@gmail.com';

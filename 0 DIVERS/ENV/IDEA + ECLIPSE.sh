@@ -4,28 +4,6 @@
 #
 ##############################################################################//
 
-###############################################################################
-# IDEA
-################################################################################
-
-# 2 - hot deploy = tu active dans le fichier backend/pom.xml (line  <scanIntervalSeconds>2</scanIntervalSeconds>)
-# -----> et puis : CTRL + SHIFT + F9 (> compile juste le fichier qui a change)
-
-
-
-######################################################################
-# INTELLIJ IDEA
-######################################################################
-# le merge
-tu fais click droit > git > merge
-Dans le 3 merge-tool, celui du centre sera le RESULTANT,
-et les 2 autres de chaques cotes sont :
-a gauche : remote
-a droite : local
-(C FAUX, ca depend si tu fais git pop, et tu as conflict :
-gauche : venant du pop
-droite : actuel)
-
 # ------------------------------------------------------------------------------
 # PLUGIN IDEA
 # ------------------------------------------------------------------------------
@@ -40,7 +18,6 @@ itar - Settings | Live Templates for more details.
 
 F2 or shift F2          - go to next error
 
-ctrl + alt + PAGE DOWN  - go to next GIT modif
 
 
 ctrl + alt + shift + N  - go to next symbol (function, attribute...) -- en lien avec ctrl + f12

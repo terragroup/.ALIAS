@@ -1,5 +1,18 @@
 #le fichier est :
 
+
+
+
+
+#-------------------------------------------------------------------------------
+# TEST LIQUIBASE
+#-------------------------------------------------------------------------------
+LANCER LIQUIBASE  # AVEC PROFIL :   apply-db-migration     +       atnv2-local
+                  # AVEC MVN : clean + install
+LANCER TU
+LANCE APP
+
+
 # ------------------------------------------------------------------------------
 # Profil lancer ATN
 # ------------------------------------------------------------------------------
@@ -57,12 +70,40 @@ atnv2-LOCAL + gwt-dev + (localhost ?) + resources-dev
 
 ######################################################################
 
+# GIT MRE EXCLUDED FILES
+######################################################################
+
 # A IGNORER (dans global ?)
 modifié:         imdv-intranet/src/main/webapp/META-INF/context.xml
 modifié:         imdv-intranet/src/main/webapp/WEB-INF/classes/application.properties
 modifié:         imdv-intranet/src/main/webapp/WEB-INF/classes/log4j.properties
 modifié:         imdv-intranet/src/main/webapp/welcome.html
 
+
+
+# FONCTIONNEMENT COMMIT
+- tu commits avec FIXES (ca fera passer le status a RESOLU)
+- puis tu click sur le SHA et tu vas dans le depot (ca met un peu de temps a rafraichir et c est OK)
+
+#----------------------------
+# Besoin de supprimer des commits
+#----------------------------
+git rebase -i HEAD~4        # il va te proposer d editer un fichier et tu vas pouvoir supprimer les lignes que tu souhaites supprimer
+git push -f origin hotfixes # il te faudra le -f
+
+#----------------------------
+#
+#----------------------------
+git fetch --tag
+git tag IMDV-2.19.18
+
+#
+wget http://redmine.mre.pub/projects/medicis-recap/repository
+
+#
+git://gitorious.mre.pub/medicis/medicis.git
+1bb372fe3049332e88d1ac62561532764f76294d
+echo 1bb372fe3049332e88d1ac62561532764f76294d >> .git/refs/heads/hotfixes
 
 
 #!/bin/bash

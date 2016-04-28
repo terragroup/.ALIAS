@@ -6,6 +6,8 @@
 CURRENT_COMMIT="'5f4e63e|5162b42|d9af13b|4b657e6|acfa51a|ad2e172|e869510' 20715 19020 19054 21068 22606 '615d7ff|ec4667e|ad2e172'"
 
 
+# git push --tags
+
 ################################################################################
 # GIT
 ################################################################################
@@ -24,12 +26,11 @@ alias gitp='git pull --rebase '
 alias ga='git add '
 alias gaa='git add --all .'
 
-alias gm='git commit -m '
-alias gmm='git commit -m "fake"'
-
-
 alias gp='git push | h -ni https://github.com/regnou https://regnou@github.com https://github.com Username Password Everything'
 alias gpp='gaa && gmm && gp'                                                    # NEW
+
+alias gm='gaa && git commit -m  && gp'
+alias gmm='git commit -m "fake"'
 
 alias gmM='git commit -m "bureau"'
 alias grc='git rebase --continue'
@@ -69,8 +70,12 @@ function gitSpeed()
 
 }
 
+# ------------------------------------------------------------------------------
+# LE TOKEN IL FAUT LE RECCUPERER ICI : https://github.com/settings/tokens
+# ------------------------------------------------------------------------------
 # CREER GITHUB distant
-# curl -u 'regnou' https://api.github.com/user/repos -d '{"name":$1}'          # curl -u yourUsername -X POST https://api.github.com/user/repos -d '{"name":"nameOfRepo"}'
+# curl -u 'regnou' https://api.github.com/regnou -d '{"name":0-MS-2}'
+# curl -u yourUsername -X POST https://api.github.com/user/repos -d '{"name":"nameOfRepo"}'
 # SUPPRIMER GITHUB distant
 # curl -X DELETE -H 'Authorization: token 73aa994f11809b82838ff15fbd0fc4e7c0a9fe57' https://api.github.com/repos/regnou/0-MS2
 
@@ -88,13 +93,15 @@ function github()
 AXL_GIT_GL="'fixes #' \
             'refs #' \
             'Revert \"Revert' \
-            'Merge|Revert' \
+            'origin/tmp|tmp'  \
+            'origin/dev|dev'  \
+            'origin/development|development'  \
             'origin/master|master'  \
-            'origin/development|, development'  \
+            'HEAD|origin/HEAD' \
+            'Merge|Revert' \
             'origin/hotfixes|hotfixes' \
             'tag: |tag: 2\.2\.' \
             'refs/stash' \
-            'HEAD|origin/HEAD' \
             'test' \
             "
 

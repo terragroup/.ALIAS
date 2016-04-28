@@ -8,6 +8,10 @@
 sudo apt-get install imagemagick # convet img to pdf
 
 
+
+sudo apt-get install pdfsam
+
+
 # ------------------------------------------------------------------------------
 # apt-get update
 # apt-get upgrade

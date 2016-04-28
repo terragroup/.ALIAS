@@ -47,6 +47,22 @@ echo 1bb372fe3049332e88d1ac62561532764f76294d >> .git/refs/heads/hotfixes
 
 
 
+
+# ------------------------------------------------------------------------------
+# Gestion branches
+# ------------------------------------------------------------------------------
+# > delete branch
+git branch -d ou -D
+# > delete REMOTE branch
+git push origin --delete origin/000000000000000
+
+# remove tag
+git tag -d release01git tag -d release01
+
+
+
+
+
 # --------------------------------------------
 # GIT
 # --------------------------------------------
@@ -157,15 +173,11 @@ function generate_ssh_key(){
 # EN COURS             refs  #numero
 # SI C EST OK          fixes #numero
 # ------------------------------------------------------------------------------
-# git config --global core.excludesfile ~/.gitignore
-# git clone git@github.com:regnou/DEMO.git
+git config --global core.excludesfile ~/.gitignore
+git clone git@github.com:regnou/DEMO.git
 # ------------------------------------------------------------------------------
 
-# ------------------------------------------------------------------------------
-# Gestion branches
-# ------------------------------------------------------------------------------
-# > delete branch
-# git branch -d ou -D
+
 
 # ------------------------------------------------------------------------------
 # differents affichages
@@ -191,7 +203,7 @@ function generate_ssh_key(){
 # MERGE
 ################################################################################
 # "^diff --git.*|^index.*|^\-\-\- a/.*|^\+\+\+ b/.*" \
-# gs f3c8275 | grep 'diff \-\-.*([^/]|)+$'
+gs f3c8275 | grep 'diff \-\-.*([^/]|)+$'
 
 # GL
 ################################################################################

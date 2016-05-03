@@ -10,8 +10,10 @@ L,
 00000000000000000-SYMBOL-00000000000000000,
 #, %, $, €,
 
-00000000000000000-MONNEY-00000000000000000,
+00000000000000000-MONNEY-BANK-00000000000000000,
 euros, euro, dollards, dollard,
+retrait, virement, Villejuif, sncf, orange, Scichamplain, P.E.L, RATP,
+
 
 00000000000000000-TIME-00000000000000000,
 janvier, février, avril, juillet, septembre, octobre, novembre, décembre,
@@ -80,6 +82,8 @@ a partagé, commentaires, comments,
 nouveaute, il y a,
 amis en commun, amis, travaille chez, ajots récents, à propos,
 
+à la une, journal, couverture, profil, mobiles, 
+
 PVTistes.net,PVTistes.net Colombie, Journée S'expatrier mode d'emploi, Devenir Rentier,
 France Diplomatie,  INSTITUT FRANÇAIS, Ministère de la Culture et de la Communication,
 Ministère des Affaires sociales et de la Santé, European Commission, Pégase, la page de l’expatriation et des Français à l’étranger,
@@ -128,6 +132,11 @@ Autres messages, Déclarant 1 (4 chiffres), Indiquez vos seuls revenus d'activit
 00000000000000000-APPLICATION-00000000000000000,
 error, debug, info, warn,
 
+
+00000000000000000-ENTREPRISE-00000000000000000,
+TNS, sarl, sasu sas, eurl, is, ir, charges, sociales, cotisations, dividendes, tva,
+
+
 00000000000000000-MRE-00000000000000000,
 PDD, PDDs, abbeville, S1611, 585013, interceptor, property, component-scan , complexes,
 7815, 501, smartjog, disponible, YMAGIS, refs, sftp,
@@ -143,3 +152,4 @@ caused by, exception,
 00000000000000000-LAST-00000000000000000,
 mise en production le, Redmine prioritaires autres que Gaumont-Pathé, Redmine non prioritaires,
 Suite évolutions Gaumont-Pathé, Evolution prioritaire Gaumont-Pathé + balise <playoutcomplete>,
+réception Despina logs CDS,

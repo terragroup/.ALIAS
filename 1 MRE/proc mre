@@ -1,0 +1,517 @@
+******************************************************************************************************
+// AXEL 1
+******************************************************************************************************
+
+IV.4 - Mettre une sauvegarde sur une base de données sur Windows (procédure manuelle)
+> Mediavision BI
+
+Les sauvegardes de production sont sous I:\BackupMV\2_datas\8_MEDIAVISION_BI
+
+G:\INFO\MDV\00_EXPLOITATION\6_Medicis BI\6_Intervention sur les environnements\Gestion de l'environnement de pré-production\Dump
+
+Se connecter au serveur de base de données DEVBOBDD
+
+Puis :
+
+- ouvrir une fenêtre cmd et se positionner sur le répertoire G:\INFO\MDV\00_EXPLOITATION\6_Medicis BI\6_Intervention sur les environnements\Gestion de l'environnement de pré-production\Dump
+
+- taper la ligne de commande suivante : mysql -hDEVBOBDD -uadmin -padm1n [Nom de la base] < [fichier dump]
+
+Rappel des bases BI :
+
+mediavisionbi_dw : mysql -hDEVBOBDD -uadmin -padm1n mediavisionbi_dw < [fichier dump]
+datamartregie : mysql -hDEVBOBDD -uadmin -padm1n datamartregie < [fichier dump]
+datamartcommerce : mysql -hDEVBOBDD -uadmin -padm1n datamartcommerce < [fichier dump]
+dw_technique : mysql -hDEVBOBDD -uadmin -padm1n dw_technique < [fichier dump]
+referentielexterne : mysql -hDEVBOBDD -uadmin -padm1n referentielexterne < [fichier dump]
+
+> Médicis
+
+Les sauvegardes de production sont sous I:\BackupMV\2_datas\5_MEDICIS\1_SQL
+
+Copier la sauvegarde souhaitée sous G:\INFO\MDV\00_EXPLOITATION\3_MEDICIS\5_Interventions sur les environnements\12_Gestion des environnements de test\Dump\Intégration ou \Pré-prod
+
+Au préalable, arrêter les services Tomcat Médicis en appliquant la procédure disponible dans le guide d'exploitation : "1.3) Procédure d'arrêt de la plateforme" uniquement pour les services Tomcat
+
+Se connecter au serveur de base de données
+
+1) Ouvrir une fenêtre cmd.
+2) taper la ligne de commande suivante : mysql -h<Alias/Ip de l'environnement> -uroot -prootpswd <Nom de la base de données> < [fichier dump]
+
+Exemple pour l'integration : mysql -hINTMDSV2BDD -uadmin -padm1n medicisdb < [fichier dump]
+
+Pour la production mysql -hmdsbdd -uadmin -padm1n medicisdb <D:\
+
+3) Faire entrer et attendre.(très long, environ 30 min)
+
+4) Ne pas oublier de passer le script d'anonymisation ci-dessous
+
+> Pour Médicis sous G:\INFO\MDV\00_EXPLOITATION\3_MEDICIS\5_Interventions_sur_les_environnements\13_Script_Anonymisation
+
+5) Passer les éventuels JDON liés à la version de l'environnement de test
+
+6) Synchroniser le cache
+
+Redémarrer les services Tomcat Médicis en appliquant la procédure disponible dans le guide d'exploitation : "1.3) Procédure de démarrage de la plateforme" uniquement pour les services Tomcat
+
+
+
+IV.5 - Mettre une sauvegarde sur une base de données sur LINUX (procédure manuelle)
+Au préalable, arrêter les services Tomcat Médicis en appliquant la procédure disponible dans le guide d'exploitation : "1.3) Procédure d'arrêt de la plateforme" uniquement pour les services Tomcat
+
+ 1) transférer le fichier de dump (en le placant dans le répertoire de destination dump pour la préprod par exemple)
+
+[ Sous windows ]
+
+- Ouvrir FileZilla
+- Se connecter au serveur
+Par exemple sur la pré-prod Médicis :
+   - Hôte : mvbdd
+   - Protocole : SFTP - SSH File Transfer Protocol
+   - Type d'authentification : Demander le mot de passe
+   - Identifiant : root
+   - Mot de passe : innovation
+
+[ Sous linux ]
+
+- Envoyer directement le fichier zippé en utilisant scp comme suit :
+
+ scp   chemin_source_de_la_sauvegarde_zippee   login@machine_distante:/chemin_destination_pour_la_copie
+
+ Exemple :  $>   scp /home/dump/MDSBDD_medicisdb_2015-04-04_02h48.sql   root@MDSBDD:/home
+
+2) Ouvrir une une session en se connectant sur le serveur distant
+
+[ Sous windows ]
+
+Par exemple avec PuTTY pour la pré-prod Médicis :
+   - Host Name : mvbdd
+   - Port : 22
+   - Connection type : SSH
+   - login as : root
+  - root@mvbdd's passord : innovation
+
+[ Sous linux ]
+
+- Se connecter via ssh comme suit :
+
+ ssh   login@machine_distante
+
+Exemple : $>  ssh root@MVBDD
+
+3) Décompresser la sauvegarde
+
+Taper la ligne de commande suivante :
+
+7za e fichier-sauvegarde.7z
+4) Supprimer l'ancienne base et la recréer
+
+Taper la ligne de commande suivante :
+echo "DROP DATABASE nom_base" | mysql -u nom_utilisateur -p
+echo "CREATE DATABASE nom_base" | mysql -u nom_utilisateur -p
+mysql -u nom_utilisateur -p < fichier_sauvegarde.sql
+
+Par exemple pour la pré-prod Médicis :
+echo "DROP DATABASE medicisdb" | mysql -u admin -p (puis taper mot de passe adm1n)
+echo "CREATE DATABASE medicisdb" | mysql -u admin -p (puis taper mot de passe adm1n)
+mysql -u admin -p medicisdb < fichier_sauvegarde.sql (puis taper mot de passe adm1n)
+
+5) Faire entrer et attendre. (Ne pas oublier de supprimer le fichier du dump envoyé précédemment sur la machine)
+
+6) Passer le script d'anonymisation
+
+Pour Médicis : G:\INFO\MDV\00_EXPLOITATION\3_MEDICIS\13_Script_Anonymisation
+
+7) Passer les éventuels JDON liés à la version de l'environnement de test
+
+8) Redémarrer les services Tomcat Médicis en appliquant la procédure disponible dans le guide d'exploitation : "1.1) Procédure de démarrage de la plateforme" uniquement pour les services Tomcat
+
+9) Dans l'application, synchroniser le cache
+
+IV.4 - Changer la date système d'un environnement de test
+1 - Arrêter le service Tomcat du serveur d'ordo
+2 - Arrêter le service Tomcat du serveur Applicatif
+3 - Modifier les dates des trois serveurs : Applicatif, Ordo et Base de données
+4 - Redémarrer le service Tomcat du serveur d'ordo puis du serveur Applicatif
+
+V - Opérations sur les BDD PostgreSQL (ATN)
+Les log de postgres, sur le serveur de production, devraient etre ici :
+
+/var/log/pgsql/9.4/postgresql-${X_DATE_SHORT_3}.log
+
+V.1 - Ouvrir un tunnel pour se connecter sur la base de production (LINUX)
+# tunnel en FAST-FORWARD : (il faut mettre les 2 commandes ci dessous et il sera ensuite possible de se connecter via DBEAVER ou autre client PGSQL)
+
+1 - ssh -L 9000:localhost:5432  root@prodatnv2bdd.mre.pub   # ouvrir le tunnel : mdp : innovation
+2 - psql -d atnv2_production -U atnv2_prod -p 9000 -h localhost # s y connecter : mdp : atnv2_prod
+3 - puis se connecter sur le port 9000 avec DBEAVER
+V.2 - Sauvegarde (DUMP LINUX)
+QUESTION : commandes, ou executer un simple script ?
+
+0 - arreter le TOMCAT
+http://xwiki.mre.pub/bin/view/Portail+Appli+Mediavision/Guide+d%27exploitation+ATN+v2
+
+1 - se connecter en SSH
+
+ssh root@PRODATNV2BDD.mre.pub
+2 - lancer la commande
+su - postgres -c "pg_dump -O atnv2_production | gzip > /var/lib/pgsql/backups/atnv2_production_${DATE}.sql.gz"
+NB: DATE=$(date +"%Y-%m-%d_%H-%M-%S")    // 2015-11-30_14-46-19
+Rq :
+- dumper la base devrait prendre environ 5 minutes
+- database non ISO entre prod et preprod (cf. couple nom_base/login):
+production : atnv2_production / atnv2_prod
+recette : atnv2_preprod / atnv2_preprod
+
+2-bis - sauvegarder sur le FTP distant
+
+su # pour passer en root
+cp /var/lib/pgsql/backups/atnv2_production_${DATE}.sql.gz /mnt/APPS/BackupMV/2_datas/9_ATNV2/POSTGRESQL
+
+V.3 - Restaurer (LINUX)
+Rq :
+- Restaurer la base devrait prendre  de 25 minutes (si pas de refresh des vues materialisees)
+- Restaurer la base va supprimer les users mais va aussi les re-creer
+- la commande ci dessous, 'CTRL + D' (UNIX), permet de sortir de l’interpréteur PGSQL
+
+V.3.1 - RESTAURER EN PRODUCTION
+
+1 - Se connecter à la base de production
+ssh root@PRODATNV2BDD.mre.pub
+
+2 - Arreter le tomcat de l ATN ( guide d'exploitation)
+
+3 - Utiliser le user postgres et se connecter à la base
+    su - postgres
+    psql
+    \c atnv2_prod;
+
+4 - Déconnecter les sessions (sinon, nous ne pourrons pas supprimer cette base)
+  SELECT pg_terminate_backend( pid ) FROM pg_stat_activity WHERE pid <> pg_backend_pid( )  AND datname = current_database();
+
+ CTRL+D
+5 - Supprimer la base de production, puis la recréer avec le bon user, et ajouter l'extention
+    psql -c "DROP DATABASE atnv2_production";
+    psql
+    CREATE DATABASE atnv2_production WITH owner atnv2_prod;
+    \c atnv2_production;
+    CREATE EXTENSION unaccent;
+
+ CTRL+D
+6 - Lancer la restauration à partir du fichier
+    psql -U atnv2_prod atnv2_production  < atnv2_production_2015-11-02_23-30-01.sql
+    # EN LOCAL (pour les developpeurs) : attention oblige mettte -h : psql -h localhost -U atn  < {fichier-dump}.sql
+
+7 - PASSER LE SCRIPT D ANONYMISATION
+
+G:\INFO\MDV\00_EXPLOITATION\4_ATN_v2\1_Interventions sur les environnements\Script anonymisation
+
+8 - relancer tomcat ATN
+
+V.3.2 - RESTAURER EN RECETTE
+
+Rq :
+- En recette, cela est  compliqué qu'en production, du fait que le nom de la base et des users ne sont pas ISO-PROD
+Il faut modifier des valeurs dans le fichier SQL avant de restaurer.
+
+**- S'adapter aux variables (ici, exemple pour la production)**{{code language="bash"}}PGDATABASE='atnv2_production'   # ou en recette : atnv2_preprod  {{/code}}
+
+- APRES le DUMP de prod, et avant de le restaurer en recette, il faut faire des changements dans le fichier SQL:
+ 1 - remplacer le nom "atnv2_prod" par atnv2_preprod
+sed -i.bak -e 's/atnv2_prod/atnv2_preprod/g' {nom-du-fichier-sauvegarde}.sql
+
+ 2 - supprimer les 'refresh des vues materialisees' [car cela peut prendre 1h de  durant la restauration] :
+sed -i '/REFRESH MATERIALIZED VIEW/d' {nom-du-fichier-sauvegarde}.sql
+
+PUIS ON SUIT LA MEME PROCEDURE QU'EN PRODUCTION :
+
+1 - Se connecter à la base de pre-production
+ssh root@10.196.165.17.mre.pub
+
+2 - Arreter le tomcat de l ATN ( guide d'exploitation)
+
+3 - Utiliser le user postgres et se connecter à la base
+    su - postgres
+    psql
+    \c atnv2_preprod;
+
+4 - Déconnecter les sessions (sinon, nous ne pourrons pas supprimer cette base)
+  SELECT pg_terminate_backend( pid ) FROM pg_stat_activity WHERE pid <> pg_backend_pid( )  AND datname = current_database();
+
+ CTRL+D
+5 - Supprimer la base de production, puis la recréer avec le bon user, et ajouter l'extention
+    psql -c "DROP DATABASE atnv2_preprod";
+    psql
+    CREATE DATABASE atnv2_preprod WITH owner atnv2_preprod;
+    \c atnv2_preprod;
+    CREATE EXTENSION unaccent;
+
+ CTRL+D
+6 - Lancer la restauration à partir du fichier (changer atnv2_production_2016-01-21_23-30-01.sql)
+    psql -U atnv2_preprod atnv2_preprod  < atnv2_production_2016-01-21_23-30-01.sql
+    # EN LOCAL (pour les developpeurs) : attention oblige mettte -h : psql -h localhost -U atn  < {fichier-dump}.sql
+
+7 - PASSER LE SCRIPT D ANONYMISATION
+
+G:\INFO\MDV\00_EXPLOITATION\4_ATN_v2\1_Interventions sur les environnements\Script anonymisation
+
+8 - relancer tomcat ATN
+
+******************************************************************************************************
+// AXEL 2
+******************************************************************************************************
+
+#!/bin/sh
+
+################################################################################################################################
+# SAVE CHAIN
+################################################################################################################################
+# Chaîne de traitement assurant la sauvegarde d'une base de données :
+# - Sauvegarde locale de la base.
+# - Purge des anciennes sauvegardes.
+# - Synchronisation des sauvegardes sur un répertoire distant (point de montage réseau).
+# - Purge des anciennes sauvegardes sur le répertoire distant
+#
+# Sauvegarde additionnelle d'un répertoire de données (configuration, etc.)
+################################################################################################################################
+
+# Configuration de la sauvegarde de la base
+###########################################
+
+DB_DATABASE="atnv2_production"
+
+LOCAL_BACKUP_DIR="/var/lib/pgsql/backups"
+
+LOCAL_KEEP_NB=30
+
+DIST_BACKUP_DIR="/mnt/APPS/BackupMV/2_datas/9_ATNV2/POSTGRESQL"
+
+DIST_KEEP_NB=30
+
+# Exécution
+###########
+
+PATH=/root/bin:$PATH
+
+mre_pgdump.sh ${LOCAL_BACKUP_DIR} ${DB_DATABASE}
+
+mre_purge_lexico.sh ${LOCAL_BACKUP_DIR} ${DB_DATABASE}\* ${LOCAL_KEEP_NB}
+
+if [ -d ${DIST_BACKUP_DIR} ]
+then
+  rsync -av --size-only ${LOCAL_BACKUP_DIR}/${DB_DATABASE}* ${DIST_BACKUP_DIR}
+  mre_purge_lexico.sh ${DIST_BACKUP_DIR} ${DB_DATABASE}\* ${DIST_KEEP_NB}
+fi
+
+
+#!/bin/sh
+
+################################################################################################################################
+# MY SQL DUMP
+################################################################################################################################
+# Script de sauvegarde et de compression d'une base de données MySQL locale.
+#
+# Exemple : /var/mysql/backup mre_mysqldump.sh nom_base nom_utilisateur mdp_utilisateur
+################################################################################################################################
+
+# Paramètres
+############
+
+# Répertoire de sauvegarde local.
+BACKUP_DIR=$1
+# Nom de la base de données à sauvegarder.
+DB_NAME=$2
+# Nom de l'utilisateur pour la connexion à la base.
+DB_USER=$3
+# Mot de passe pour la connexion à la base.
+DB_PASSWORD=$4
+
+if [ "$#" -ne 4 ]
+then
+  echo >&2 "Le programme attend 4 arguments: dossier, de sauvegarde, nom de la base, utilisateur et mot de passe."
+  exit 1
+fi
+
+# Exécution
+###########
+
+DATE=$(date +"%Y-%m-%d_%H-%M-%S")
+
+SAVE_FILE=${BACKUP_DIR}/${DB_NAME}_${DATE}.sql.gz
+
+echo "Sauvegarde de la base de données"
+
+mysqldump -u ${DB_USER} -p${DB_PASSWORD} -R ${DB_NAME} |gzip > ${SAVE_FILE}
+
+if [ $? -ne 0 ]; then
+  echo >&2 "Echec de la sauvegarde de la base"
+  exit 1
+fi
+
+
+
+#!/bin/sh
+
+################################################################################################################################
+# PG SQL DUMP
+################################################################################################################################
+# Script de sauvegarde et de compression d'une base PostgreSQL locale.
+#
+# ATTENTION : ce script de sauvegarde ne fonctionne que sur le serveur PostgreSQL lui-même : on suppose qu'il existe
+# un utilisateur "postgres" qui dispose du droit d'effectuer un dump sans avoir à fournir de mot de passe.
+################################################################################################################################
+
+# Paramètres
+############
+
+# Répertoire de sauvegarde.
+BACKUP_DIR=$1
+# Base de données à sauvegarder.
+PGDATABASE=$2
+
+if [ "$#" -ne 2 ]
+then
+  echo >&2 "Le programme attend 2 arguments: dossier de sauvegarde et nom de la base."
+  exit 1
+fi
+
+# Exécution
+###########
+
+DATE=$(date +"%Y-%m-%d_%H-%M-%S")
+
+SAVE_FILE=${BACKUP_DIR}/${PGDATABASE}_${DATE}.sql.gz
+
+echo "Sauvegarde de la base de données"
+
+# La commande gzip est plus efficace en temps que l'option '-Z 6' de pg_dump
+# La redirection vers le fichier de sauvegarde peut être effectuée en dehors de la commande "su",
+# afin d'écrire dans un répertoire n'appartenant pas nécessairement à l'utilisateur postgres.
+su - postgres -c "pg_dump -O ${PGDATABASE} |gzip > ${SAVE_FILE}"
+
+if [ $? -ne 0 ]; then
+  echo >&2 "Echec de la sauvegarde de la base"
+  exit 1
+fi
+
+
+################################################################################################################################
+# purge lexico
+################################################################################################################################
+# Script de purge des anciens fichiers de sauvegarde.
+#
+# On suppose que les fichiers à purger ont un pattern, et qu'ils sont triés par ordre lexicographique, du plus ancien
+# au plus récent (ce qui est le cas quand le nommage des fichiers contient la date au format "yyyyMMdd" ou équivalent).
+#
+# ATTENTION : en fonction de la manière dont les fichiers sont nommés, l'ordre de tri peut être inversé entre les nouveaux
+# et les anciens.
+################################################################################################################################
+
+# Paramètres
+############
+
+# Répertoire dans lequel les fichiers doivent être purgés.
+PURGE_DIR=$1
+# Pattern des fichiers à purger.
+PATTERN=$2
+# Nombre de fichiers à conserver.
+KEEP_NB=$3
+
+if [ "$#" -ne 3 ]
+then
+  echo >&2 "Le programme attend 3 arguments: dossier, pattern, et nombre de fichiers à conserver."
+  exit 1
+fi
+
+if [ -z "$PURGE_DIR" ] || [ "$PURGE_DIR" = "/" ]
+then
+  echo >&2 "Le répertoire de purge ne peut être vide ou la racine"
+  exit 1
+fi
+
+# Exécution
+###########
+echo "${KEEP_NB} fichiers de ${PURGE_DIR}/${PATTERN} sont conservés"
+
+sleep 3
+
+KEEP_NB=$(( ${KEEP_NB} + 1 ))
+
+if [ -d ${PURGE_DIR} ]
+then
+  FILES_TO_PURGE=$(ls ${PURGE_DIR}/${PATTERN} |sort -r |tail -n +${KEEP_NB})
+  for FILE_TO_PURGE in ${FILES_TO_PURGE}
+  do
+    rm -f ${FILE_TO_PURGE}
+    echo "${FILE_TO_PURGE} supprimé"
+  done
+else
+  echo >&2 "Le répertoire ${PURGE_DIR} n'existe pas."
+  exit 1
+fi
+
+#!/bin/sh
+
+################################################################################################################################
+# SAVE EXEMPLE
+################################################################################################################################
+# Chaîne de traitement assurant la sauvegarde d'une base de données :
+# - Sauvegarde locale de la base.
+# - Purge des anciennes sauvegardes.
+# - Synchronisation des sauvegardes sur un répertoire distant (point de montage réseau).
+# - Purge des anciennes sauvegardes sur le répertoire distant
+#
+# Sauvegarde additionnelle d'un répertoire de données (configuration, etc.)
+################################################################################################################################
+
+# Configuration de la sauvegarde de la base
+###########################################
+
+DB_DATABASE="example"
+# DB_USERNAME="admin"
+# DB_PASSWORD="admin"
+
+LOCAL_BACKUP_DIR="/var/lib/pgsql/9.2/backups"
+
+LOCAL_KEEP_NB=10
+
+DIST_BACKUP_DIR="/mnt/APPS/backup"
+
+DIST_KEEP_NB=20
+
+# Exécution
+###########
+
+mre_pgdump.sh ${LOCAL_BACKUP_DIR} ${DB_DATABASE}
+
+mre_purge_lexico.sh ${LOCAL_BACKUP_DIR} ${DB_DATABASE}\* ${LOCAL_KEEP_NB}
+
+if [ -d ${DIST_BACKUP_DIR} ]
+then
+  rsync -av ${LOCAL_BACKUP_DIR}/${DB_DATABASE}* ${DIST_BACKUP_DIR}
+  mre_purge_lexico.sh ${DIST_BACKUP_DIR} ${DB_DATABASE}\* ${DIST_KEEP_NB}
+fi
+
+# Configuration de la sauvegarde distante d'un répertoire
+#########################################################
+
+DATE=$(date +"%Y-%m-%d_%H-%M-%S")
+
+DIR_TO_BACKUP="/var/files"
+
+FILE_DIST_BACKUP_DIR="/mnt/APPS/backup"
+
+FILE_DIST_BACKUP_PREFIX="appli_files"
+
+FILE_DIST_BACKUP_NB=10
+
+BACKUP_FILE=${FILE_DIST_BACKUP_DIR}/${FILE_DIST_BACKUP_PREFIX}_${DATE}.tar.gz
+
+# Exécution
+###########
+
+if [ -d ${FILE_DIST_BACKUP_DIR} ]
+then
+  tar -czf ${BACKUP_FILE} ${DIR_TO_BACKUP}
+  mre_purge_lexico.sh ${FILE_DIST_BACKUP_DIR} ${FILE_DIST_BACKUP_PREFIX}\* ${FILE_DIST_BACKUP_NB}
+fi

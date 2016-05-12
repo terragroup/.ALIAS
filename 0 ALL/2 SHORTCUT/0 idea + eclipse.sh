@@ -32,7 +32,7 @@ itar - Settings | Live Templates for more details.
 alt + maj + c         - +++ REVOIR LES CHGMTS RECENTS
 
 
-ctrl + TAB              - trop cool : nagigauation + vue
+ctrl + TAB              - trop cool : navigation + vue
 
 ctrl + h                - see hierarchy
 ctrl + j                - complete TEMPLATE ABBREVIATION

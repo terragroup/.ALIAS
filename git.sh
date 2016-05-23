@@ -29,7 +29,8 @@ alias gaa='git add --all .'
 alias gp='git push | h -ni https://github.com/regnou https://regnou@github.com https://github.com Username Password Everything'
 alias gpp='gaa && gmm && gp'                                                    # NEW
 
-alias gm='gaa && git commit -m  && gp'
+# alias gm='gaa && git commit -m  && gp'
+alias gm='git commit -m '
 alias gmm='git commit -m "fake"'
 
 alias gmM='git commit -m "bureau"'

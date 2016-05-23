@@ -10,6 +10,18 @@
 # Sauvegarde additionnelle d'un répertoire de données (configuration, etc.)
 ################################################################################################################################
 
+
+
+# 18h12 - launch
+# su - postgres -c "pg_dump -O atnv2_production | gzip > /var/lib/pgsql/backups/atnv2_production_2016-05-17_18-08-00.sql.gz"
+# cp /var/lib/pgsql/backups/atnv2_production_${DATE}.sql.gz /mnt/APPS/BackupMV/2_datas/9_ATNV2/POSTGRESQL
+
+
+
+
+
+
+
 # Configuration de la sauvegarde de la base
 ###########################################
 
@@ -37,4 +49,3 @@ then
   rsync -av --size-only ${LOCAL_BACKUP_DIR}/${DB_DATABASE}* ${DIST_BACKUP_DIR}
   mre_purge_lexico.sh ${DIST_BACKUP_DIR} ${DB_DATABASE}\* ${DIST_KEEP_NB}
 fi
-

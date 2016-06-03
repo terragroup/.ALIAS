@@ -1,6 +1,15 @@
-<!-- BOUCHON TEMPLATE CRON 0 -->
-
 <?xml version="1.0" encoding="UTF-8"?>
+
+
+
+
+
+<!--FICHIER BOUCHON AXEL - desactive les CRON-->
+
+
+
+
+
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
@@ -39,6 +48,12 @@
   </mvc:annotation-driven>
 
 
+
+
+  <!--FICHIER BOUCHON AXEL - desactive les CRON-->
+
+
+
   <!-- Début des jobs monitorables depuis l'interface WEB -->
 
   <!-- Backup des playlists CGR sur un FTP -->
@@ -48,8 +63,7 @@
   </bean>
   <bean id="cronBackupCGROnFtp" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobBackupCGROnFtp"/>
-    <!--<property name="cronExpression" value="0 0 16 ? * MON"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="backupCGROnFtpSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="transfer"/>
@@ -68,8 +82,7 @@
   </bean>
   <bean id="cronUpdateRouter" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobUpdateRouter"/>
-    <!--<property name="cronExpression" value="${scheduler.cron.server.state}"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="${scheduler.cron.server.state}"/>
   </bean>
   <bean id="updateRouterSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="import"/>
@@ -83,8 +96,7 @@
   </bean>
   <bean id="cronEmailFichierLogNonRecu" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobEmailFichierLogNonRecu"/>
-    <!--<property name="cronExpression" value="0 0 8 ? * THU"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="emailFichierLogNonRecuSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="transfer"/>
@@ -98,8 +110,7 @@
   </bean>
   <bean id="cronRefreshAnalyseFaitDiffusion" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobRefreshAnalyseFaitDiffusion"/>
-    <!--<property name="cronExpression" value="0 0 3 * * ?"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="refreshAnalyseFaitDiffusionSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="transfer"/>
@@ -113,8 +124,7 @@
   </bean>
   <bean id="cronRefreshBilanCommercial" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobRefreshBilanCommercial"/>
-    <!--<property name="cronExpression" value="0 30 3 * * ?"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="refreshBilanCommercialSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="transfer"/>
@@ -128,8 +138,7 @@
   </bean>
   <bean id="cronRefreshDiffusion" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobRefreshDiffusion"/>
-    <!--<property name="cronExpression" value="0 0 5 * * ?"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="refreshDiffusionSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="transfer"/>
@@ -143,8 +152,7 @@
   </bean>
   <bean id="cronCheckPresenceDcp" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobCheckPresenceDcp"/>
-    <!--<property name="cronExpression" value="0 42 3 * * ?"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="checkPresenceDcpSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="checkPresenceDcpFactoryBean"/>
@@ -168,8 +176,7 @@
   </bean>
   <bean id="cronImportDcp" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobImportDcp"/>
-    <!--<property name="cronExpression" value="0 0/5 * * * ?"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="importDcpSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="import"/>
@@ -183,8 +190,7 @@
   </bean>
   <bean id="cronPatch64000" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobPatch64000"/>
-    <!--<property name="cronExpression" value="0 0 0/4 * * ?"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="patch64000XMLSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="patch"/>
@@ -209,8 +215,7 @@
   </bean>
   <bean id="cronSendEmailToNonDeliveredComplexe" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobSendEmailToNonDeliveredComplexes"/>
-    <!--<property name="cronExpression" value="0 0 0/1 * * ?"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="sendEmailToNonDeliveredComplexeSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="sendEmail"/>
@@ -234,8 +239,7 @@
   </bean>
   <bean id="cronSendContentToRouter" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobSendContentToRouter"/>
-    <!--<property name="cronExpression" value="0 0/5 * * * ?"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="sendContentToRouterSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="sender"/>
@@ -249,8 +253,7 @@
   </bean>
   <bean id="cronTransferFtpPlaylistToLocalServer" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobTransferFtpPlaylistToLocalServer"/>
-    <!--<property name="cronExpression" value="0 0/2 * * * ?"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="transferFtpPlaylistToLocalServerSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="ftp"/>
@@ -264,8 +267,7 @@
   </bean>
   <bean id="cronDeleteOldContent" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobDeleteOldContent"/>
-    <!--<property name="cronExpression" value="0 0 1 ? * WED"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="deleteOldContentSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="delete"/>
@@ -289,8 +291,7 @@
   </bean>
   <bean id="cronTransferDcpToRouter" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobTransferDcpToRouter"/>
-    <!--<property name="cronExpression" value="0 0/5 * * * ?"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="transferDcpToRouterSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="transfer"/>
@@ -304,8 +305,7 @@
   </bean>
   <bean id="cronTransferFtpExportDcpToRouter" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobTransferFtpExportDcpToRouter"/>
-    <!--<property name="cronExpression" value="0 0/5 * * * ?"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="transferFtpExportDcpToRouterSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="transfer"/>
@@ -319,8 +319,7 @@
   </bean>
   <bean id="cronTransferHiddenDcpToComplexe" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobTransferHiddenDcpToComplexe"/>
-    <!--<property name="cronExpression" value="0 0/5 * * * ?"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="transferHiddenDcpToComplexeSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="transfer"/>
@@ -334,8 +333,7 @@
   </bean>
   <bean id="cronUpdateStateTransferDcpToRouter" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobUpdateStateTransferDcpToRouter"/>
-    <!--<property name="cronExpression" value="0 0/5 * * * ?"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="updateStateTransferDcpToRouterSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="transfer"/>
@@ -349,8 +347,7 @@
   </bean>
   <bean id="cronUpdateSmartjogDirectoryId" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobUpdateSmartjogDirectoryId"/>
-    <!--<property name="cronExpression" value="0 0/5 * * * ?"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="updateSmartjogDirectoryIdFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
     <property name="taskExecutor">
@@ -375,8 +372,7 @@
   </bean>
   <bean id="cronUpdateStateImportedDcp" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobUpdateStateImportedDcp"/>
-    <!--<property name="cronExpression" value="0 0/5 * * * ?"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="updateStateImportedDcpSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="import"/>
@@ -390,8 +386,7 @@
   </bean>
   <bean id="cronTransferFtpImportedDcp" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobTransferFtpImportedDcp"/>
-    <!--<property name="cronExpression" value="0 0/5 * * * ?"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="transferFtpImportedDcpSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="import"/>
@@ -405,8 +400,7 @@
   </bean>
   <bean id="cronValidateAndSaveDcp" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobValidateAndSaveDcpFromRouter"/>
-    <!--<property name="cronExpression" value="0 0/5 * * * ?"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="validateAndSaveDcpSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="import"/>
@@ -420,8 +414,7 @@
   </bean>
   <bean id="cronUpdateStateTransferredContent" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobUpdateStateTransferredContent"/>
-    <!--<property name="cronExpression" value="0 0/5 * * * ?"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="updateStateTransferredContentSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="modifier"/>
@@ -435,8 +428,7 @@
   </bean>
   <bean id="cronDeleteYmagisArchive" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobDeleteYmagisArchiveOnFtp"/>
-    <!--<property name="cronExpression" value="0 0 2 ? * WED"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="deleteYmagisArchiveSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="transfer"/>
@@ -450,8 +442,7 @@
   </bean>
   <bean id="cronPurgeDemandeLog" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobPurgeDemandeLog"/>
-    <!--<property name="cronExpression" value="0 0 2 ? * WED"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="purgeDemandeLogSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="transfer"/>
@@ -465,8 +456,7 @@
   </bean>
   <bean id="cronSendDemandeLogSmartJog" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobSendDemandeLogSmartJog"/>
-    <!--<property name="cronExpression" value="0 15 * * * ?"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="sendDemandeLogSmartJogSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="transfer"/>
@@ -474,29 +464,21 @@
   </bean>
 
 
-
-
-
-
-
-
-
-
-
   <!-- Réception des logs CDS -->
-   <bean id="jobReceptionLogsCDS" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
-     <property name="targetObject" ref="receptionLogCDS"/>
-     <property name="targetMethod" value="run"/>
-   </bean>
-   <bean id="cronReceptionLogsCDS" class="org.springframework.scheduling.quartz.CronTriggerBean">
-     <property name="jobDetail" ref="jobReceptionLogsCDS"/>
-     <!--<property name="cronExpression" value="0 0 21 * * ?"/>-->
-     <property name="cronExpression" value="0 0 0/4 * * ?"/>
-   </bean>
-   <bean id="receptionLogsCDSSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
-     <property name="scheduler" ref="receptionlogs"/>
-     <property name="cronTrigger" ref="cronReceptionLogsCDS"/>
-   </bean>
+  <bean id="jobReceptionLogsCDS" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="receptionLogCDS"/>
+    <property name="targetMethod" value="run"/>
+  </bean>
+
+  <bean id="cronReceptionLogsCDS" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="jobReceptionLogsCDS"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
+  </bean>
+
+  <bean id="receptionLogsCDSSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
+    <property name="scheduler" ref="receptionlogs"/>
+    <property name="cronTrigger" ref="cronReceptionLogsCDS"/>
+  </bean>
 
   <!-- Réception des logs ADDE -->
   <bean id="jobReceptionLogsADDE" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
@@ -505,8 +487,7 @@
   </bean>
   <bean id="cronReceptionLogsADDE" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobReceptionLogsADDE"/>
-    <!--<property name="cronExpression" value="0 0 6 * * ?"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="receptionLogsADDESchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="receptionlogs"/>
@@ -520,8 +501,7 @@
   </bean>
   <bean id="cronReceptionLogsYmagis" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobReceptionLogsYmagis"/>
-    <!--<property name="cronExpression" value="0 0 7 * * ?"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="receptionLogsYmagisSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="receptionlogs"/>
@@ -535,8 +515,7 @@
   </bean>
   <bean id="cronReceptionLogsKinepolis" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobReceptionLogsKinepolis"/>
-    <!--<property name="cronExpression" value="0 15 7 * * ?"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="receptionLogsKinepolisSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="receptionlogs"/>
@@ -550,8 +529,7 @@
   </bean>
   <bean id="cronReceptionLogsCGR" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobReceptionLogsCGR"/>
-    <!--<property name="cronExpression" value="0 30 6 * * ?"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="receptionLogsCGRSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="receptionlogs"/>
@@ -565,8 +543,7 @@
   </bean>
   <bean id="cronReceptionLogsSmartjog" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobReceptionLogsSmartjog"/>
-    <!--<property name="cronExpression" value="0 0 21 * * ?"/>-->
-    <property name="cronExpression" value="0 0 0/0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="receptionLogsSmartjogSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="receptionlogs"/>
@@ -580,8 +557,7 @@
   </bean>
   <bean id="cronReceptionLogsGlobecast" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobReceptionLogsGlobecast"/>
-    <!--<property name="cronExpression" value="0 30 7 * * ?"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="receptionLogsGlobecastSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="receptionlogs"/>
@@ -595,8 +571,7 @@
   </bean>
   <bean id="cronRapprochementLigneOffreMedicis" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="jobRapprochementLigneOffreMedicis"/>
-    <!--<property name="cronExpression" value="0 20 4 * * ?"/>-->
-    <property name="cronExpression" value="0 0 0 * * ?"/>
+    <property name="cronExpression" value="0 0 0 ? * SAT"/>
   </bean>
   <bean id="rapprochementLigneOffreMedicisSchedulerChanger" class="com.groupemre.atnv2.jmx.BaseSchedulerChanger">
     <property name="scheduler" ref="receptionlogs"/>
@@ -681,6 +656,7 @@
       <list>
         <ref bean="cronReceptionLogsADDE"/>
         <ref bean="cronReceptionLogsCGR"/>
+        <ref bean="cronReceptionLogsCDS"/>
         <ref bean="cronReceptionLogsKinepolis"/>
         <ref bean="cronReceptionLogsYmagis"/>
         <ref bean="cronReceptionLogsSmartjog"/>

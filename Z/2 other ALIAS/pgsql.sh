@@ -22,11 +22,8 @@
 
 # EXECUTER UNE COMMANDE                   : psql -c "command"
 
-
-
-
- # TODO - donner le user axel pour qu'il ait le droit d'executer sur la db
- alias gobd='su postgres && psql -f /home/axel/alias/PGSQL/JDD.sql atn'
+# TODO - donner le user axel pour qu'il ait le droit d'executer sur la db
+alias gobd='su postgres && psql -f /home/axel/alias/PGSQL/JDD.sql atn'
 
 
 
@@ -41,9 +38,6 @@ psql -c "CREATE EXTENSION unaccent";
 # creer ces users (ou role)
 # CREATE ROLE qlk;           # bo_alim
 psql -U atnv2_preprod atnv2_preprod  < <(zcat XXXXX.sql.gz)                     # psql -U atnv2_preprod atnv2_preprod  < atnv2_production_2015-11-02_23-30-01.sql
-
-
-
 
 # 3 (divers) - 1 GO : split -b 1000000k -d -a 4 atnv2_production_2015-11-02_23-30-01.sql  foo.
 
@@ -61,6 +55,8 @@ psql -U atnv2_preprod atnv2_preprod  < <(zcat XXXXX.sql.gz)                     
 # -- REPERTOIRE DU SCRIPT : /mnt/groups/INFO/MDV/00_EXPLOITATION/4_ATN_v2/1_Interventions sur les environnements/Script anonymisation
 
 # -- CHANGER A LA MAIN : copy.usb.xml.path -> /home/axel/LOCAL/LOCAL-USB
+
+
 
 
 ################################################################################
@@ -87,7 +83,6 @@ function reloadConfWithoutRestartServer(){
   SELECT pg_reload_conf();
   # done
 }
-
 
 
 
@@ -267,9 +262,6 @@ arrete server bdd
 creer database
 relance bdd
 restaure
-
-
-
 
 
 

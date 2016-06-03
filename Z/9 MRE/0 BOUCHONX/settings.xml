@@ -61,17 +61,6 @@
         <tomcat.catalina.base>/var/atnv2/backend</tomcat.catalina.base>
         <tomcat.webapp.path>ROOT</tomcat.webapp.path>
 
-        <!-- TRANSPORTEUR (serveur local de test smartjog) -->
-        <multirouter.smartjog.ftp.host>10.196.165.232</multirouter.smartjog.ftp.host>
-        <multirouter.smartjog.ftp.mdp>5KGoesrr</multirouter.smartjog.ftp.mdp>
-        <multirouter.smartjog.id.catalog>10977</multirouter.smartjog.id.catalog>
-        <multirouter.smartjog.id.server.local>8674</multirouter.smartjog.id.server.local>
-
-        <multirouter.smartjog.id.ba.directory.catalog>17303165</multirouter.smartjog.id.ba.directory.catalog>
-        <multirouter.smartjog.id.generale.directory.catalog>25371825</multirouter.smartjog.id.generale.directory.catalog>
-
-        <multirouter.smartjog.mediavision.billto>9199SJ82991</multirouter.smartjog.mediavision.billto>
-
 
 
 
@@ -91,6 +80,19 @@
 
         <!-- GLOBECAST -->
         <multirouter.globecast.local.services.address>http://10.196.164.15:9090</multirouter.globecast.local.services.address>
+
+
+        <!-- TRANSPORTEUR (serveur local de test smartjog) -->
+        <multirouter.smartjog.ftp.host>10.196.165.232</multirouter.smartjog.ftp.host>
+        <multirouter.smartjog.ftp.mdp>5KGoesrr</multirouter.smartjog.ftp.mdp>
+        <multirouter.smartjog.id.catalog>10977</multirouter.smartjog.id.catalog>
+        <multirouter.smartjog.id.server.local>8674</multirouter.smartjog.id.server.local>
+
+        <multirouter.smartjog.id.ba.directory.catalog>17303165</multirouter.smartjog.id.ba.directory.catalog>
+        <multirouter.smartjog.id.generale.directory.catalog>25371825</multirouter.smartjog.id.generale.directory.catalog>
+
+        <multirouter.smartjog.mediavision.billto>9199SJ82991</multirouter.smartjog.mediavision.billto>
+
 
         <!-- BACKUP-->
         <multirouter.backup.smartjog.ftp.host>INTEGMDSWEB.mre.pub</multirouter.backup.smartjog.ftp.host>

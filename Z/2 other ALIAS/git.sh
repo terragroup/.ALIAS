@@ -7,16 +7,11 @@
 # Donc, il faut AJOUTER LA CLED PUBLIQUE DU SERVEUR dans ce fichier, comme cela, on sait avec qui on se connecte
 ~/.ssh/known_hosts on the client manually.
 
-
 # savoir ton fingerprint
 ssh-keygen -lf axel-key.pub
 2048 45:46:75:03:d2:5a:f4:ff:bb:5b:8d:b8:1b:7e:21:fd  axel@axel-HP-Compaq-8200-Elite-SFF-PC (RSA)
 
-
 ------------------------------------------------------------------------------------------------------
-
-
-
 
 
 # FONCTIONNEMENT COMMIT
@@ -45,9 +40,6 @@ git://gitorious.mre.pub/medicis/medicis.git
 echo 1bb372fe3049332e88d1ac62561532764f76294d >> .git/refs/heads/hotfixes
 
 
-
-
-
 # ------------------------------------------------------------------------------
 # Gestion branches
 # ------------------------------------------------------------------------------
@@ -58,9 +50,6 @@ git push origin --delete origin/000000000000000
 
 # remove tag
 git tag -d release01git tag -d release01
-
-
-
 
 
 # --------------------------------------------
@@ -110,8 +99,6 @@ function create_project(){
   git branch --set-upstream-to=origin/master-dev master
 }
 
-
-
 #
 # AVEC CA : GITHUB ne te demande plus le password
 #
@@ -139,8 +126,6 @@ function generate_ssh_key(){
   Port 443
 }
 
-
-
 #!/bin/bash
 
 # tu reccuperes le dernier commit et le place ou il le faut
@@ -155,8 +140,6 @@ function generate_ssh_key(){
 # ------------------------------------------------
 # apres git pull, il te faut un git merge, OU ALORS tu fais git fetch
 
-
-
 # vive la git diff - atlassian
 # http://blogs.atlassian.com/2013/06/git-diff/
 
@@ -168,7 +151,6 @@ function generate_ssh_key(){
 # savoir origin repo
 # git remote -v
 
-
 # ------------------------------------------------------------------------------
 # EN COURS             refs  #numero
 # SI C EST OK          fixes #numero
@@ -177,28 +159,25 @@ git config --global core.excludesfile ~/.gitignore
 git clone git@github.com:regnou/DEMO.git
 # ------------------------------------------------------------------------------
 
-
-
 # ------------------------------------------------------------------------------
 # differents affichages
 # ------------------------------------------------------------------------------
- # gl
- # gl0
- # gl1
- # gl2
- # gl3
- # gl4
- # gll
- # gd
- # gdf
- # gs
- # gsf
- # bb
+# gl
+# gl0
+# gl1
+# gl2
+# gl3
+# gl4
+# gll
+# gd
+# gdf
+# gs
+# gsf
+# bb
 
 # ------------------------------------------------------------------------------
 # @@ -start,count +start,count @@
 # ----------------------------------
-
 
 # MERGE
 ################################################################################
@@ -245,8 +224,6 @@ git checkout --theirs   #
 # diff avec MELD
 ################################################################################
 sudo git diff 3d83be0 b571ec3
-
-
 
 
 

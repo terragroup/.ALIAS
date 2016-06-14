@@ -18,12 +18,6 @@
  # alias grepc='grep --color=always';
  # alias grepa='grep -HEin --color=always';
 
-
- # ------------------------------------------------------------------------------
-  # ------------------------------------------------------------------------------
-   # ------------------------------------------------------------------------------
-
-
 # adde|cgr|kinepolis|ymagis|globecast|smartjog
 
 # https://www.jetbrains.com/idea/help/finding-usages-in-project.html
@@ -39,6 +33,13 @@
 
 # TECHNIQUE GREP 3 : le $ a la fin permet de faire un GREP mais laisse tout le reste du fichier
 # grep  "47|$"
+
+
+
+
+
+
+
 
 ################################################################################
 # file search

@@ -34,7 +34,6 @@ $MVN_OTHER"
 # FAST COMPILE
 ################################################################################
 
-
 MVN_ALL="error info warn debug caused atnv2 0"
 
 # ATTENTION : j ai laisse le PROFILE de atn (useless dans les autres projets)

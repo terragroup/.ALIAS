@@ -56,9 +56,11 @@ function common_mount(){
   sudo mount -t cifs -o gid=axel,uid=axel,username=aregnoult,pass=bonjour,sec=ntlm //MRE-NCS1-GROUPS/GROUPS      /mnt/groups;
   sudo mount -t cifs -o gid=axel,uid=axel,username=aregnoult,pass=bonjour,sec=ntlm //MRE-NCS1-ARCHIVES/ARCHIVES  /mnt/archives;
   sudo mount -t cifs -o gid=axel,uid=axel,username=aregnoult,pass=bonjour,sec=ntlm //MRE-NCS1-USERS/USERS        /mnt/users;
+
+
   # fstab://MRE-NCS1-APPS/APPS /mnt/apps cifs credentials=/etc/mount_credentials,gid=atnv2,uid=atnv2,sec=ntlm 0 0
   # fstab://MRE-NCS1-ARCHIVES/ARCHIVES /mnt/archives cifs credentials=/etc/mount_credentials,gid=atnv2,uid=atnv2,sec=ntlm 0 0
-  # fstab://MRE-NCS1-GROUPS/GROUPS /mnt/groups cifs credentials=/etc/mount_credentials,gid=atnv2,uid=atnv2,sec=ntlm 0 0
+   fstab://10.196.164.105/GROUPS /mnt/groups cifs credentials=/etc/mount_credentials,gid=atnv2,uid=atnv2,sec=ntlm 0 0
   # fstab://10.196.165.224/N /mnt/N cifs credentials=/etc/mount_credentials,gid=atnv2,uid=atnv2,sec=ntlm 0 0
 }
 # ------------------------------------------------------------------------------

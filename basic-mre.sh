@@ -10,7 +10,7 @@ REC_WWW_DOMAIN="10.196.164.15"
 
 J_DEV_DOMAIN="devschedulerweb.mre.pub"          # 10.196.164.237
 J_PROD_DOMAIN="prodschedulerweb.mre.pub"        # 10.196.165.118
-J_CONT_DOMAIN="jenkins.mre.pub"                 # ANCIEN = useless, ne pas utiliser
+#J_CONT_DOMAIN="jenkins.mre.pub"                 # ANCIEN = useless, ne pas utiliser
 J_CONT_DOMAIN_2="prodjenkinsweb.mdv.pub"        # NEW (avec new nom de domaine)
 
 # production        PRODATNV2GBLC.mre.pub        10.196.164.48           # adminmv / innovation

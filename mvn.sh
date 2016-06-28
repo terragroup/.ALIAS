@@ -38,10 +38,10 @@ MVN_ALL="error info warn debug caused atnv2 0"
 
 # ATTENTION : j ai laisse le PROFILE de atn (useless dans les autres projets)
 # alias   c='mvn clean install -U -Dgpg.skip=true    -P Atnv2_Local,gwt-dev,resources-dev   -DskipTests  2>&1     | h -i $MVN_ALL'
-alias   c='mvn clean install -U -Dgpg.skip=true    -P Atnv2_Local,gwt-dev,resources-dev   -DskipTests  2>&1     | h -i error info warn debug caused atnv2'
+alias   c='mvn clean install -U -Dgpg.skip=true    -P Atnv2_Local,gwt-dev,resources-dev   -DskipTests  2>&1     | h -i error info warn debug caused atnv2 downloading building | h -ni filmcoderelease film'
 
 # alias  ct='mvn clean install -U -Dgpg.skip=true    -P Atnv2-TU,gwt-dev,resources-dev                   2>&1     | grep -v "DATABASECHANGELOG|executed|changeset|expected\ postgresql,\ got\ h2|Successfully\ released\ change\ log\ lock|Successfully\ acquired\ change\ log\ lock"   |  h -i  error info warn debug'
-alias  ct='mvn clean install -U -Dgpg.skip=true    -P Atnv2-TU,gwt-dev,resources-dev                   2>&1     | h -i  error info warn debug caused atnv2'
+alias  ct='mvn clean install -U -Dgpg.skip=true    -P Atnv2-TU,gwt-dev,resources-dev                   2>&1     | h -i  error info warn debug caused atnv2 downloading building'
 # alias  ct='mvn clean install -U -Dgpg.skip=true    -P Atnv2-TU,gwt-dev,resources-dev                   2>&1     | grep -v "DATABASECHANGELOG|executed|changeset|expected\ postgresql,\ got\ h2|Successfully\ released\ change\ log\ lock|Successfully\ acquired\ change\ log\ lock"   |  h -i $MVN_ALL'
 
 # AUTRE MRE (attention, existe profile LIQUIBASE)

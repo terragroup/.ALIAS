@@ -1,6 +1,24 @@
 #!/bin/bash
 
 
+BEST GIT
+alias gllf='git log -20 --stat  --oneline --pretty=format:"%Cred%h%Creset %C(yellow)%d%Creset %C(yellow)%s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit | grep -E "/|$"'
+alias gllfa='git log -20 --author="axel" --stat  --oneline --pretty=format:"%Cred%h%Creset %C(yellow)%d%Creset %C(yellow)%s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit | grep -E "/|$"'
+je n ai pas le nom des personnes
+alias gli='git log -10 --graph --oneline --decorate --all --name-status --stat'
+comme glo, mais pas sur une ligne
+alias gla='git log -50 --stat'
+alias glax='git log -50 --author="axel" --stat'
+alias glaxa='git log --author="axel" --stat'
+alias gitlgf='git log --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s <%ad>" --abbrev-commit --date=relative --name-status
+ heir = log --all --graph --decorate --oneline --simplify-by-decoration'
+alias xxgxx='echo -e "\n PUSHING \n" && gt && echo -e "\n-----------------\n" && gitp && echo -e "\n-----------------\n" && gp && echo -e "\n-----------------\n" && gtp && echo -e "\n-----------------\n" && gll && echo -e "\n-----------------\n" && aa && echo -e "\n >>> Thanks you :D <<<\n" '
+alias gitc='git commit -a && git pull --rebase && git --no-pager lg -5 && echo'
+
+
+
+
+
 ------------------------------------------------------------------------------------------------------
 
 # Pour savoir a qui on se connecte : le client a une liste des KNOWS HOST des serveurs auxquels il se connecte

@@ -38,7 +38,6 @@ alias           recwww='sshpass -p "innovation" ssh root@'$REC_WWW_DOMAIN
 # ------------------------------------------------------------------------------
 alias       jdev='sshpass -p "innovation" ssh root@'$J_DEV_DOMAIN
 alias      jprod='sshpass -p "innovation" ssh root@'$J_PROD_DOMAIN
-alias      jcont_old='sshpass -p "innovation" ssh root@'$J_CONT_DOMAIN
 alias      jcont='sshpass -p "innovation" ssh root@'$J_CONT_DOMAIN_2
 ################################################################################
 # SSH - MEDICIS

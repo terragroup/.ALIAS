@@ -118,7 +118,7 @@ alias sb='. $AXL_HOME_ALIAS/0-root.sh'   # alias sb='source ~/.bashrc'
 #-------------------------------------------------------------------------------
 # moins important
 #-------------------------------------------------------------------------------
-alias df='df -h'
+alias df='df -h'          # SAVOIR LA TAILLE ESPACE DISC
 alias du='du -h'
 alias mywget="wget http://redmine.mre.pub/projects/medicis-recap/repository"
 #-------------------------------------------------------------------------------

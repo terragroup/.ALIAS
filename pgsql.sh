@@ -1,53 +1,39 @@
 #!/bin/bash
 
-# ***********************************************************************************************
-# ***********************************************************************************************
-# ***********************************************************************************************
-# ***********************************************************************************************
+# ******************************************************************************
+# ******************************************************************************
+# ******************************************************************************
+
 ################################################################################
 # SCP
 ################################################################################
 function encours(){
+    # 1 se mettre sur la rec
+    recbdd
 
-# 1 se mettre sur la rec
-recbdd
+    # 2 reccuperer le fichier (pwd innovation)
+    # scp atnv2_production_2016-01-21_23-30-01.sql.gz $PROD_DB_DOMAIN:/var/lib/pgsql/backups/ > atnv2_production_2016-01-21_23-30-01.sql.gz .
+    scp root@prodatnv2bdd.mre.pub:/var/lib/pgsql/backups/atnv2_production_2016-01-21_23-30-01.sql.gz > atnv2_production_2016-01-21_23-30-01.sql.gz .
 
-# 2 reccuperer le fichier (pwd innovation)
-# scp atnv2_production_2016-01-21_23-30-01.sql.gz $PROD_DB_DOMAIN:/var/lib/pgsql/backups/ > atnv2_production_2016-01-21_23-30-01.sql.gz .
-scp root@prodatnv2bdd.mre.pub:/var/lib/pgsql/backups/atnv2_production_2016-01-21_23-30-01.sql.gz > atnv2_production_2016-01-21_23-30-01.sql.gz .
+    # 3 detar
+    gunzip atnv2_production_2016-01-21_23-30-01.sql.gz
 
-# 3 detar
-gunzip atnv2_production_2016-01-21_23-30-01.sql.gz
+    # Créer une archive ( compresser ) :
+    # tar cvzf archive.tar.gz dossieroufichier
+    # Décompresser ( Dézipper ) une archive :
+    # tar xvzf archive.tar.gz
+    # Décompresser un .tar :
+    # tar xvf archive.tar
 
+    # gunzip (ca supprime l archive)
 
-# Créer une archive ( compresser ) :
-# tar cvzf archive.tar.gz dossieroufichier
-# Décompresser ( Dézipper ) une archive :
-# tar xvzf archive.tar.gz
-# Décompresser un .tar :
-# tar xvf archive.tar
-
-# gunzip (ca supprime l archive)
-
-
-# avoir la size human readable
-#  ls -lah
+    # avoir la size human readable
+    #  ls -lah
 }
-# ***********************************************************************************************
-# ***********************************************************************************************
-# ***********************************************************************************************
-# ***********************************************************************************************
-# ***********************************************************************************************
 
-
-
-
-
-
-
-
-
-
+# ******************************************************************************
+# ******************************************************************************
+# ******************************************************************************
 
 # connecter (tester)
 # psql -d atn -U atn -h localhost
@@ -63,8 +49,14 @@ function fast_forward(){
   # 3 - puis tu te connecte sur le 9000 avec DBEAVER
 }
 
+
+################################################################################
+################################################################################
+################################################################################
 ################################################################################
 # BACKUP / DUMP / SAUVEGARDE (5 min)
+################################################################################
+################################################################################
 ################################################################################
 # savegarde prod ATN a 2 endroits:
 # - NAS (interne) :  /mnt/apps/BackupMV/2_datas/9_ATNV2/POSTGRESQL (cf. mail Charles)
@@ -72,6 +64,12 @@ function fast_forward(){
 # - local (interne): /var/lib/pgsql/backups/atnv2_production_2015-11-03_12-02-20.sql.gz
 # ------------------------------------------------------------------------------
 
+
+################################################################################
+# 1/2 - DUMP (backup)
+################################################################################
+# ICI, simplement
+# su - postgres -c "pg_dump -O atnv2_production | gzip > /var/lib/pgsql/backups/atnv2_production_2016-06-28_18-04-00.sql.gz"
 function dump_prod(){
   PGDATABASE='atnv2_production'
   BACKUP_DIR="/var/lib/pgsql/backups"
@@ -85,24 +83,32 @@ function dump_prod(){
   su - postgres -c "pg_dump -O ${PGDATABASE} | gzip > ${SAVE_FILE}"
 
   # su - postgres -c "pg_dump -O atnv2_production | gzip > /var/lib/pgsql/backups/atnv2_production_2016-04-11_18-07-11.sql.gz"
-  
-
 
   # ou NON ZIPPE
   # pg_dump –U user –W basededonnée > atnv2_production_2015-11-02_23-30-01.sql
 }
 
-function dump_preprod(){
-  PGDATABASE='atnv2_preprod'  #
-  BACKUP_DIR="/var/lib/pgsql/backups"
-  DATE=$(date +"%Y-%m-%d_%H-%M-%S")
-  SAVE_FILE=${BACKUP_DIR}/dump-atn-preprod-${PGDATABASE}_${DATE}.sql.gz
-  echo 'su - postgres -c "pg_dump -O ${PGDATABASE} | gzip > ${SAVE_FILE}"'
-  su - postgres -c "pg_dump -O ${PGDATABASE} | gzip > ${SAVE_FILE}"
-}
+#function dump_preprod(){
+#  PGDATABASE='atnv2_preprod'  #
+#  BACKUP_DIR="/var/lib/pgsql/backups"
+#  DATE=$(date +"%Y-%m-%d_%H-%M-%S")
+#  SAVE_FILE=${BACKUP_DIR}/dump-atn-preprod-${PGDATABASE}_${DATE}.sql.gz
+#  echo 'su - postgres -c "pg_dump -O ${PGDATABASE} | gzip > ${SAVE_FILE}"'
+#  su - postgres -c "pg_dump -O ${PGDATABASE} | gzip > ${SAVE_FILE}"
+#}
+
+
+
+
+
+
+
+
+
+
 
 ################################################################################
-# RESTORE (25 min sans refrsh view)
+# 2/2 - RESTORE (25 min sans refrsh view)
 ################################################################################
 
 # ca drop les user, mais ca les restaures aussi
@@ -177,6 +183,16 @@ function adapter_dump_pour_autre_bdd(){
   # 3 - verif
   # cl xxx.sql
 }
+
+
+
+
+
+
+
+
+
+
 
 ################################################################################
 # AUTRES

@@ -77,7 +77,7 @@ apm install pigments            # color
 apm install minimap
 apm install terminal-plus
 apm install seti-ui             # voir icon sexy js et autre
-apm install autosave            # autosave when change focus
+apm install autosave            # autosave when change focus                    +++ il faut aller ds settings pour l activerat
 apm install jsdoc               # break sur last v
 # ------------------------------------------------------------------------------
 # THEME

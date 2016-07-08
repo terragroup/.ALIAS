@@ -1,5 +1,11 @@
 #!/bin/bash
 
+
+# Restore: $ psql -U {user-name} -d {desintation_db}-f {dumpfilename.sql}
+# Backup:  $ pg_dump -U {user-name} {source_db} -f {dumpfilename.sql}
+
+
+
 # ******************************************************************************
 # ******************************************************************************
 # ******************************************************************************
@@ -69,7 +75,7 @@ function fast_forward(){
 # 1/2 - DUMP (backup)
 ################################################################################
 # ICI, simplement
-# su - postgres -c "pg_dump -O atnv2_production | gzip > /var/lib/pgsql/backups/atnv2_production_2016-06-28_18-04-00.sql.gz"
+# su - postgres -c "pFg_dump -O atnv2_production | gzip > /var/lib/pgsql/backups/atnv2_production_2016-06-28_18-04-00.sql.gz"
 function dump_prod(){
   PGDATABASE='atnv2_production'
   BACKUP_DIR="/var/lib/pgsql/backups"
@@ -97,7 +103,9 @@ function dump_prod(){
 #  su - postgres -c "pg_dump -O ${PGDATABASE} | gzip > ${SAVE_FILE}"
 #}
 
-
+# -O --no-owner
+# Do not output commands to set ownership of objects to match the original database. By default, pg_dump issues ALTER OWNER or SET SESSION AUTHORIZATION statements to set ownership of created database objects. These statements will fail when the script is run unless it is started by a superuser (or the same user that owns all of the objects in the script). To make a script that can be restored by any user, but will give that user ownership of all the objects, specify -O.
+# This option is only meaningful for the plain-text format. For the archive formats, you can specify the option when you call pg_restore.
 
 
 
@@ -183,16 +191,6 @@ function adapter_dump_pour_autre_bdd(){
   # 3 - verif
   # cl xxx.sql
 }
-
-
-
-
-
-
-
-
-
-
 
 ################################################################################
 # AUTRES

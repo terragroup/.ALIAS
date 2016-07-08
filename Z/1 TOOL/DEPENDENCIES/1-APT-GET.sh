@@ -6,7 +6,10 @@
 
 sudo apt-get install imagemagick # convet img to pdf
 
-sudo apt-get install pdfsam
+sudo apt-get install pdfsam     # couper splitter PDF etc...
+
+apt-get install pv              # +++ (voir progress bar selon operation)
+
 
 # ------------------------------------------------------------------------------
 # apt-get update

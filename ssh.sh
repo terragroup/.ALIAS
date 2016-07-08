@@ -37,7 +37,7 @@ alias           recwww='sshpass -p "innovation" ssh root@'$REC_WWW_DOMAIN
 # JENKINS     - purple
 # ------------------------------------------------------------------------------
 alias       jdev='sshpass -p "innovation" ssh root@'$J_DEV_DOMAIN
-alias      jprod='sshpass -p "innovation" ssh root@'$J_PROD_DOMAIN
+alias      jprod='sshpass -p "innovation" ssh root@'$J_PROD_DOMAIN # c le SCHOEDULER
 alias      jcont='sshpass -p "innovation" ssh root@'$J_CONT_DOMAIN_2
 ################################################################################
 # SSH - MEDICIS

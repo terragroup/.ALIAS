@@ -273,3 +273,13 @@ UPDATE complexe_cpx SET cpx_codehost = lpad(('' || cpx_temp), 5, '0');
 #
 ALTER TABLE complexe_cpx DROP COLUMN cpx_temp;
 #
+
+
+
+# ------------------------------------------------------------------------------
+A - ajouter le pwd
+# POUR QU IL SE CONNECTE AUTOMATIQUEMENT
+# ------------------------------------------------------------------------------
+A.1 - FICHIER : .pgpass
+# hostname:port:database:username:password
+10.196.165.17:5432:atnv2_preprod:atnv2_preprod:atnv2_preprod

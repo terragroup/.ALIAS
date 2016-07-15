@@ -51,6 +51,9 @@ alias  cr='cd /home/axel/com/atnv2/multirouter && mvn clean install -U -P Atnv2_
 alias  cb='cd /home/axel/com/atnv2/backend     && mvn clean install -U -P Atnv2_Local,gwt-dev,resources-dev -DskipTests  2>&1        | h -i error info warn debug caused atnv2     && cd ..'
 alias cbt='cd /home/axel/com/atnv2/backend     && mvn clean install -U -P Atnv2-TU,gwt-dev,resources-dev                 2>&1        | h -i error info warn debug caused atnv2     && cd ..'
 alias  cm='cd /home/axel/com/atnv2/model       && mvn clean install -U -P Atnv2_Local,gwt-dev,resources-dev -DskipTests  2>&1        | h -i error info warn debug caused atnv2      && cd ..'
+# --fail-fast or just -ff
+# FAIL FAST = arrete des le debut
+
 alias  ccc='cm && cr && cb'
 
 # MVN TEST UNITAIRE

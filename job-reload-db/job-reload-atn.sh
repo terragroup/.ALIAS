@@ -1,8 +1,5 @@
 #!/bin/bash
-#
-# voir tout en mode debug
-# set -o verbose
-#
+
 # ##############################################################################
 # OBJECTIF
 # - RE-CHARGEMENT - dump + reload
@@ -10,9 +7,6 @@
 # ##############################################################################
 #
 source ./imports/rainbow.sh
-
-#
-# ctx : TOOLS
 #
 # ______________________________________________________________________________
 remote_connect(){
@@ -52,7 +46,15 @@ loading(){
 # ______________________________________________________________________________
   echo $(rechogreen   "$1 LOADING $2 .")
   echo $(rechogreen   "$3 .")
+  # progress 100
+  # progress 20 "Phase 1      "
+  # progress 40 "Phase 2      "
+  # progress 60 "Processing..."
+  # progress 80 "Processing..."
+  # progress 90 "Processing..."
+  # progress 100 "Done        "
 }
+
 # ______________________________________________________________________________
 param_main(){
 # ______________________________________________________________________________
@@ -74,13 +76,6 @@ fail(){
   exit 1
 }
 
-# TODO - faire function pour cela
-# echo 'cmd name'
-# if scp ${RELOAD_LOCAL_DUMP_FILE_GZ_FROM_PROD_TO_REC} ${SSH_USER_ROOT}@${DB_IP_REC}:${RELOAD_LOCAL_DUMP_FILE_GZ_FROM_PROD_TO_REC}; then
-#   success
-# else
-#   fail
-# fi
 
 #
 # ctx : GLOBAL
@@ -109,8 +104,8 @@ DUMP_FILE_GZ_REC=${DUMP_FILE_REC}.gz
 DUMP_FILE_PROD="atnv2_production_2016-07-08_15-09-41.sql"
 DUMP_FILE_GZ_PROD=${DUMP_FILE_PROD}.gz
 #
-DIST_BACKUP_DUMP_DIR_REC="/var/lib/pgsql/9.4/backups"     # REC
-DIST_BACKUP_DIR_PROD="/var/lib/pgsql/backups"             # PROD
+DIST_BACKUP_DUMP_DIR_REC="/var/lib/pgsql/9.4/backups"      # REC
+DIST_BACKUP_DIR_PROD="/var/lib/pgsql/backups"         # PROD
 #
 RELOAD_LOCAL_DUMP_FILE_FROM_PROD_TO_REC=${LOCAL_DUMP_DIR}/${DUMP_FILE_REC}
 RELOAD_DIST_DUMP_FILE_FROM_PROD_TO_REC=${DIST_BACKUP_DUMP_DIR_REC}/${DUMP_FILE_REC}
@@ -119,16 +114,19 @@ RELOAD_DIST_DUMP_FILE_FROM_PROD_TO_REC=${DIST_BACKUP_DUMP_DIR_REC}/${DUMP_FILE_R
 RELOAD_LOCAL_DUMP_FILE_GZ_FROM_PROD_TO_REC=${LOCAL_DUMP_DIR}/${DUMP_FILE_GZ_PROD}
 # RELOAD_DIST_DUMP_FILE_GZ_FROM_PROD_TO_REC=${DIST_BACKUP_DUMP_DIR_REC}/${DUMP_FILE_GZ_REC}
 
+
 #
 # NAS_BACKUP_DIR="/mnt/ARCHIVES/APPS/ArchivageMV/1_MEDICIS/6_Dump_Chargement/${MEDICIS_DB_DEST}/"
 # NAS_BACKUP_DIR="/mnt/apps/BackupMV/2_datas/9_ATNV2/POSTGRESQL/"
 
+LEVEL=0
+
 #
 # ctx : DUMP
+#
 # . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 # TODO - le mdp est de connexion a PG_DB est dans .pgpass (pour ne pas avoir a mettre le pwd)
 # . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-#
 # ______________________________________________________________________________
 dump_prod(){
 # ______________________________________________________________________________
@@ -203,6 +201,8 @@ scp_from_local_to_rec(){
   end 'A.3 COPY END .'
 }
 
+
+
 # ctx : RESTORE
 # . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 #
@@ -235,19 +235,86 @@ reload_from_prod_to_rec(){
   # psql -f anonymisation.sql atnv2_preprod
 }
 
-# ------------------------------------------------------------------------------
+
+#
 # MAIN
+# ------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------
 main_start
 param_main
 # ------------------------------------------------------------------------------
 
+
 # dump_rec
-dump_prod
-scp_from_local_to_rec
-modify_dump
+# dump_prod
+
+# scp_from_local_to_rec
+
+# modify_dump
+
 reload_from_prod_to_rec
 
 # ------------------------------------------------------------------------------
 main_end
 # ------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
+
+
+
+
+
+# ##############################################################################
+# RQ
+# ##############################################################################
+# echo $(echoyellow "")
+# echo $(echogreen  "")
+# echo $(echored    "")
+# echo $(echocyan   "")
+# echo $(echoblue   "")
+# echo $(echopurple "")
+test_tput(){
+  # tput sgr0
+  tput rev
+  # tput setb 0 ; echo "0"
+  # tput setb 1 ; echo "1"
+  # tput setb 2 ; echo "2"
+  # tput setb 3 ; echo "3"
+  # tput setb 4 ; echo "4"
+  # tput setb 5 ; echo "5"
+  # tput setb 6 ; echo "6"
+  # tput setb 7 ; echo "7"
+  echo "8"
+  echo "9"
+  echo "10"
+}
+# test_tput
+# 1
+# On host_src (LOCA), run this command as the user that runs scp/ssh/rsync
+# ssh-keygen -t rsa
+# Copy the contents of id_rsa.pub to ~/.ssh/authorized_keys
+
+
+# # ______________________________________________________________________________
+# dump_rec(){
+# # ______________________________________________________________________________
+#   start "A.1 DUMP_REC START ."
+#
+#   echo $(echoyellow   "ENV")                $(rechoyellow   "REC/PROD")
+#   echo $(echoyellow   "IP")                 $(rechoyellow   "${DB_IP_REC}")
+#   echo $(echoyellow   "DB")                 $(rechoyellow   "${DB_REC}")
+#   echo $(echoyellow   "DB_USER")            $(rechoyellow   "${DB_USER_REC}")
+#   echo $(echoblue     "LOCAL_DUMP_FILE")    $(rechoblue     "${LOCAL_DUMP_FILE_GZ_REC}")
+#
+#   loading "A.1" "5_min"
+#
+#   if ! pg_dump -p ${DB_PORT} -h ${DB_IP_REC} -U ${DB_USER_REC} -O ${DB_REC} | gzip > ${LOCAL_DUMP_FILE_GZ_REC}.in_progress; then
+#     echo $(echored    "${DB_REC} [KO] [KO] .") 1>&2           # echo $(echored    "[KO] Failed to backup database schema of $DB_REC") 1>&2
+#   else
+#     mv ${LOCAL_DUMP_FILE_GZ_REC}.in_progress ${LOCAL_DUMP_FILE_GZ_REC}
+#     echo $(echogreen  "${DB_REC} [OK] [OK] .")                # echo $(echogreen  "[OK] Success to backup database schema of $DB_REC")
+#   fi
+#
+#   end "A.1 DUMP_REC END ."
+# }

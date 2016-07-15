@@ -5,6 +5,9 @@
 ##############################################################################//
 
 sudo apt-get install imagemagick # convet img to pdf
+apt-get jpegoptim                # compress jpg - jpegoptim -m10 1.jpg
+# convert -density 150 input.pdf -quality 90 output.png
+
 
 sudo apt-get install pdfsam     # couper splitter PDF etc...
 

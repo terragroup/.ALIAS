@@ -1,34 +1,40 @@
-2011, 2012, 2013, 2014, 2015, 2016, 1 000, 2 000, 3 000, 500, 100,
-email, mail, @gmail.com,
-france, bolivia, Trinidad, Beni, Santa Cruz de la Sierra, la paz, Cochabamba, tarija,
-colombia, brazil, santa catarina, ecuador, united kingdom,  Rondônia, Ukraine, Zealand, Australia, Romania,
+--------------------------------------------------------------------------------
+-- PRIMAIRE (phrases)
+--------------------------------------------------------------------------------
 
-epargne, cash, P.E.L,
-Retrait Au Distributeur, Frais Irreg.Et Incidents, Frais Retrait Dab Autre Banque,Frais Operation Etranger, Mastercard Debit Imm,Cotis Carte,
-Axa, Caisse Primaire Assurance Maladi, La Poste, Direct Energie, Ccip, orange, Ratp, Sncf, ouigo,
-Phcie, Pharmacie,.a 
-L'etoile Bleue Pari Paris, Fp Distridaguerr,
-Paypal, Dnh*godaddy.Com, Itunes,
-Amazon, Amzn, Uniqlo,
-Mac Do, Mcdonalds, Mc Donald, Franprix, Picard, Intermarche,  Carrefour, Carrefourcity, Carrefourmarket,Casino,
-Decathlon,Fnac, Monoprix,Lafayette,Muji,1138 Putea, Fp La Motte Picq, Fp8035,Timberland,Selarl Chassi,
-So At, Edreams,
+//BANK//,
+epargne, cash, Retrait Au Distributeur, So At, Selarl Chassi, Frais Retrait Dab Autre Banque, La Poste, Direct Energie, Frais Operation Etranger, Mastercard Debit Imm,
+Dnh*godaddy.Com, Mc Donald, Mens. P.E.L, Web Regnoult Axel, Caisse Primaire Assurance Malad, Cotis Carte
+L'etoile Bleue Pari Paris, Fp Distridaguerr, Bf*ebags, Mcdonalds 1138 Putea, Fp La Motte Picq, Au Vieux Campeur, Fp8035 Voisin, Franmaine Paris, Mac Do,
 
-youTube,The School of Life,
-paris JUG, Talks at Google, Xebia TV, Google Developers, Google Chrome Developers,
-Jean-Luc Mélenchon, Nouvelles vidéos de 28 minutes - ARTE,Chomsky's Philosophy, Dessine-moi l'éco,
+//GMAIL//,
+Action, Appliquer le libellé, Ne pas afficher dans la boîte de réception, Marquer comme lu, Ne jamais marquer comme important, Ne jamais envoyer dans le dossier Spam,
 
-[[[[[[[[[[ todo ]]]]]]]]]]], jean,
-Correspondances, Action, Appliquer le libell, Ne pas afficher dans la boîte de réception, Marquer comme lu, Ne jamais marquer comme important, Ne jamais envoyer dans le dossier Spam, from,
+//YT//,
+Chomsky's Philosophy, The School of Life, Talks at Google, Jean-Luc Mélenchon, Dessine-moi l'éco,
+Xebia TV, 28 minutes - ARTE, Google Developers, Google Chrome Developers,
 
-ftp, SEO, Full-Stack Web Developer, Spark, scala, cassandra, -/DEV, Spark, Scala, cassandra, rust, angular, Java, css, cms, Microservices, cloud, sql, node.js, python, mongoDb ,php,
+//DEV//,
+Full-Stack Web Developer, Spark, scala, cassandra,
 
-paramètres, Historique, Afficher les demandes reçues, Invitations envoyées,
+//Z//,
+Le colis a été laissé à l'intérieur de la boîte aux lettres de la maison, point relais, vient de mettre une vidéo en ligne, Amazon, Uniqlo,
+......................................................................................,
 
-assurance, seduction, FILO, LANGUE, 3 map, 2 feuj, HAIR, 0 E / ax, 1 DEV / concurrent voyage,2 ECONOMIE, 1 DEV / yt, z TRIP / camping + tool + marques, z TRIP / companie vol, CULTURE,
-3 CITATION, 1 DEV / refcard, z immobilier, 0 MES NOTES, 1 DEV / z, 0 QUESTION, 1 DEV / gestion projet + management, z news, 2 COMEDIE / FUN,
-2 POLITIQUE, 0 JURISTE / LEGAL, 3 STAT, z SEO, 2 HISTOIRE + CHOMPSKY + RE, 3 PLAN TUNE, 1 DEV / polymer, z TRIP / voyage / LANGUE / visa / pvt,
 
-zg, zj, pt, ff,, stz, lpz, ccbm, 1 sucre, .0., .1., .2., .3., .9, ======, - - - - - - - - -,  A -,
-Wen Llanos Salazar, Αλεξάνδρα Μπέλλα, Laura Nietch, Lucero Estrada Herrera, Nayara Moreira, Katherine Fernández Ibarra, ShereZade Fernandez,
-Universidad, Univercity, una princesa & las princesas no trabajan,  UPSA, modelo, udabol,
+
+
+--------------------------------------------------------------------------------
+-- SECONDAIRE (single)
+--------------------------------------------------------------------------------
+@ [[[[[[[[[[ todo ]]]]]]]]]]] 100 000
+
+//BANK//
+Orange Franprix Picard Scichamplain Decathlon Ratp Fnac Monoprix Lafayette Sncf Phcie Muji Ccip Itunes.Com Casino Edreams Pharmacie Carrefourmarket Cash Carrefourcity Paypal Timberland Parfumsmoinscher Intermarche Axa Carrefour
+
+//DEV//
+-/DEV Spark Scala cassandra rust angular Java css cms Microservices cloud sql node.js python mongoDb php
+
+//Z//
+Ukraine Zealand Australia Romania
+...

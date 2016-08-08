@@ -62,7 +62,7 @@ export LANG=en_US.UTF-8
 export LC_TYPE=en_US.UTF-8
 # ------------------------------------------------------------------------------
 export HISTCONTROL="ignoredups"       # Don't put duplicate lines in the history.
-export PAGER="most"
+# export PAGER="most"
 export EDITOR="atom"                  # export EDITOR='emacs'
 # ------------------------------------------------------------------------------
 export JAVA_HOME="/opt/java/current"  # 'echo $PATH' or  'echo $ENV'
@@ -74,9 +74,15 @@ PATH=$JAVA_HOME/bin:bin:$M2_HOME/bin:$CATALINA_HOME/bin:$PATH:/opt/ack
 ################################################################################
 # VAR
 ################################################################################
-                              AXL_HOME="/home/axel"
-                          AXL_HOME_LOG="$AXL_HOME/LOG"
-                        AXL_HOME_ALIAS="$AXL_HOME/com/.ALIAS"
+
+                        # MRE
+                        # AXL_HOME="/home/axel"
+                        #   AXL_HOME_LOG="$AXL_HOME/LOG"
+                        # AXL_HOME_ALIAS="$AXL_HOME/com/.ALIAS"
+                        # MAC
+                        AXL_HOME="/Users/axel"
+                        AXL_HOME_LOG="$AXL_HOME/axel/log"
+                        AXL_HOME_ALIAS="$AXL_HOME/.ALIAS"
 ################################################################################
 # DEPENDENCIES
 ################################################################################

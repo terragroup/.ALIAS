@@ -85,7 +85,7 @@ function fff(){
 # ------------------------------------------------------------------------------
 # ACK
 # ------------------------------------------------------------------------------
-alias ack='ack-grep'
+# alias ack='ack-grep'
 
 # 1 - Replace with ACK
 # ack-grep --print0 -irl 'Online' | xargs -0 -L1 sed  -i 's/Online/Healthy/g'

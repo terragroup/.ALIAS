@@ -135,7 +135,7 @@ alias gl="git log -30 --graph --pretty=format:'  %C(yellow)%<(30)%d   %C(white)%
 | h -ni $CURRENT_COMMIT \
 "
 # AVANTAGE GLL = il faut se mettre sur la branche, et on ne voit QUE la branche
-alias gll="git lg -150 \
+alias gll="git lg -50 \
 | h -i  $AXL_GIT_GL \
 | h -ni popo pipi pupu koko kiki kuku  '\[maven-release-plugin\] prepare for next development iterationgi|\[maven-release-plugin\] prepare release'  \
 | h -ni $CURRENT_COMMIT \

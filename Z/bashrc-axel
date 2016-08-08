@@ -1,7 +1,0 @@
-#!/bin/bash
-
-# source "/home/axel/alias/0-basic.sh"
-
-zsh
-
-# . "/home/axel/com/.ALIAS/0-root.sh"

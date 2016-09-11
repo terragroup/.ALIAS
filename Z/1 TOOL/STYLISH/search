@@ -1,0 +1,96 @@
+a.q.qs {
+    color: red !important;
+    font-family: arial;
+}
+
+div#rcnt {
+    background: #f5deb3;
+}
+
+div#hdtbSum {
+    background: #000;
+}
+
+div#topabar {
+    display: none;
+}
+
+.sfbgg {
+    background: #000;
+}
+a {
+    font-family: arial black;
+    color: #000 !important;
+    background: gold;
+}
+
+.f.kv._SWb {
+    position: absolute;
+    bottom: -8px;
+    left: 285px;
+}
+
+span.searchword {
+    background: transparent;
+    font-family: 'century gothic';
+    color: #008000;
+}
+.f.slp {
+    display: none;
+}
+span.f {
+    font-size: 30px !important;
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: -315px;
+}
+li#-_-gpad-_- {
+    display: none;
+}
+img {
+    position: absolute;
+    top: 0px;
+    left: 670px;
+}
+div#res {
+    MARGIN-LEFT: -88PX;
+}
+.g {
+    WIDTH: 700PX ;
+}
+table.ts {
+    HEIGHT: 75PX;
+}
+
+div#center_col {
+    BORDER-RIGHT: 346PX SOLID #000;
+    PADDING-RIGHT: 40PX;
+}
+
+img:hover {
+    width: 300px !important;
+    height: 270px !important;
+    z-index: 1;
+}
+a.fl {
+    display: none;
+}
+
+
+cite._Rm {
+    color: #340691;
+    font-weight: bold !important;
+        background: #daa520;
+}
+.rc .s {
+    line-height: 10px;
+    font-size: 10px;
+}
+
+li.ads-ad {
+    display: none;
+}
+a.spell {
+    background: #fff;
+}

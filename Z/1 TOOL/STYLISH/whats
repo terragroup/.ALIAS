@@ -1,0 +1,40 @@
+.chat-status.ellipsify {
+    display: none !important;
+}
+
+.chat-status {
+    display: none !important;
+}
+
+span.textfield-static.selectable-text{
+    display: none !important;
+}
+button.message-system-e2e {
+    display: none;
+}
+
+.chat-avatar {
+    background: #000;
+}
+.pane.pane-intro.pane-two {
+    background: #000;
+}
+.chat-body {
+    background: #006400;
+}
+.avatar.icon-user-default {
+    width: 150px !important;
+    height: 150px !important;
+}
+.infinite-list-item.infinite-list-item-transition {
+    height: 150px !important;
+}
+.infinite-list-viewport {
+    overflow: scroll !important;
+}
+.infinite-list-viewport {
+    overflow: scroll;
+}
+header.drawer-header {
+    height: 50px !important;
+}

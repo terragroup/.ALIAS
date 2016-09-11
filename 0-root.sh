@@ -110,5 +110,6 @@ echo "source 3-pgsql"         && . "$AXL_HOME_ALIAS/pgsql.sh"
 echo "source 4-log"           && . "$AXL_HOME_ALIAS/log.sh"
 echo "source 5-server"        && . "$AXL_HOME_ALIAS/server.sh"
 echo "source 7-network"       && . "$AXL_HOME_ALIAS/network.sh"
+echo "source 8-mac"           && . "$AXL_HOME_ALIAS/mac.sh"
 # echo "source 8-mysql"       && . "$AXL_HOME_ALIAS/mysql.sh"
 # ------------------------------------------------------------------------------

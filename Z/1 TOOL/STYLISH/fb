@@ -1,0 +1,27 @@
+div#intro_container_id{
+display: none;
+}
+
+li#u_0_3o {
+    display: none;
+}
+
+li#u_jsonp_2_1w {
+    display: none;
+}
+
+ol#u_0_1d_report {
+    display: none;
+}
+div#u_0_1d {
+    background: #000;
+}
+div#globalContainer {
+    background: #000;
+}
+._li {
+    background: #000;
+}
+div#u_0_2t {
+    display: none;
+}

@@ -1,0 +1,66 @@
+.match-chat-message-date {
+    display: none !important;
+}
+.match-chat-scrollArea {
+    background: #000 !important;
+}
+.pure-u-3-24
+, a#ember360 {
+    display: none;
+}
+
+.main-header {
+    background: #000;
+}
+.page-like {
+    background: #000;
+}
+.matches-content {
+    background: #000;
+}
+.match-chat-body {
+    background: #000;
+}
+.match-chat-profile-content {
+    background: #000;
+}
+.page {
+    background: #000;
+}
+.match-chat-form {
+    background: #db7093;
+}
+div#loading {
+    background: #000;
+}
+span.matches-conversations-blocked {
+    background: #000;
+    outline: 24px solid #000;
+    margin-left: -100px;
+    padding-right: 93px;
+}
+.drawer-body.drawer-editable {
+    background: #000;
+}
+span.icon.icon-x {
+    background: #808080;
+}
+.drawer-body.drawer-editable {
+    background: #000;
+}
+
+.object-fit.object-fit-scaledown {
+    background: #000;
+}
+a#ember403 {
+    display: none;
+}
+a#ember411 {
+    display: none;
+}
+a#ember390 {
+    display: none;
+}
+a#ember383 {
+    display: none;
+}

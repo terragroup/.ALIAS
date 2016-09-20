@@ -1,0 +1,40 @@
+div#gb {
+    display: none;
+}
+div#gt-ft-res {
+    display: none;
+}
+#gba {
+    height: 0;
+}
+div#gt-apb-main {
+    background: #000;
+}
+div#gt-text-c {
+    background: #dcdcdc;
+}
+span#result_box {
+    background: #dda0dd;
+}
+textarea#source {
+    background: #9acd32;
+}
+div#gt-c {
+    background: #000;
+}
+div#gt-appbar {
+    background: #000;
+}
+.goog-inline-block.jfk-button.jfk-button-standard.jfk-button-collapse-left.jfk-button-collapse-right.jfk-button-checked.jfk-button-clear-outline {
+    background: #9acd32;
+}
+.gt-def-row {
+    background: #ff0;
+}
+.gt-cd-c {
+    font-size: 22px;
+    width: 804px;
+}
+a#gt-appname {
+    display: none;
+}

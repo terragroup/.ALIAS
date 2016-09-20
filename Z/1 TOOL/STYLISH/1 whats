@@ -1,0 +1,75 @@
+.chat-status.ellipsify {
+    display: none !important;
+}
+
+.chat-status {
+    display: none !important;
+}
+
+span.textfield-static.selectable-text{
+    display: none !important;
+}
+button.message-system-e2e {
+    display: none;
+}
+
+.chat-avatar {
+    background: #000;
+}
+.pane.pane-intro.pane-two {
+    background: #000;
+}
+.chat-body {
+    background: #000;
+}
+
+header.drawer-header {
+    height: 50px !important;
+}
+
+div#startup {
+    background: #000;
+}
+span.emojitext.ellipsify {
+    color: #8fbc8f;
+}
+.active.chat .chat-body {
+    background: red !important;
+}
+.chat-body:hover {
+    background: #ff0;
+}
+
+.infinite-list-item:hover .avatar.icon-user-default,
+.active.chat .avatar.icon-user-default {
+    width: 200px !important;
+    height: 200px !important;
+    margin-top: 100px;
+    margin-left: -20px;
+    border: 10px solid yellow;
+}
+.app-wrapper.app-wrapper-web.app-wrapper-main {
+    background: #000;
+}
+.intro-image {
+    display: none;
+}
+header.pane-header.pane-chat-header {
+    background: #000;
+}
+.block-compose {
+    background: #9acd32;
+}
+.input {
+    font-family: 'arial black';
+    font-size: 30px;
+    height: 50px;
+    line-height: 1;
+}
+.intro-text {
+    display: none;
+}
+.message-text {
+    font-size: 27px;
+    line-height: 1.5;
+}

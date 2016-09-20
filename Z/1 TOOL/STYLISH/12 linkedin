@@ -1,0 +1,24 @@
+.insights {
+    display: none;
+}
+div#rec-sctn-view-toggle {
+    display: none;
+}
+div#top-header {
+    background: #000 !important;
+}
+header {
+    background: #ffebcd;
+}
+body#pagekey-nprofile_my_profile {
+    background: #000;
+}
+div#background-volunteering {
+    display: none;
+}
+div#background-organizations {
+    display: none;
+}
+div#background-certifications {
+    display: none;
+}

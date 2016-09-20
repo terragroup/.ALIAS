@@ -1,0 +1,16 @@
+i.chrome-extension-mutihighlight.chrome-extension-mutihighlight-style-0,
+i.chrome-extension-mutihighlight.chrome-extension-mutihighlight-style-1,
+i.chrome-extension-mutihighlight.chrome-extension-mutihighlight-style-2,
+i.chrome-extension-mutihighlight.chrome-extension-mutihighlight-style-3,
+i.chrome-extension-mutihighlight.chrome-extension-mutihighlight-style-4,
+i.chrome-extension-mutihighlight.chrome-extension-mutihighlight-style-5,
+i.chrome-extension-mutihighlight.chrome-extension-mutihighlight-style-6,
+i.chrome-extension-mutihighlight.chrome-extension-mutihighlight-style-7,
+i.chrome-extension-mutihighlight.chrome-extension-mutihighlight-style-8,
+i.chrome-extension-mutihighlight.chrome-extension-mutihighlight-style-9{
+    font-size: 25px !important;
+    padding: 0;
+}
+html, body{
+	background: gainsboro;
+}

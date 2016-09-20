@@ -1,0 +1,152 @@
+div#watch-uploader-info {
+    font-size: 25px;
+}
+span.logo.masthead-logo-renderer-logo.yt-sprite {
+    display: none;
+}
+div#watch-header {
+    position: absolute;
+    top: -5px;
+    left: 626px;
+}
+div#watch7-sidebar-contents {
+    position: absolute;
+    top: 193px;
+    right: 0;
+}
+li {
+    color: #adff2f;
+}
+.branded-page-v2-primary-col {
+    WIDTH: 1050PX;
+}
+li {
+    DISPLAY: INLINE;
+}
+.yt-lockup.yt-lockup-tile.yt-lockup-video.clearfix {
+    WIDTH: 450PX;
+    BACKGROUND: #020000;
+    DISPLAY: INLINE-BLOCK;
+}
+div#yt-masthead-container {
+    margin-top: 12px;
+    height: 23px;
+}
+a#upload-btn {
+    display: none;
+}
+span#eow-title {
+    color: #0098ff !important;
+}
+p#eow-description {
+    color: #00b0ff !important;
+    font-size: 20px;
+    margin-top: 10px;
+    line-height: 1;
+}
+a.pl-video-title-link.yt-uix-tile-link.yt-uix-sessionlink.spf-link {
+    font-size: 9px;
+}
+tr.pl-video.yt-uix-tile {
+    display: inline-block;
+    width: 130px !important;
+}
+.watched-badge {
+    display: none;
+}
+a.pl-video-title-link.yt-uix-tile-link.yt-uix-sessionlink.spf-link {
+    color: #00c2ff !important;
+}
+td.pl-video-thumbnail {
+    background: #dcdcdc;
+}
+td.pl-video-thumbnail {
+    padding: 0px !important;
+}
+.pl-video-owner {
+    display: none;
+}
+td.pl-video-index {
+    display: none;
+}
+.branded-page-v2-secondary-column-hidden .pl-video-title {
+    min-width: 0px;
+}
+.more-menu-wrapper {
+    display: none;
+}
+td.pl-video-thumbnail {
+    height: 50px !important;
+}
+td.pl-video-title {
+    padding: 1px;
+}
+div#watch-header {
+    z-index: 100;
+}
+span.like-button-renderer.actionable {
+    background: #800080;
+}
+span.g-hovercard {
+    color: #f00;
+}
+.comment-simplebox-renderer.yt-uix-servicelink {
+    display: none;
+}
+h2.comment-section-header-renderer {
+    display: none;
+}
+strong.watch-time-text {
+    font-size: 10px;
+    color: #8f9509;
+}
+div#yt-masthead-container {
+    padding: 0;
+}
+div#channel-subheader {
+    display: none;
+}
+div#page {
+    background: #000;
+}
+span.yt-uix-button-icon.yt-uix-button-icon-bell.yt-sprite {
+    display: none;
+}
+span.yt-thumb-square {
+    display: none;
+}
+div#watch7-sidebar-contents {
+        background: black !important;
+    width: 1050px;
+        margin-top: 100px;
+    z-index: 1;
+}
+html, body {
+    background: #000;
+}
+div#watch-action-panels {
+    display: none;
+}
+.related-item-dismissable {
+    display: inline-table;
+    width: 320px;
+}
+#watch7-sidebar .video-list .video-list-item .stat {
+    color: #adff2f !important;
+}
+div#watch8-sentiment-actions {
+    POSITION: ABSOLUTE;
+    TOP: -82PX;
+    LEFT: -100PX;
+}
+button.yt-uix-button.yt-uix-button-size-default.yt-uix-button-opacity.yt-uix-button-has-icon.no-icon-markup.like-button-renderer-like-button.like-button-renderer-like-button-unclicked.yt-uix-post-anchor.yt-uix-tooltip {
+    BACKGROUND: #f00 !IMPORTANT;
+    OPACITY: 1;
+}
+button.yt-uix-button.yt-uix-button-size-default.yt-uix-button-opacity.yt-uix-button-has-icon.no-icon-markup.like-button-renderer-like-button.like-button-renderer-like-button-clicked.yt-uix-button-toggled.yt-uix-post-anchor.yt-uix-tooltip {
+    BACKGROUND: #adff2f !IMPORTANT;
+}
+.exp-wn-big-thumbs-v3 .related-list-item .content-wrapper {
+    margin-left: 180px;
+    MARGIN-TOP: 50PX;
+}

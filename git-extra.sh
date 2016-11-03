@@ -16,9 +16,6 @@ alias xxgxx='echo -e "\n PUSHING \n" && gt && echo -e "\n-----------------\n" &&
 alias gitc='git commit -a && git pull --rebase && git --no-pager lg -5 && echo'
 
 
-
-
-
 ------------------------------------------------------------------------------------------------------
 
 # Pour savoir a qui on se connecte : le client a une liste des KNOWS HOST des serveurs auxquels il se connecte
@@ -30,7 +27,6 @@ ssh-keygen -lf axel-key.pub
 2048 45:46:75:03:d2:5a:f4:ff:bb:5b:8d:b8:1b:7e:21:fd  axel@axel-HP-Compaq-8200-Elite-SFF-PC (RSA)
 
 ------------------------------------------------------------------------------------------------------
-
 
 # FONCTIONNEMENT COMMIT
 - tu commits avec FIXES (ca fera passer le status a RESOLU)

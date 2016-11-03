@@ -52,3 +52,9 @@ span.gb_Za.gb_Vb {
 .eEc {
     width: 50px !important;
 }
+.hN98xe > .gUd:first-child {
+    display: none !important;
+}
+.gb_ue.gb_uf {
+    background: #000;
+}

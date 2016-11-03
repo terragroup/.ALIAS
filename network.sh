@@ -7,17 +7,17 @@ AXL_IP="10.196.165.188"
 AXL_IP_MASK="255.255.254.0"
 AXL_IP_PORT="5432 5434 3306 8080 9090" # tomcat front (8080) tomcat back (9090) - mysql (3306) - pgsql (5434)
 
-H_NETSTAT="Proto|Recv-Q|Send-Q|Local Address|Foreign Address|State|PID/Program name|Timer"
-H_IFCONFIG="inet addr|Bcast|Masque|Hwaddr|Ethernet|locale|mtu|TX|collisions|octets"
+H_NETSTAT="Proto|Recv-Q|Send-Q|Local   Address|Foreign   Address|State|PID/Program name|Timer"
+H_IFCONFIG="Bcast|Masque|Hwaddr|Ethernet|locale|mtu|TX|collisions|octets"
 
 #---------------------------------------------------------------------
 #
 #---------------------------------------------------------------------
 
-alias ifconfig='ifconfig            | h -i $H_IFCONFIG adr eth0 lo $AXL_IP_PORT $AXL_IP_MASK '
+alias ifconfig='ifconfig            | h -i $H_IFCONFIG addr eth0 lo inet6 inet inactive active 192 168 127.0.0.1 $AXL_IP_PORT $AXL_IP_MASK '
 
-alias nnetstat='sudo netstat -antop | h -i 127.0.0.1 listen java postgres nginx mysqld established $AXEL_PORT $H_NETSTAT '   # verifie config et ports par default
-
+alias nnetstat='sudo netstat -ant | h -i 127.0.0.1 listen java postgres nginx mysqld established $AXEL_PORT $H_NETSTAT '   # verifie config et ports par default
+                           # -antop SOUS debian
 
 # savoir l OS de la machine distante   :   sudo nmap -O -v 10.196.164.48 | h -ni running open Microsoft Linux Windows done Scanning Starting Completed Initiating Discovered port on
 # voir si un port distant est ouvert   :   nmap -p 80 example.com

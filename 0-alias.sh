@@ -1,8 +1,6 @@
 #!/bin/bash
 
-
 # <!-- To specify DOM to use for an element’s local DOM, use the <dom-module> element. Give the <dom-module> an id attribute that matches its element’s is property and put a <template> inside the <dom-module>. Polymer will automatically clone this template’s contents into the element’s local DOM. -->
-
 
 #-------------------------------------------------------------------------------
 #  now
@@ -10,10 +8,8 @@
 # 1
 
 # 2
-
 # alias nn1='echo ">>>>> npm   install "               && sudo npm install ;  echo ">>>>> bower install"                    && bower install | h -ni bower gulp npm install polymer '
 # alias nn2='echo ">>>>> bower ncu -u (package.json)" && sudo ncu -u | h -ni bower gulp npm install polymer ;       echo ">>>>> bower ncu -m bower (bower.json)"  && sudo ncu -m bower -u | h -ni bower gulp npm install polymer '
-
 
 alias nn1='echo ">>>>> npm   install "               &&  npm install ;  echo ">>>>> bower install"                    && bower install | h -ni bower gulp npm install polymer '
 alias nn2='echo ">>>>> bower ncu -u (package.json)" &&  sudo ncu -u | h -ni bower gulp npm install polymer ;       echo ">>>>> bower ncu -m bower (bower.json)"  &&  sudo ncu -m bower -u | h -ni bower gulp npm install polymer '
@@ -26,7 +22,6 @@ alias nnn='nn1'
 # git clone https://github.com/regnou/3-P-todo
 # curl -u 'regnou' https://api.github.com/user/repos -d '{"name":"3-P-todo"}'
 
-
 # TOTAL
 # First commit any outstanding code changes, and then, run this command:
 # git rm -r --cached .
@@ -35,11 +30,9 @@ alias nnn='nn1'
 # Commit it:
 # git commit -m ".gitignore is now working"
 
-
 ################################################################################
 # AXEL ALIAS
 ################################################################################
-
 alias ccd='cd /home/axel/com/axel'
 alias ppy='python -m SimpleHTTPServer 8080'
 alias ccp='cat gulpfile.js  | h -ni serve task src ".*//.*" "element|index|script|images|bower_components" app dist "static|pipe|require" gulp'
@@ -51,7 +44,6 @@ alias kkk="ack "
 
 # clavier asus... bttn eteindre,
 # lenovo - clavier PRO
-
 
 #-------------------------------------------------------------------------------
 # log
@@ -125,7 +117,6 @@ alias mywget="wget http://redmine.mre.pub/projects/medicis-recap/repository"
 #
 #-------------------------------------------------------------------------------
 
-
 # FAST AT HOME
 # cd ~/com
 alias cdd='cd ~/com/GO'
@@ -142,9 +133,7 @@ alias ni='npm install'
 #-------------------------------------------------------------------------------
 #
 #-------------------------------------------------------------------------------
-
 # alias cl='clear ; l'
-
 alias yyy='yo polymer:el '
 
 ################################################################################

@@ -64,3 +64,12 @@ a#ember390 {
 a#ember383 {
     display: none;
 }
+.profile-photo {
+    width: 60%;
+}
+p.presentation {
+    display: none;
+}
+h1.welcome-title {
+    display: none;
+}

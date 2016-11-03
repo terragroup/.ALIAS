@@ -4,6 +4,7 @@ b {
 img#hplogo {
     display: none;
 }
+
 div#mv-tiles {
     display: none;
 }
@@ -28,7 +29,6 @@ td a:hover img{
     outline: 30px solid black;
      left: 25px;
 }
-
 
 td a img {
     position: absolute;
@@ -80,13 +80,19 @@ a {
     color: #000 !important;
     background: gold;
 }
-span.searchword {
+.med span.searchword, .st span.searchword, .r span.searchword {
     background: #000;
     font-family: 'arial black';
     color: #f00;
     font-weight: bold;
 }
-
+._Rm span.searchword {
+    background: #000;
+    color: #ff00c5;
+}
+.spell_orig span.searchword {
+    background: #ffa500 !important;
+}
 .f.slp {
     display: none;
 }
@@ -97,13 +103,13 @@ a.fl {
     display: none;
 }
 cite._Rm {
-    /* background: #dcdcdc; */
     color: #009aff;
     font-size: 18px;
     font-family: 'century gothic';
     border-radius: 10px;
-    /* border: 3px solid #000; */
     padding: 5px;
+    max-width: 900px !important;
+    width: 900px !important;
 }
 .rc .s {
     line-height: 10px;
@@ -113,7 +119,7 @@ li.ads-ad {
     display: none;
 }
 a.spell {
-    background: #fff;
+    background: #5eff00;
 }
 ._Tib {
     display: none;
@@ -128,4 +134,31 @@ a.spell {
 h3.r:hover {
     border: 10px solid #0098fc;
     border-radius: 10px;
+}
+
+.st span.searchword {
+    color: #adff2f;
+    font-style: italic;
+    font-family: arial;
+}
+.s {
+    width: 300px !important;
+    margin-left: 580px;
+    text-align: right;
+    color: #bbb6b6;
+}
+p.sp_cnt.card-section {
+    line-height: 2;
+}
+span.spell_orig .searchword {
+    background: #ffa500 !important;
+}
+div#rhs_block {
+    display: none;
+}
+a#irl_r_a {
+    display: none;
+}
+span.spell._uwb {
+    display: none !important;
 }

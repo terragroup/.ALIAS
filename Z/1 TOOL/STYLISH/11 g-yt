@@ -150,3 +150,10 @@ button.yt-uix-button.yt-uix-button-size-default.yt-uix-button-opacity.yt-uix-but
     margin-left: 180px;
     MARGIN-TOP: 50PX;
 }
+.title {
+    width: 145px;
+    max-height: 65px !important;
+}
+a.yt-uix-sessionlink.spell-correction-corrected-query.spf-link {
+    color: #adff2f;
+}

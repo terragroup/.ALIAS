@@ -20,19 +20,10 @@
 
 scp client-cert.p12  axel@10.196.165.163:/home/axel/DL
 
-
-
-
-
 # - je vois dans DEPLOY :
 clean process-resources -P ${ENVIRONNEMENT}
 # - mais je change avec :
 clean package -DskipTests=true -P atnv2_production
-
-
-
-
-
 
 
  # ------------------------------------------------------------------------------
@@ -50,7 +41,6 @@ clean package -DskipTests=true -P atnv2_production
  # ---------------------------
 
  # ALT + SUPPR -
-
 
 
 # REGLE lorsque tu utilises H (comme grep, fait attention a l ordre des elements, car le premier match annule les autres)
@@ -73,7 +63,6 @@ sudo dpkg --install atom-amd64.deb
 change date  >>>> date -s '2016-01-29 12:16:00'
 chown postgres:postgres /tmp/fichier
 
-
 ################################################################################
 # COMMENTAIRE
 ################################################################################
@@ -93,8 +82,6 @@ chown postgres:postgres /tmp/fichier
 
 # ctrl + q = quitter de vi
 
-
-
 ################################################################################
 # RELEASE APPLICATIF
 ################################################################################
@@ -109,13 +96,9 @@ chown postgres:postgres /tmp/fichier
 #
 # num de version dans le TAG
 
-
-
 # meld - outil de merge unix
 # dig ?
 # jobs = pour les voir en 1er ou arriere plan
-
-
 
 
 # scp -rp <=> pour les directories
@@ -141,8 +124,6 @@ chown postgres:postgres /tmp/fichier
 # BUG ACTUEL                       le fichier met   /var/atn/frontend/atnv2;
 #                                      au lieu de   /var/atnv2/gwt/atnv2;
 # -----------------------------------------------------------------------------
-
-
 
 ################################################################################
 # MVN
@@ -245,9 +226,6 @@ http://www.stevendobbelaere.be/installing-and-configuring-the-oh-my-zsh-shell/
 
 
 
-
-
-
 // UID - GID
 axel		:x:1000:1000	:axel,		,,:/home/axel:/bin/bash
 mysql		:x:115:124	:MySQL Server,	,,:/nonexistent:/bin/false
@@ -255,8 +233,6 @@ aregnoult	:x:1001:1001:	:/home/aregnoult
 
 // admin password
 gedit /etc/novell_credentials
-
-
 
 
 
@@ -302,7 +278,6 @@ cat - \
 | ack --flush --passthru --color --color-match=green  "^.*\*INFO\*.*" \
 | ack --flush --passthru --color --color-match=white  "^.*\*DEBUG\*.*" \
 | ack --flush --passthru --color --color-match=white  "^.*\*TRACE\*.*"
-
 
 #------------------------------------------------------------------------------
 # HIGHLIGHTER HELP

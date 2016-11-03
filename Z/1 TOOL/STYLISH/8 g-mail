@@ -1,6 +1,6 @@
 .nH.oy8Mbf.nn.aeN {
     width: 150px !important;
-    background: #f7dc91;
+    background: #245fd4;
     margin-right: 10px;
 }
 td.TC {
@@ -63,4 +63,13 @@ button {
 }
 .T-I.J-J5-Ji.nX.T-I-ax7.T-I-Js-Gs.ar7.T-I-Zf-aw2 {
     background: #f00;
+}
+span.gb_Za.gb_Wb {
+    display: none;
+}
+.gb_ib.gb_wf.gb_R.gb_vf.gb_X.gb_T {
+    background: #00f;
+}
+.gb_R.gb_se {
+    background: #00f;
 }

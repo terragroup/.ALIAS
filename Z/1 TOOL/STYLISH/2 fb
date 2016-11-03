@@ -99,3 +99,15 @@ ol#u_jsonp_11_g_report {
 div#u_jsonp_11_g {
     background: #000;
 }
+div#u_0_0 {
+    display: none;
+}
+div#leftCol {
+    display: none !important;
+}
+._4-u2._19ah._2ph_._4-u8 {
+    display: none;
+}
+._45mq {
+    display: none;
+}

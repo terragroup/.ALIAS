@@ -24,6 +24,27 @@ ctrl + m        : next brace
 
 # GIT-DIFF : CORE ; FAIRE SETTING ET AJOUTER 'show icons in editor gutter'
 
+apm install duplicate-removal
+'ctrl-alt-r': 'duplicate-removal:toggle'
+
+
+# ------------------------------------------------------------------------------
+# 2017  - INSTALL
+# ------------------------------------------------------------------------------
+
+seti-ui-red
+pigments
+minimap-highlight-selected
+highlight-selected
+minimap
+monokai-seti
+seti-ui
+//https://www.sitepoint.com/10-essential-atom-add-ons/
+
+
+
+
+
 # ------------------------------------------------------------------------------
 # LINTER
 # ------------------------------------------------------------------------------

@@ -13,7 +13,6 @@ H_IFCONFIG="Bcast|Masque|Hwaddr|Ethernet|locale|mtu|TX|collisions|octets"
 #---------------------------------------------------------------------
 #
 #---------------------------------------------------------------------
-
 alias ifconfig='ifconfig            | h -i $H_IFCONFIG addr eth0 lo inet6 inet inactive active 192 168 127.0.0.1 $AXL_IP_PORT $AXL_IP_MASK '
 
 alias nnetstat='sudo netstat -ant | h -i 127.0.0.1 listen java postgres nginx mysqld established $AXEL_PORT $H_NETSTAT '   # verifie config et ports par default

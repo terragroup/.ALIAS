@@ -1,6 +1,22 @@
 #!/bin/bash
 
 
+
+# mysql -u root -h localhost --database="wordpress" -p
+# mysql -u root -h localhost --database="wordpress" -p
+
+
+
+
+
+
+# mysql -u root -h localhost --database="wordpress" -p
+#
+#
+#
+#
+
+
 # SQL       : connexion   >    mysql -uroot -p151185'
 # OR     mysql -D medicisdb -uadmin -padm1n
 

@@ -1,0 +1,199 @@
+<settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/SETTINGS/1.0.0" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+<!-- .................................................................... -->
+<!-- AXEL MAVEN SETTINGS.XML -->
+<!-- .................................................................... -->
+
+<!-- .................................................................... -->
+<!-- LOCAL REPO -->
+<!-- .................................................................... -->
+  <localRepository>${user.home}/.m2/repository</localRepository>
+<!-- .................................................................... -->
+<!-- MIRROR -->
+<!-- .................................................................... -->
+  <mirrors>
+    <mirror>
+      <!--This sends everything else to /public -->
+      <id>nexus</id>
+      <mirrorOf>*</mirrorOf>
+      <url>http://prodnexusweb.mdv.pub/content/groups/public</url>
+      <!-- <url>http://nexus.mre.pub/content/groups/public</url> -->
+    </mirror>
+  </mirrors>
+<!-- .................................................................... -->
+<!-- PROFILES -->
+<!-- .................................................................... -->
+  <profiles>
+
+<!-- ____________________________________________________________________ -->
+<!--  LOCAL -->
+<!-- ____________________________________________________________________ -->
+    <profile>
+      <id>Atnv2_Local</id>
+      <properties>
+
+        <env>LOCAL</env>
+
+        <!-- ???????????????????? -->
+        <!-- BDD ATN (AXEL LOCAL) -->
+        <!-- ???????????????????? -->
+        <db.driver>org.postgresql.Driver</db.driver>
+        <db.server>localhost</db.server>
+        <db.port>5432</db.port>
+        <db.database>atn</db.database>
+        <db.user>atn</db.user>
+        <db.password>atn</db.password>
+
+        <!-- ???????????????????? -->
+        <!-- ???????????????????? -->
+        <!-- ???????????????????? -->
+        <!-- ???????????????????? -->
+        <!-- ???????????????????? -->
+        <!-- ???????????????????? -->
+        <!-- ???????????????????? -->
+        <!-- ???????????????????? -->
+        <!-- ???????????????????? -->
+        <db.jdbc>jdbc:postgresql://${db.server}:${db.port}/${db.database}</db.jdbc>
+        <hibernate.showsql>false</hibernate.showsql>
+        <!-- <hibernate.showsql>true</hibernate.showsql> -->
+        <!-- ???????????????????? -->
+        <!-- ???????????????????? -->
+        <!-- ???????????????????? -->
+        <!-- ???????????????????? -->
+        <!-- ???????????????????? -->
+        <!-- ???????????????????? -->
+        <!-- ???????????????????? -->
+        <!-- ???????????????????? -->
+        <!-- ???????????????????? -->
+
+        <!-- #################### -->
+        <!-- BDD MEDICIS -->
+        <!-- #################### -->
+        <db.medicis.database>medicisdb</db.medicis.database>
+        <db.medicis.port>3306</db.medicis.port>
+        <!-- <db.medicis.server>INTMDSV2BDD</db.medicis.server> -->
+        <db.medicis.server>INTEGMDSBDD</db.medicis.server>
+        <db.medicis.user>admin</db.medicis.user>
+        <db.medicis.password>adm1n</db.medicis.password>
+        <!-- Backend -->
+        <server.generatedFiles.directory>/tmp</server.generatedFiles.directory>
+        <!-- GWT -->
+        <gwt.module>com.groupemre.atnv2.ihm.Atnv2Dev</gwt.module>
+        <gwt.style>PRETTY</gwt.style>
+        <gwt.log>INFO</gwt.log>
+        <gwt.draft>true</gwt.draft>
+
+
+        <!-- ???????????????????? -->
+        <!-- CONFIGURATION DCP (en local) -->
+        <!-- ???????????????????? -->
+        <linux.repertoire.spot>/mnt/N/spots/</linux.repertoire.spot>                      <!-- /mnt/N/spot -->
+        <linux.repertoire.playlist>/mnt/N/PLAYLISTS/</linux.repertoire.playlist>          <!-- /mnt/N/playlist -->
+
+        <!-- Conf USB --> <!-- AXEL : USELESS car CELLE qui est utilisee EST EN BASE -->
+        <!-- <copy.usb.xml.path>/N/USB</copy.usb.xml.path>                                  -->
+        <!-- pas de / a la fin -->
+        <!--<copy.usb.xml.path>/mnt/archives/GROUPS/COMMUNS/ATNV2/USB/Recette</copy.usb.xml.path>-->
+        <!-- <copy.usb.windows.xml.path>\\\\10.196.164.108\\archives\\GROUPS\\COMMUNS\\ATNV2\\USB\\Recette</copy.usb.windows.xml.path> -->
+
+
+        <!-- ???????????????????? -->
+        <!-- CONFIGURATION (en local) : du SERVEUR LOCAL vers CATALOGUE -->
+        <!-- ???????????????????? -->
+        <multirouter.smartjog.certificat.password>5732</multirouter.smartjog.certificat.password>
+        <multirouter.smartjog.certificat>/home/axel/com/atnv2/config/src/main/resources/certificats/catalogueTest/</multirouter.smartjog.certificat>
+
+        <!-- SERVEUR LOCAL DE TEST -->
+        <multirouter.smartjog.id.catalog>10977</multirouter.smartjog.id.catalog>
+        <multirouter.smartjog.id.server.local>8674</multirouter.smartjog.id.server.local>
+
+
+        <multirouter.smartjog.ftp.host>10.196.165.232</multirouter.smartjog.ftp.host>
+        <!-- <multirouter.smartjog.ftp.mdp>eB3UAJvk</multirouter.smartjog.ftp.mdp> -->
+        <multirouter.smartjog.ftp.mdp>5KGoesrr</multirouter.smartjog.ftp.mdp>
+
+        <!-- <multirouter.smartjog.ftp.host>INTEGMDSWEB.mre.pub</multirouter.smartjog.ftp.host>
+        <multirouter.smartjog.ftp.mdp>adminmv</multirouter.smartjog.ftp.mdp> -->
+
+
+
+
+        <multirouter.smartjog.mediavision.billto>9199SJ82991</multirouter.smartjog.mediavision.billto>
+        <multirouter.smartjog.id.ba.directory.catalog>17303165</multirouter.smartjog.id.ba.directory.catalog>
+        <multirouter.smartjog.id.generale.directory.catalog>25371825</multirouter.smartjog.id.generale.directory.catalog>
+        <multirouter.globecast.local.services.address>localhost/</multirouter.globecast.local.services.address>
+
+        <!-- <multirouter.backup.smartjog.ftp.host>preprodbatchs</multirouter.backup.smartjog.ftp.host>
+        <multirouter.backup.smartjog.ftp.port>21</multirouter.backup.smartjog.ftp.port>
+        <multirouter.backup.smartjog.ftp.login>atn</multirouter.backup.smartjog.ftp.login>
+        <multirouter.backup.smartjog.ftp.mdp>atn</multirouter.backup.smartjog.ftp.mdp> -->
+
+        <!-- Axel : je remplace preprodbathc par celui la - 10.196.164.31 -->
+        <!-- FAB : smartjog, MAIS finalement c est Ymagis : ADRESSE BACKUP YMAGIS -->
+        <multirouter.backup.smartjog.ftp.host>INTEGMDSWEB.mre.pub</multirouter.backup.smartjog.ftp.host>
+        <multirouter.backup.smartjog.ftp.port>21</multirouter.backup.smartjog.ftp.port>
+        <multirouter.backup.smartjog.ftp.login>adminmv</multirouter.backup.smartjog.ftp.login>
+        <multirouter.backup.smartjog.ftp.mdp>innovation</multirouter.backup.smartjog.ftp.mdp>
+
+
+        <!-- BACKUP GAUMONT-->
+        <multirouter.backup.gaumont.ftp.host>93.188.171.182</multirouter.backup.gaumont.ftp.host>
+        <multirouter.backup.gaumont.ftp.port>2222</multirouter.backup.gaumont.ftp.port>
+        <multirouter.backup.gaumont.ftp.login>user_mediavision</multirouter.backup.gaumont.ftp.login>
+        <multirouter.backup.gaumont.ftp.mdp>xbLUQU&amp;5L</multirouter.backup.gaumont.ftp.mdp>
+
+
+
+        <!-- schoeduler -->
+        <scheduler.cron.server.state>0 0 0/5 * * ?</scheduler.cron.server.state>
+
+        <playlist.issuer>Mediavision</playlist.issuer>
+        <playlist.contentKind>Advertissement</playlist.contentKind>
+
+        <!-- Mail -->
+        <mail.host.url>smtp.gmail.com</mail.host.url>
+        <mail.host.port>587</mail.host.port>
+        <mail.username>atliernumrecette</mail.username>
+        <mail.password>innovation12</mail.password>
+        <mail.userMail>axel.regnoult.mre@gmail.com</mail.userMail>
+        <mail.ccMail>ADRESSE@MAIL.com</mail.ccMail>
+        <mail.send.frequency>1500</mail.send.frequency>
+        <mail.security.protocol>TLS</mail.security.protocol>
+      </properties>
+    </profile>
+
+
+<!-- ____________________________________________________________________ -->
+<!-- QUE POUR MEDICIS ? (non, ca sert au liquibase aussi ?) -->
+<!-- ____________________________________________________________________ -->
+<!-- <profile>
+  <id>memory-db</id> -->
+
+  <!-- <properties>
+  <db.driver>org.h2.Driver</db.driver>
+  <db.jdbc>jdbc:h2:/tmp/medicisdb;MODE=MySQL</db.jdbc>
+  <db.user>sa</db.user>
+  <db.password>sa</db.password>
+  </properties>
+  <dependencies>
+  <dependency>
+  <groupId>com.h2database</groupId>
+  <artifactId>h2</artifactId>
+  </dependency>
+  </dependencies>
+</profile> -->
+
+<!-- <profile>
+  <id>localhost</id> -->
+
+<!-- <properties>
+<db.driver>com.mysql.jdbc.Driver</db.driver>
+<db.jdbc>jdbc:mysql://localhost:3306/medicisdb</db.jdbc>
+<db.user>root</db.user>
+<db.password>151185</db.password>
+</properties>
+</profile> -->
+
+  </profiles>
+
+</settings>

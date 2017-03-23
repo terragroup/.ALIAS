@@ -80,6 +80,9 @@ alias gtag='git tag | h -ni 2.2.3 2.2.4 2.2.5'
 # PICK (avec la coloration syntaxique : sinon tu ne comprend plus rien)
 # ------------------------------------------------------------------------------
 
+
+
+
 function gitSpeed()
 {
   # git clone https://github.com/regnou/.ALIAS.git
@@ -100,6 +103,28 @@ function gitSpeed()
 # curl -u yourUsername -X POST https://api.github.com/user/repos -d '{"name":"nameOfRepo"}'
 # SUPPRIMER GITHUB distant
 # curl -X DELETE -H 'Authorization: token 73aa994f11809b82838ff15fbd0fc4e7c0a9fe57' https://api.github.com/repos/regnou/0-MS2
+
+# curl -u 'terragroup' https://api.github.com/terragroup -d '{"name":test}'
+
+# git clone https://github.com/terragroup/puzzle.git
+
+
+# git remote add origin git@github.com:terragroup/puzzle.git
+
+alias gogit='git remote add origin git@github.com:TOGEZER/tooling.git'
+
+
+# git remote add origin git@github.com:terragroup/puzzle.git
+# fatal: remote origin already exists.
+# git remote set-url origin git@github.com:terragroup/puzzle.git
+# git remote -v
+function fgitc()
+{
+git clone https://github.com/TOGEZER/tooling.git
+git remote add origin git@github.com:TOGEZER/tooling.git
+git remote -v
+git push origin master
+}
 
 function github()
 {

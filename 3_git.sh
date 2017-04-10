@@ -1,5 +1,8 @@
 #!/bin/bash
 
+############################################################
+# AXEL - GIT
+############################################################
 
 alias gllf='git log -20 --stat  --oneline --pretty=format:"%Cred%h%Creset %C(yellow)%d%Creset %C(yellow)%s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit | grep -E "/|$"'
 alias gllfa='git log -20 --author="axel" --stat  --oneline --pretty=format:"%Cred%h%Creset %C(yellow)%d%Creset %C(yellow)%s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit | grep -E "/|$"'
@@ -16,16 +19,65 @@ alias gitlgf='git log --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s <%
 # alias gitc='git commit -a && git pull --rebase && git --no-pager lg -5 && echo'
 
 
+function gitSpeed()
+{
+  # git clone https://github.com/regnou/.ALIAS.git
+  git clone https://github.com/regnou/0-MS-2.0.0.git
+  git clone https://github.com/regnou/1-P-130.git
+  git clone https://github.com/regnou/2-P-light-130.git
+  git clone https://github.com/regnou/3-W-061.git
+  git clone https://github.com/regnou/4-W-P.git
+  git clone https://github.com/regnou/5-Layout.git
+}
 
+# ------------------------------------------------------------------------------
+# LE TOKEN IL FAUT LE RECCUPERER ICI : https://github.com/settings/tokens
+# ------------------------------------------------------------------------------
+# CREER GITHUB distant
+# curl -u 'regnou' https://api.github.com/regnou -d '{"name":0-MS-2}'
+# curl -u yourUsername -X POST https://api.github.com/user/repos -d '{"name":"nameOfRepo"}'
+# SUPPRIMER GITHUB distant
+# curl -X DELETE -H 'Authorization: token 73aa994f11809b82838ff15fbd0fc4e7c0a9fe57' https://api.github.com/repos/regnou/0-MS2
 
+# curl -u 'terragroup' https://api.github.com/terragroup -d '{"name":test}'
 
+# git clone https://github.com/terragroup/puzzle.git
+
+# git remote add origin git@github.com:terragroup/puzzle.git
+
+alias gogit='git remote add origin git@github.com:TOGEZER/tooling.git'
+
+# # # # # # # # # # # # # # # # # # #
+# git@github.com:TOGEZER/tooling.git
+# ou
+
+# git remote add origin git@github.com:TOGEZER/tooling.git
+# fatal: remote origin already exists.
+# git remote set-url origin git@github.com:TOGEZER/tooling.git
+alias gitv='git remote -v'
+
+function fgitc()
+{
+git clone https://github.com/TOGEZER/tooling.git
+git remote add origin git@github.com:TOGEZER/tooling.git
+git push origin master
+# git remote -v # debug: Para ver los branch
+}
+# # # # # # # # # # # # # # # # # # #
+
+function github()
+{
+    echo "github"
+   git clone https://github.com/regnou/$1.git
+   git remote add origin git@github.com:regnou/$1.git
+   git push origin master
+}
 
 ################################################################################
 # CURRENT COMMIT - TODO
 ################################################################################
 # TU CHAGES CA, et ton GIT LOG (gl) te mettra en valeur le necessaire
 CURRENT_COMMIT="'5f4e63e|5162b42|d9af13b|4b657e6|acfa51a|ad2e172|e869510' 20715 19020 19054 21068 22606 '615d7ff|ec4667e|ad2e172'"
-
 
 # git push --tags
 
@@ -47,12 +99,12 @@ alias gitp='git pull --rebase '
 alias ga='git add '
 alias gaa='git add --all .'
 
-alias gp='git push | h -ni https://github.com/regnou https://regnou@github.com https://github.com Username Password Everything'
+alias gp='git push | h -ni github.com Username Password Everything'
 alias gpp='gaa && gmm && gp'                                                    # NEW
 
 # alias gm='gaa && git commit -m  && gp'
 alias gm='git commit -m '
-alias gmm='git commit -m "fake"'
+alias gmm='git commit -m "warning: auto generated msg :("'
 
 alias gmM='git commit -m "bureau"'
 alias grc='git rebase --continue'
@@ -66,7 +118,6 @@ alias grv='git revert '
 
 alias gtag='git tag | h -ni 2.2.3 2.2.4 2.2.5'
 
-
 # STASH ONLY certains fichiers
 # tu fais git add sur certains elements et puis tu fais
 # git stash save --keep-index
@@ -79,60 +130,6 @@ alias gtag='git tag | h -ni 2.2.3 2.2.4 2.2.5'
 # REGLE : LORSQUE TU CHERRY PICK : IL FAUT ABSOLUEMENT QUE TU METTES :
 # PICK (avec la coloration syntaxique : sinon tu ne comprend plus rien)
 # ------------------------------------------------------------------------------
-
-
-
-
-function gitSpeed()
-{
-  # git clone https://github.com/regnou/.ALIAS.git
-  git clone https://github.com/regnou/0-MS-2.0.0.git
-  git clone https://github.com/regnou/1-P-130.git
-  git clone https://github.com/regnou/2-P-light-130.git
-  git clone https://github.com/regnou/3-W-061.git
-  git clone https://github.com/regnou/4-W-P.git
-  git clone https://github.com/regnou/5-Layout.git
-
-}
-
-# ------------------------------------------------------------------------------
-# LE TOKEN IL FAUT LE RECCUPERER ICI : https://github.com/settings/tokens
-# ------------------------------------------------------------------------------
-# CREER GITHUB distant
-# curl -u 'regnou' https://api.github.com/regnou -d '{"name":0-MS-2}'
-# curl -u yourUsername -X POST https://api.github.com/user/repos -d '{"name":"nameOfRepo"}'
-# SUPPRIMER GITHUB distant
-# curl -X DELETE -H 'Authorization: token 73aa994f11809b82838ff15fbd0fc4e7c0a9fe57' https://api.github.com/repos/regnou/0-MS2
-
-# curl -u 'terragroup' https://api.github.com/terragroup -d '{"name":test}'
-
-# git clone https://github.com/terragroup/puzzle.git
-
-
-# git remote add origin git@github.com:terragroup/puzzle.git
-
-alias gogit='git remote add origin git@github.com:TOGEZER/tooling.git'
-
-
-# git remote add origin git@github.com:terragroup/puzzle.git
-# fatal: remote origin already exists.
-# git remote set-url origin git@github.com:terragroup/puzzle.git
-# git remote -v
-function fgitc()
-{
-git clone https://github.com/TOGEZER/tooling.git
-git remote add origin git@github.com:TOGEZER/tooling.git
-git remote -v
-git push origin master
-}
-
-function github()
-{
-    echo "github"
-   git clone https://github.com/regnou/$1.git
-   git remote add origin git@github.com:regnou/$1.git
-   git push origin master
-}
 
 ################################################################################
 # GL
@@ -249,3 +246,21 @@ function bb()
 {
   git blame -n $1 | grep Axel | h -i "2015|\.java|Regnoult Axel|\)"
 }
+
+# TOTAL
+# First commit any outstanding code changes, and then, run this command:
+# git rm -r --cached .
+# This removes any changed files from the index(staging area), then just run:
+# git add .
+# Commit it:
+# git commit -m ".gitignore is now working"
+# git clone https://github.com/regnou/3-P-todo
+# curl -u 'regnou' https://api.github.com/user/repos -d '{"name":"3-P-todo"}'
+
+
+##########################################
+##########################################
+##########################################
+##########################################
+# DETAIL FONCTION
+##########################################

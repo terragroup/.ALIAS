@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 BEST GIT
 alias gllf='git log -20 --stat  --oneline --pretty=format:"%Cred%h%Creset %C(yellow)%d%Creset %C(yellow)%s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit | grep -E "/|$"'
 alias gllfa='git log -20 --author="axel" --stat  --oneline --pretty=format:"%Cred%h%Creset %C(yellow)%d%Creset %C(yellow)%s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit | grep -E "/|$"'
@@ -14,7 +13,6 @@ alias gitlgf='git log --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s <%
  heir = log --all --graph --decorate --oneline --simplify-by-decoration'
 alias xxgxx='echo -e "\n PUSHING \n" && gt && echo -e "\n-----------------\n" && gitp && echo -e "\n-----------------\n" && gp && echo -e "\n-----------------\n" && gtp && echo -e "\n-----------------\n" && gll && echo -e "\n-----------------\n" && aa && echo -e "\n >>> Thanks you :D <<<\n" '
 alias gitc='git commit -a && git pull --rebase && git --no-pager lg -5 && echo'
-
 
 ------------------------------------------------------------------------------------------------------
 
@@ -38,7 +36,6 @@ ssh-keygen -lf axel-key.pub
 git rebase -i HEAD~4        # il va te proposer d editer un fichier et tu vas pouvoir supprimer les lignes que tu souhaites supprimer
 git push -f origin hotfixes # il te faudra le -f
 
-
 #----------------------------
 #
 #----------------------------
@@ -53,7 +50,6 @@ git://gitorious.mre.pub/medicis/medicis.git
 1bb372fe3049332e88d1ac62561532764f76294d
 echo 1bb372fe3049332e88d1ac62561532764f76294d >> .git/refs/heads/hotfixes
 
-
 # ------------------------------------------------------------------------------
 # Gestion branches
 # ------------------------------------------------------------------------------
@@ -64,7 +60,6 @@ git push origin --delete origin/000000000000000
 
 # remove tag
 git tag -d release01git tag -d release01
-
 
 # --------------------------------------------
 # GIT
@@ -79,7 +74,6 @@ function git_change_commited(){
  git commit --amend
 }
 
-
 function git_init(){
   # git init
   git config --global user.name "regnou"
@@ -93,8 +87,10 @@ function git_init(){
   git config --global credential.helper 'cache --timeout=28800'
   # ----------------------------------------------------------------------------
   git clone              https://github.com/regnou/paris-master.git
-  # ou
-  git remote add origin  https://github.com/regnou/paris-master.git
+
+
+
+
   #
   git init
   git commit -m "first commit : projet vierge"

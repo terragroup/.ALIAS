@@ -1,9 +1,27 @@
 #!/bin/bash
 
+alias llsof='alias lsof -i | h -ni : - \> established close_wait LISTEN closed udp ipv4 axel google https tcp'
+
+
+
+# php
+# php -i | grep "php.ini"
+#  se ttrouve dans /etc/php.ini
+# /usr/lib/php/extensions/no-debug-non-zts-20121212/xdebug.so
+
+
+# VAGRANT_LOG=info vagrant reload | h port default ssh 127.0.0.1 vagrant = guest adapter boot start stop restart
+
+# VAGRANT_LOG=info
+# vagrant ssh -- -vvv  | h port default ssh 127.0.0.1 vagrant = guest adapter boot start stop restart
+
+# vagrant up
+# vagrant reload --provision
+# vagrant provision
 
 
 #-------------------------------------------------------------------------------
-#  Wordpress
+#  GIT
 #-------------------------------------------------------------------------------
 # GIT - create dir distant
 # curl -u "terragroup:a29c9d596b3a7468bfbe12f9766a38521efc053f" https://api.github.com/user/repos -d '{"name":"'test2'"}'
@@ -45,7 +63,7 @@ alias wpp='atom /Library/WebServer/Documents/wordpress/'
 alias paf='echo $PATH | h   -n  olo olo olo olo olo olo ":" "usr" "sbin" "opt" "local" "games" "ack"'
 
 # APACHE - /etc/apache2/conf/httpd.conf (DocumentRoot "/Library/WebServer/Documents")
-alias psa='echo -e "\n\n" && ps aux | grep  "http" | h  "/usr/sbin/" "FOREGROUND" "axel" "root" "_www" " --database=" " --annotation=" " --url=" "/Applications/Atom.app" "/Applications/Google" "/bin|/data|/usr/local|/lib/plugin|.local.err|.local.pid" "/usr/local/mysql/bin/mysqld" && echo -e "\n\n" '
+alias psa='echo -e "\n\n" && ps aux | grep  "httpd|apache" | h  "/usr/sbin/" "FOREGROUND" "axel" "root" "_www" " --database=" " --annotation=" " --url=" "/Applications/Atom.app" "/Applications/Google" "/bin|/data|/usr/local|/lib/plugin|.local.err|.local.pid" "/usr/local/mysql/bin/mysqld" && echo -e "\n\n" '
 
 alias as='sudo apachectl start'
 alias ast='sudo apachectl stop'

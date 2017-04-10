@@ -1,19 +1,15 @@
 #!/bin/bash
 
-
 # chsh -s /bin/bash  #change default shell to bash (instead of zsh for example)
-
 
 # savoir les DNS
 # nmcli dev list iface eth0 | grep IP4
 
 # cat /etc/issue
 
-
 ################################################################################
 # SCP
 ################################################################################
-
 # (-p = date     -r = recursif)
 # GET  = scp FILE DEST_HOST:dossier  > scp error.log  axel@10.196.165.188:/home/axel/error.log
 # POST = scp DEST_HOST:dossier FILE

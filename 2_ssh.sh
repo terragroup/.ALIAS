@@ -3,12 +3,15 @@
 # SSH - ATN
 ################################################################################
 
+# installer sshpass
+# brew install https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Library/Formula/sshpass.rb
+
+
 # ------------------------------------------------------------------------------
 # GERER LES KEYS
 # repertoire DISTANT .SSH/ authorized_key  (TODO : y copier la clef pub source, dans ce fichier)
 # repertoire SOURCE (qui veut se connecter sur le distant) .SSH/RSA.PUBLIC
 # ------------------------------------------------------------------------------
-
 
 # ------------------------------------------------------------------------------
 # Sur jcont => /var/lib/jenkins/.m2/settings-atnv2.xml
@@ -36,9 +39,11 @@ alias           recwww='sshpass -p "innovation" ssh root@'$REC_WWW_DOMAIN
 # ------------------------------------------------------------------------------
 # JENKINS     - purple
 # ------------------------------------------------------------------------------
-alias       jdev='sshpass -p "innovation" ssh root@'$J_DEV_DOMAIN
-alias      jprod='sshpass -p "innovation" ssh root@'$J_PROD_DOMAIN # c le SCHOEDULER
-alias      jcont='sshpass -p "innovation" ssh root@'$J_CONT_DOMAIN_2
+alias       jgroup='sshpass -p "RqbtkV:vEq}7}=5" ssh group@terra-group.com'
+alias       jtest='sshpass -p "hjxs3A9d" ssh test6@myterra.fr'
+# alias       jdev='sshpass -p "innovation" ssh root@'$J_DEV_DOMAIN
+# alias      jprod='sshpass -p "innovation" ssh root@'$J_PROD_DOMAIN # c le SCHOEDULER
+# alias      jcont='sshpass -p "innovation" ssh root@'$J_CONT_DOMAIN_2
 ################################################################################
 # SSH - MEDICIS
 ################################################################################
@@ -55,11 +60,9 @@ function common_mount(){
   sudo mount -t cifs -o gid=axel,uid=axel,username=aregnoult,pass=bonjour,sec=ntlm //MRE-NCS1-GROUPS/GROUPS      /mnt/groups;
   sudo mount -t cifs -o gid=axel,uid=axel,username=aregnoult,pass=bonjour,sec=ntlm //MRE-NCS1-ARCHIVES/ARCHIVES  /mnt/archives;
   sudo mount -t cifs -o gid=axel,uid=axel,username=aregnoult,pass=bonjour,sec=ntlm //MRE-NCS1-USERS/USERS        /mnt/users;
-
-
   # fstab://MRE-NCS1-APPS/APPS /mnt/apps cifs credentials=/etc/mount_credentials,gid=atnv2,uid=atnv2,sec=ntlm 0 0
   # fstab://MRE-NCS1-ARCHIVES/ARCHIVES /mnt/archives cifs credentials=/etc/mount_credentials,gid=atnv2,uid=atnv2,sec=ntlm 0 0
-   fstab://10.196.164.105/GROUPS /mnt/groups cifs credentials=/etc/mount_credentials,gid=atnv2,uid=atnv2,sec=ntlm 0 0
+  fstab://10.196.164.105/GROUPS /mnt/groups cifs credentials=/etc/mount_credentials,gid=atnv2,uid=atnv2,sec=ntlm 0 0
   # fstab://10.196.165.224/N /mnt/N cifs credentials=/etc/mount_credentials,gid=atnv2,uid=atnv2,sec=ntlm 0 0
 }
 # ------------------------------------------------------------------------------

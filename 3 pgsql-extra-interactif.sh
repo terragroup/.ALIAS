@@ -1,10 +1,8 @@
 #!/bin/bash
 
-
 # ------------------------------------------------------------------------------
 # PSQL TIP
 # ------------------------------------------------------------------------------
-
 # \l       :   liste les DATABASE
 # \l+      :   list all USERS that can access the database
 # \du      :   liste les USERS (ROLE)
@@ -24,8 +22,6 @@
 
 # TODO - donner le user axel pour qu'il ait le droit d'executer sur la db
 alias gobd='su postgres && psql -f /home/axel/alias/PGSQL/JDD.sql atn'
-
-
 
 # ----------------------------------------------------------------------------
 # RESTORE 1
@@ -47,17 +43,12 @@ psql -U atnv2_preprod atnv2_preprod  < <(zcat XXXXX.sql.gz)                     
 # ack-grep --print0 -irl 'atnv2_prod' /home/axel/EN_COURS/z-last_backup_bdd_prod/atnv2_production_2015-11-02_23-30-01.sql | xargs -0 -L1 sed  -i 's/atnv2_prod/atn/g'
 # ack-grep --print0 -irl 'atnv2_prod' | xargs -0 -L1 sed  -i 's/atnv2_prod/atn/g'
 
-
-
 ################################################################################
 # script anonymisation
 ################################################################################
 # -- REPERTOIRE DU SCRIPT : /mnt/groups/INFO/MDV/00_EXPLOITATION/4_ATN_v2/1_Interventions sur les environnements/Script anonymisation
 
 # -- CHANGER A LA MAIN : copy.usb.xml.path -> /home/axel/LOCAL/LOCAL-USB
-
-
-
 
 ################################################################################
 # POSTGRES : status : # sudo service postgresql status  OR  # sudo /etc/rc.d/init.d/postgresql start #(If the database has not already been initialized with initdb, this will be performed by the script)
@@ -83,8 +74,6 @@ function reloadConfWithoutRestartServer(){
   SELECT pg_reload_conf();
   # done
 }
-
-
 
 ################################################################################
 # PSQL - notions
@@ -147,7 +136,6 @@ pg_database_scripts:
  - "CREATE EXTENSION IF NOT EXISTS tablefunc;"
  - "CREATE EXTENSION IF NOT EXISTS fuzzystrmatch;"
 
-
 ###############################################################################
 # OTHER POSTGRES
 ###############################################################################
@@ -158,7 +146,7 @@ select schema_name from information_schema.schemata;
 SELECT pg_database_size(current_database());
 
 # -- size table
-select pg_relation_size('variableconfig_con');   '
+select pg_relation_size('variableconfig_con');
 
 # -- who is connected to database
 SELECT datname,usename,client_addr,client_port FROM pg_stat_activity;
@@ -167,7 +155,6 @@ SELECT datname,usename,client_addr,client_port FROM pg_stat_activity;
 SELECT datname FROM pg_stat_activity WHERE usename = 'devuser'
 SELECT * FROM pg_catalog.pg_views;            # Renvoie la liste des vues.
 SELECT * FROM pg_catalog.pg_matviews;         # Renvoie la liste des vues matérialisées.
-
 
 ################################################################################
 # A TRIER
@@ -192,7 +179,6 @@ SELECT * FROM pg_catalog.pg_matviews;         # Renvoie la liste des vues matér
 # LOG
 # ------------------------------------------------------------------------------
 sudo gedit /var/log/mysql/error.log &
-
 
 # ALTER ROLE bo_alim LOGIN;
 
@@ -225,18 +211,9 @@ sudo gedit /var/log/mysql/error.log &
 # change de user sql  ROLE = USER         : set role 'bo_alim';
 # Pour supprimer un utilisateur           : dropuser login
 
-
-
-
-
-
-
-
-
 sudo apt-get install ack-grep
 
 UPDATE databasechangeloglock SET locked='false';
-
 
 sudo service postgresql restart
 
@@ -263,9 +240,6 @@ creer database
 relance bdd
 restaure
 
-
-
-
 # rename table
 ALTER TABLE complexe_cpx ALTER COLUMN cpx_codehost RENAME TO cpx_temp;
 #
@@ -273,8 +247,6 @@ UPDATE complexe_cpx SET cpx_codehost = lpad(('' || cpx_temp), 5, '0');
 #
 ALTER TABLE complexe_cpx DROP COLUMN cpx_temp;
 #
-
-
 
 # ------------------------------------------------------------------------------
 A - ajouter le pwd

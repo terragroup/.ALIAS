@@ -1,5 +1,7 @@
 #!/bin/bash
 
+
+
  # ------------------------------------------------------------------------------
  # MAN grep
  # -E use extended regex;
@@ -16,27 +18,21 @@
  # alias grepc='grep --color=always';
  # alias grepa='grep -HEin --color=always';
 
-# adde|cgr|kinepolis|ymagis|globecast|smartjog
+ # adde|cgr|kinepolis|ymagis|globecast|smartjog
 
-# https://www.jetbrains.com/idea/help/finding-usages-in-project.html
+ # https://www.jetbrains.com/idea/help/finding-usages-in-project.html
 
-#########################################################################>
-# BEST OF TECHNIQUE GREP
-#########################################################################>
-# TECHNIQUE GREP 1 : supprimer les lignes inutiles
-# grep -v "DATABASECHANGELOG|executed|changeset"
+  #########################################################################>
+  # BEST OF TECHNIQUE GREP
+  #########################################################################>
+  # TECHNIQUE GREP 1 : supprimer les lignes inutiles
+  # grep -v "DATABASECHANGELOG|executed|changeset"
 
-# TECHNIQUE GREP 2 : pour afficher les 4 lignes qui suivent le GREP
-# grep -A 4 preprodatnv2
+  # TECHNIQUE GREP 2 : pour afficher les 4 lignes qui suivent le GREP
+  # grep -A 4 preprodatnv2
 
-# TECHNIQUE GREP 3 : le $ a la fin permet de faire un GREP mais laisse tout le reste du fichier
-# grep  "47|$"
-
-
-
-
-
-
+  # TECHNIQUE GREP 3 : le $ a la fin permet de faire un GREP mais laisse tout le reste du fichier
+  # grep  "47|$"
 
 
 ################################################################################
@@ -47,7 +43,8 @@
 # ------------------------------------------------------------------------------
 # 1 - MY FIND (dans tous les repertoires fils) --
 function llocate(){
-  locate $1 | grep `pwd`
+  # locate $1 | grep `pwd`
+    locate $1 | h -ni $1
 }
 
 # ------------------------------------------------------------------------------
@@ -57,7 +54,6 @@ function llocate(){
 function fff(){
   find . -name $1 -print | h -n popo $1| h bower_components
 }
-
 
 ################################################################################
 ################################################################################
@@ -81,7 +77,6 @@ function fff(){
 # 3 - GREP = comment reccuperer une sortie plus "complexe"
 # grep -Ei '.*/|$'
 
-
 # ------------------------------------------------------------------------------
 # ACK (text search)
 # ------------------------------------------------------------------------------
@@ -94,7 +89,6 @@ function fff(){
 alias sss='ack -H --ignore-dir=target --ignore-dir=.idea --ignore-dir=bower_components --ignore-dir=node_modules  --ignore-dir=dist'
 
 # 3 - ack-grep  "ymagis"  --ignore-dir=target --ignore-dir=.idea
-#
 
 # ack-grep -H --ignore-dir=target --ignore-dir=.idea multirouter.smartjog.certificat
 # grep -rnwl '/' -e "multirouter.smartjog.certificat"

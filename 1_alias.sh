@@ -16,7 +16,8 @@
 # HUGO
 ################################################################################
 
-alias hh="hugo; hugo serve | h http://localhost: /Users/axel/com/HUGO/ content created copied unable "
+alias hs="hugo serve --buildDrafts | h http://localhost: /Users/axel/com/HUGO/ content created copied unable draft"
+alias hh="hugo; hs"
 alias hf="find public -type f -name '*.html' | xargs ls -l | h public"
 
 

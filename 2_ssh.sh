@@ -6,6 +6,21 @@
 # installer sshpass
 # brew install https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Library/Formula/sshpass.rb
 
+# ------------------------------------------------------------------------------
+# TERRA
+# ------------------------------------------------------------------------------
+alias       jgroup='sshpass -p "RqbtkV:vEq}7}=5"  ssh group@terra-group.com'
+alias       jtest='sshpass -p "hjxs3A9d"          ssh test6@myterra.fr'
+
+# a lancer dans VAGRANT
+alias gossh='ssh -L 3307:localhost:3306 group@myterra.fr'
+
+# ssh -NL 3307:localhost:3306 group@myterra.fr
+
+# le seul user qui peut se connecter à distance
+# mysql -u group -h myterra.fr --database="group_classic" -p
+# demo123
+
 
 # ------------------------------------------------------------------------------
 # GERER LES KEYS
@@ -39,8 +54,6 @@ alias           recwww='sshpass -p "innovation" ssh root@'$REC_WWW_DOMAIN
 # ------------------------------------------------------------------------------
 # JENKINS     - purple
 # ------------------------------------------------------------------------------
-alias       jgroup='sshpass -p "RqbtkV:vEq}7}=5" ssh group@terra-group.com'
-alias       jtest='sshpass -p "hjxs3A9d" ssh test6@myterra.fr'
 # alias       jdev='sshpass -p "innovation" ssh root@'$J_DEV_DOMAIN
 # alias      jprod='sshpass -p "innovation" ssh root@'$J_PROD_DOMAIN # c le SCHOEDULER
 # alias      jcont='sshpass -p "innovation" ssh root@'$J_CONT_DOMAIN_2

@@ -12,13 +12,55 @@
 
 # lftp ftp://test6@myterra.fr     # hjxs3A9d
 
+
+# browser-sync start --server --files "css/*.css"
+# "watch": "browser-sync start --proxy localhost:8080 --files 'src/**/*.*' 'index.html' '*.js'"
+#     /*"watch": "browser-sync start --proxy localhost:8080 --files 'src/**/*.*' 'index.html' '*.js'"*
+# "watch": "browser-sync start --proxy localhost:8080 --files 'src/*.html, src/*.js, images/*' "
+
+
+
 ################################################################################
 # HUGO
 ################################################################################
 
-alias hs="hugo serve --buildDrafts | h http://localhost: /Users/axel/com/HUGO/ content created copied unable draft"
+alias hs="hugo serve --buildDrafts | h ERROR //localhost: /Users/axel/com/HUGO/ content created copied unable draft"
 alias hh="hugo; hs"
 alias hf="find public -type f -name '*.html' | xargs ls -l | h public"
+
+alias ggpp="rm -rf docs; mkdir docs; hugo; "
+
+alias gohugo='cd /Users/axel/com/HUGO/json'
+
+
+################################################################################
+# POLYMER
+################################################################################
+alias ppss='dev_appserver.py . | h -ni 404 GET  starting stop error warn POST 200 jpg html bower'
+# dev_appserver.py build/bundledev
+
+alias pss="polymer serve"
+
+# npm run dev
+# "watch": "browser-sync start --proxy localhost:8081 --files \"src/**/*.*, index.html, *.js\""
+
+# https://github.com/AdamBien/polymer-essential
+# browser-sync start --server src -f "src/**/*, index.html, *.js" --serveStatic ./bower_components -b "google chrome" --no-notify
+
+
+################################################################################
+# PYTHON
+################################################################################
+# ps -ef | grep python
+
+# DEPLOY CLOUD APP ENGINE
+# gcloud app deploy build/bundled/app.yaml --project manana-seguro-v3
+
+# https://manana-seguro-v3.appspot.com/
+
+# DEPLOY FIREBASE
+# ???
+
 
 
 
@@ -27,10 +69,6 @@ alias hf="find public -type f -name '*.html' | xargs ls -l | h public"
 ################################################################################
 
 alias tl="tree -L 2"
-
-
-
-
 
 
 ################################################################################

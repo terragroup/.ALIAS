@@ -48,7 +48,8 @@ alias llsof='alias lsof -i | h -ni : - \> established close_wait LISTEN closed u
 #  axel dir
 #-------------------------------------------------------------------------------
 alias dev='cd /Users/axel/Documents/dev'
-alias wp='cd /Users/axel/Documents/dev'
+# utilise par le wp-cli
+# alias wp='cd /Users/axel/Documents/dev'
 alias paf='echo $PATH | h   -n  olo olo olo olo olo olo ":" "usr" "sbin" "opt" "local" "games" "ack"'
 
 alias wpp='atom /Library/WebServer/Documents/wordpress/'

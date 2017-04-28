@@ -30,7 +30,7 @@
 #  axel dir
 #-------------------------------------------------------------------------------
 alias dev='cd /Users/axel/Documents/dev'
-alias wp='cd /Users/axel/Documents/dev'
+# alias wp='cd /Users/axel/Documents/dev'
 alias paf='echo $PATH | h   -n  olo olo olo olo olo olo ":" "usr" "sbin" "opt" "local" "games" "ack"'
 
 alias wpp='atom /Library/WebServer/Documents/wordpress/'

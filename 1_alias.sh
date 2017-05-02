@@ -20,6 +20,30 @@
 
 
 
+# installer sshpass
+# brew install https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Library/Formula/sshpass.rb
+
+# ------------------------------------------------------------------------------
+# TERRA
+# ------------------------------------------------------------------------------
+alias       jgroup='sshpass -p "RqbtkV:vEq}7}=5"  ssh group@terra-group.com'
+alias       jtest='sshpass -p "hjxs3A9d"          ssh test6@myterra.fr'
+
+# ------------------------------------------------------------------------------
+# VAGRANT - WORDPRESS
+# ------------------------------------------------------------------------------
+# a lancer dans VAGRANT
+alias gossh='ssh -L 3307:localhost:3306 group@myterra.fr'
+
+# ssh -NL 3307:localhost:3306 group@myterra.fr
+
+# le seul user qui peut se connecter à distance
+# mysql -u group -h myterra.fr --database="group_classic" -p
+# demo123
+
+
+
+
 ################################################################################
 # HUGO
 ################################################################################
@@ -36,6 +60,11 @@ alias gohugo='cd /Users/axel/com/HUGO/json'
 ################################################################################
 # POLYMER
 ################################################################################
+
+# alias gms='polymer build'
+alias gppc='polymer build && gcloud app deploy build/default/app.yaml --project manana-seguro'
+
+
 alias ppss='dev_appserver.py . | h -ni 404 GET  starting stop error warn POST 200 jpg html bower'
 # dev_appserver.py build/bundledev
 

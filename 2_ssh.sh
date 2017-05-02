@@ -3,24 +3,6 @@
 # SSH - ATN
 ################################################################################
 
-# installer sshpass
-# brew install https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Library/Formula/sshpass.rb
-
-# ------------------------------------------------------------------------------
-# TERRA
-# ------------------------------------------------------------------------------
-alias       jgroup='sshpass -p "RqbtkV:vEq}7}=5"  ssh group@terra-group.com'
-alias       jtest='sshpass -p "hjxs3A9d"          ssh test6@myterra.fr'
-
-# a lancer dans VAGRANT
-alias gossh='ssh -L 3307:localhost:3306 group@myterra.fr'
-
-# ssh -NL 3307:localhost:3306 group@myterra.fr
-
-# le seul user qui peut se connecter à distance
-# mysql -u group -h myterra.fr --database="group_classic" -p
-# demo123
-
 
 # ------------------------------------------------------------------------------
 # GERER LES KEYS
